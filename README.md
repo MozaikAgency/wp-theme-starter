@@ -1,4 +1,4 @@
-# Notes for the mbwp_theme boilerplate
+# The Mozaik WordPress Theme Boilerplate
 
 ## Reading Recommendations
 
