@@ -10,8 +10,8 @@ var project = require('../../package.json');
 
 
 /**
- * Move and Build the
- * Theme
+ * Move the Theme to
+ * the build directory
  *
  * @returns {*}
  */
