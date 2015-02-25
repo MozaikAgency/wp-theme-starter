@@ -1,0 +1,31 @@
+{
+  "name": "mbwp_theme",
+  "version": "0.1.0",
+  "description": "Mozaik WordPress Theme Boilerplate. A team resource to help bootstrap your wordpress website development and maintain a common set of standards and starting points between team members.",
+  "main": "styles.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mgjp@bitbucket.org/mozaikltd/mbwp_theme.git"
+  },
+  "keywords": [
+    "mozaik",
+    "wordpress",
+    "theme",
+    "boilerplate",
+    "bootstrap",
+    "gulp",
+    "workflow"
+  ],
+  "author": "Mozaik Ltd.",
+  "license": "All rights reserved, Copyright 2015 Mozaik Ltd.",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-sass": "^1.3.3"
+  }
+}
