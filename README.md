@@ -18,6 +18,6 @@
 
 ## Standard Theme Checklist
 
-1. Change the `styles.css` with your new theme's configuration
+1. Change the `package.json` with your new theme's configuration
 1. [Add a screenshot.png](http://codex.wordpress.org/Theme_Development#Screenshot)
 1. Delete files you are not using, including this README :)
