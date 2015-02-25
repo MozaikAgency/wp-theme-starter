@@ -10,4 +10,5 @@ gulp.task('scss-compile', [], require('./recipes/scss-compile'));
 /**
  * Theme
  */
-gulp.task('theme-build', [], require('./recipes/theme-build'));
+gulp.task('theme-move', [], require('./recipes/theme-move'));
+gulp.task('theme-build', ['theme-move', 'scss-compile']);

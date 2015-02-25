@@ -5,6 +5,9 @@ var displayError = require('../utils/displayError');
 var pumped       = require('../utils/pumped');
 
 
+var project = require('../../package.json');
+
+
 /**
  * Move and Build the
  * Theme
@@ -14,7 +17,7 @@ var pumped       = require('../utils/pumped');
 module.exports = function () {
 	return gulp.src(['theme/**/*'], { base: 'theme' })
 		.pipe(plumber({ errorHandler: displayError }))
-		.pipe(gulp.dest('../mbwp_theme'))
+		.pipe(gulp.dest('../' + project.code))
 		.pipe(notify({
 			message: pumped('Theme Built!'),
 			onLast: true

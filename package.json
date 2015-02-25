@@ -1,26 +1,28 @@
 {
   "name": "mbwp_theme",
-  "version": "0.1.0",
+
+  "code": "you_should_probably_change_this",
+  "client": "",
+  "website": "",
+  "version": "0.3.0",
+
   "description": "Mozaik WordPress Theme Boilerplate. A team resource to help bootstrap your wordpress website development and maintain a common set of standards and starting points between team members.",
-  "main": "styles.css",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+
   "repository": {
     "type": "git",
     "url": "https://mozaikltd@bitbucket.org/mozaikltd/mbwp_theme.git"
   },
+
   "keywords": [
     "mozaik",
     "wordpress",
     "theme",
-    "boilerplate",
-    "bootstrap",
-    "gulp",
-    "workflow"
+    "gulp"
   ],
+
   "author": "Mozaik Ltd.",
   "license": "All rights reserved, Copyright 2015 Mozaik Ltd.",
+
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",

@@ -7,6 +7,9 @@ var displayError = require('../utils/displayError');
 var pumped       = require('../utils/pumped');
 
 
+var project = require('../../package.json');
+
+
 /**
  * Compile SCSS to CSS
  *
@@ -25,7 +28,7 @@ module.exports = function () {
 			 'ios 6',
 			 'android 4'*/
 		))
-		.pipe(gulp.dest('theme/assets/css'))
+		.pipe(gulp.dest('../' + project.code + '/assets/css'))
 		.pipe(notify({
 			message: pumped('SCSS compiled.'),
 			onLast: true
