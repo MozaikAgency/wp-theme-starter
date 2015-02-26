@@ -28,7 +28,7 @@ module.exports = function () {
 			 'ios 6',
 			 'android 4'*/
 		))
-		.pipe(gulp.dest('../' + project.code + '/assets/css'))
+		.pipe(gulp.dest('../' + project.name + '/assets/css'))
 		.pipe(notify({
 			message: pumped('SCSS compiled.'),
 			onLast: true

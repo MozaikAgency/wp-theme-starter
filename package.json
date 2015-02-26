@@ -1,11 +1,11 @@
 {
-  "name": "mbwp_theme",
-  "code": "you_should_probably_change_this",
-  "website": "",
-  "client": "",
-  "year": 2015,
-  "version": "0.3.0",
-  "description": "Mozaik WordPress Theme Boilerplate. A team resource to help bootstrap your wordpress website development and maintain a common set of standards and starting points between team members.",
+  "name": "you_should_probably_change_this",
+  "prettyName": "You should probably change this...",
+  "description": "The 2015 theme for <Example.com>. Built by Mozaik Ltd. for <Example>",
+  "version": "1.0.0",
+  "author": "Mozaik Ltd.",
+  "authorURI": "http://mozaik.com/",
+  "license": "All rights reserved, Copyright 2015 Mozaik Ltd.",
   "repository": {
     "type": "git",
     "url": "https://mozaikltd@bitbucket.org/mozaikltd/mbwp_theme.git"
@@ -16,15 +16,13 @@
     "theme",
     "gulp"
   ],
-  "author": "Mozaik Ltd.",
-  "authorURL": "http://mozaik.com/",
-  "license": "All rights reserved, Copyright 2015 Mozaik Ltd.",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-add": "0.0.2",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^0.6.6",
+    "gulp-replace": "^0.5.3",
     "gulp-sass": "^1.3.3"
   }
 }
