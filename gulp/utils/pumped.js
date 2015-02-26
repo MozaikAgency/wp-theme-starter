@@ -1,5 +1,8 @@
 /**
+ * Booyah! Prefix your Gulp notifications
+ * with a <Legendary> exclamation!
  *
+ * @author Max GJ Panas <http://maxpanas.com/>
  *
  * @param achievement
  */
@@ -15,5 +18,7 @@ module.exports = function (achievement) {
 		'Booyah'
 	];
 
-	return exclamations[Math.floor(Math.random()*exclamations.length)] + '! ' + achievement;
+	var randomIndex = Math.floor(Math.random() * exclamations.length);
+
+	return [exclamations[randomIndex], '! ', achievement].join('');
 };
