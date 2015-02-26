@@ -16,8 +16,15 @@
 	- [the Shortcode API](http://codex.wordpress.org/Shortcode_API)
 1. Note the list of recommended plugins
 
+## Development Guidelines
+
+- Avoid committing the built theme to the project repository
+- Avoid making changes directly to the built theme -- Always use the build process
+- In production avoid uploading the theme development directory to a public server
+- Avoid committing the `wp-uploads` directory to the project repository
+
 ## Standard Theme Checklist
 
 1. Change the `package.json` with your new theme's configuration
 1. [Add a screenshot.png](http://codex.wordpress.org/Theme_Development#Screenshot)
-1. Delete files you are not using, including this README :)
+1. Delete files you are not using inside the `/theme` directory
