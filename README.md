@@ -4,7 +4,7 @@ The goals of the boilerplate are to:
 
 1. be a product used and produced by the entire team (suggestions, issues and pull requests are welcome and encouraged)
 1. be easy to set up / easy to use
-1. guide the development  process to be consistent where it can be
+1. guide the development process to be consistent where it can be
 1. offer a robust development and build workflow (currently powered by the cli and gulp)
 1. make getting off the ground with a new project really fast
 
