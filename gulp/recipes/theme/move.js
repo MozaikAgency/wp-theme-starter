@@ -5,7 +5,7 @@ var changed      = require('gulp-changed');
 var notify       = require('gulp-notify');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
-var wpStyles     = require('../../config/wpStyles');
+var stylescss    = require('../../config/wp.stylescss');
 var project      = require('../../../package.json');
 
 
@@ -20,7 +20,7 @@ module.exports = function () {
 		.pipe(plumber({ errorHandler: displayError }))
 		.pipe(add({
 			'.gitignore': '*',
-			'styles.css': wpStyles
+			'styles.css': stylescss
 		}))
 		.pipe(changed('../' + project.name, { hasChanged: changed.compareSha1Digest }))
 		.pipe(gulp.dest('../' + project.name))
