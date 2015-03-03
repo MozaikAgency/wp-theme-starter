@@ -4,7 +4,21 @@ var gulp = require('gulp');
 /**
  * Grouped
  */
-gulp.task('default', ['styles:watch', 'theme:watch']);
+gulp.task('default', ['styles:watch', 'theme:watch', 'scripts:watch']);
+
+
+/**
+ * Scripts
+ */
+var scriptsClean  = require('./recipes/scripts/clean');
+var scriptsPack   = require('./recipes/scripts/webpack.pack');
+var scriptsWatch  = require('./recipes/scripts/webpack.watch');
+var scriptsMinify = require('./recipes/scripts/webpack.minify');
+
+gulp.task('scripts:clean',  [], scriptsClean);
+gulp.task('scripts:pack',   ['scripts:clean'], scriptsPack);
+gulp.task('scripts:watch',  ['scripts:clean'], scriptsWatch);
+gulp.task('scripts:minify', ['scripts:clean'], scriptsMinify);
 
 
 
