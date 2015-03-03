@@ -1,6 +1,7 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var add          = require('gulp-add');
+var changed      = require('gulp-changed');
 var notify       = require('gulp-notify');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
@@ -21,6 +22,7 @@ module.exports = function () {
 			'.gitignore': '*',
 			'styles.css': wpStyles
 		}))
+		.pipe(changed('../' + project.name, { hasChanged: changed.compareSha1Digest }))
 		.pipe(gulp.dest('../' + project.name))
 		.pipe(notify({
 			message: pumped('Theme Moved!'),
