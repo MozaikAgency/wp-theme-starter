@@ -17,6 +17,7 @@
     "gulp"
   ],
   "devDependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-add": "0.0.2",
     "gulp-autoprefixer": "^2.1.0",
