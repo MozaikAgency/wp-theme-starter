@@ -3,11 +3,9 @@ var plumber      = require('gulp-plumber');
 var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var notify       = require('gulp-notify');
-var displayError = require('../utils/displayError');
-var pumped       = require('../utils/pumped');
-
-
-var project = require('../../package.json');
+var displayError = require('../../utils/displayError');
+var pumped       = require('../../utils/pumped');
+var project      = require('../../../package.json');
 
 
 /**

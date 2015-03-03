@@ -1,24 +1,31 @@
 var gulp = require('gulp');
 
-var scssCompile = require('./recipes/scss-compile');
-var themeMove   = require('./recipes/theme-move');
-var projectZip  = require('./recipes/project-zip');
-
-
 /**
  * Styles
  */
-gulp.task('scss-compile', [], scssCompile);
+var stylesCompile = require('./recipes/styles/compile');
+var stylesWatch   = require('./recipes/styles/watch');
+var stylesMinify  = require('./recipes/styles/minify');
+
+gulp.task('styles:compile', [], stylesCompile);
+gulp.task('styles:watch',   ['styles:compile'], stylesWatch);
+gulp.task('styles:minify',  ['styles:compile'], stylesMinify);
+
 
 
 /**
  * Theme
  */
-gulp.task('theme-move', [], themeMove);
-gulp.task('theme-build', ['theme-move', 'scss-compile']);
+var themeMove  = require('./recipes/theme/move');
+var themeWatch = require('./recipes/theme/watch');
+
+gulp.task('theme:move',  [], themeMove);
+gulp.task('theme:watch', ['theme:move'], themeWatch);
 
 
 /**
  * Project
  */
-gulp.task('project-zip', ['theme-build'], projectZip);
+var projectZip = require('./recipes/project/zip');
+
+gulp.task('project:zip', ['theme:build'], projectZip);

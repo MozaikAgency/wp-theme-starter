@@ -2,11 +2,10 @@ var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var add          = require('gulp-add');
 var notify       = require('gulp-notify');
-var displayError = require('../utils/displayError');
-var pumped       = require('../utils/pumped');
-
-var wpStyles = require('../config/wpStyles');
-var project  = require('../../package.json');
+var displayError = require('../../utils/displayError');
+var pumped       = require('../../utils/pumped');
+var wpStyles     = require('../../config/wpStyles');
+var project      = require('../../../package.json');
 
 
 /**
@@ -24,7 +23,7 @@ module.exports = function () {
 		}))
 		.pipe(gulp.dest('../' + project.name))
 		.pipe(notify({
-			message: pumped('Theme Built!'),
+			message: pumped('Theme Moved!'),
 			onLast: true
 		}));
 };
