@@ -1,10 +1,12 @@
 var gulp = require('gulp');
 
 
+
 /**
  * Grouped
  */
-gulp.task('default', ['styles:watch', 'theme:watch', 'scripts:watch']);
+gulp.task('default', ['scripts:watch', 'styles:watch', 'theme:watch']);
+
 
 
 /**

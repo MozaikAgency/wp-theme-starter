@@ -9,6 +9,8 @@ var webpackPack = require('./webpack.pack');
  */
 module.exports = function (cb) {
 	return webpackPack(cb, {
-		watch: true
+		watch: true,
+		devtool: 'eval',
+		keepalive: true
 	});
 };
