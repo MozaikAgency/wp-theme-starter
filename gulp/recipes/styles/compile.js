@@ -21,7 +21,7 @@ var devmode = false;
 module.exports = function (cb) {
 	return gulp.src(['assets/scss/**/*.scss', '!assets/scss/**/_*'])
 		.pipe(plumber({ errorHandler: displayError }))
-    .pipe(gulpif(devmode, sourcemaps.init()))
+		.pipe(gulpif(devmode, sourcemaps.init()))
 		.pipe(sass({ errorToConsole: true }))
 		.pipe(autoprefixer(
 			'last 2 version'
@@ -33,9 +33,9 @@ module.exports = function (cb) {
 			 'ios 6',
 			 'android 4'*/
 		))
-    .pipe(gulpif(devmode, sourcemaps.write()))
+		.pipe(gulpif(devmode, sourcemaps.write()))
 		.pipe(gulp.dest('../' + project.name + '/assets/css'))
-    .pipe(gulpif(devmode, browserSync.reload({ stream: true })))
+		.pipe(gulpif(devmode, browserSync.reload({ stream: true })))
 		.pipe(notify({
 			message: pumped('SCSS compiled.'),
 			onLast: true
