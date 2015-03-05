@@ -5,7 +5,21 @@ var gulp = require('gulp');
 /**
  * Grouped
  */
-gulp.task('default', ['scripts:watch', 'styles:watch', 'theme:watch']);
+gulp.task('default', [
+  'scripts:watch',
+  'styles:watch',
+  'theme:watch',
+  'browser:sync'
+]);
+
+
+
+/**
+ * Browser
+ */
+var browserSync = require('./gulp/recipes/browsersync');
+
+gulp.task('browser:sync', [], browserSync);
 
 
 

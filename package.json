@@ -17,9 +17,9 @@
     "gulp"
   ],
   "devDependencies": {
-    "browser-sync": ">= 2.2.1",
     "babel-core": ">= 4.6.6",
     "babel-loader": ">= 4.0.0",
+    "browser-sync": ">= 2.2.1",
     "del": ">= 1.1.1",
     "gulp": ">= 3.8.11",
     "gulp-add": ">= 0.0.2",
@@ -36,6 +36,7 @@
     "gulp-webpack": ">= 1.2.0",
     "gulp-zip": ">= 2.0.3",
     "lodash": ">= 3.3.1",
+    "node-notifier": ">= 4.1.2",
     "vinyl-named": ">= 1.1.0",
     "webpack": ">= 1.6.0"
   }

@@ -19,6 +19,14 @@ add_action( 'wp_enqueue_scripts', 'mbwp_styles' );
 
 add_action( 'wp_enqueue_scripts', 'mbwp_scripts' );
 
+if ( WP_DEBUG ) {
+	// actions only added if in development mode
+	// development mode is activated by setting
+	// WP_DEBUG to true in wp-config.php
+
+	add_action( 'wp_footer', 'mbwp_print_browserSync_script', 999 );
+}
+
 /**--- Filters ---**/
 
 
@@ -133,4 +141,20 @@ function mbwp_scripts() {
 	$suffix = WP_DEBUG ? '' : '.min';
 
 	wp_enqueue_script( 'main', "$theme_dir/assets/js/main{$suffix}.js", array(), null, true );
+}
+
+
+/**
+ * DEVELOPMENT MODE ONLY
+ *
+ * Browser-sync script loader
+ * to enable script/style injection
+ *
+ * @since 1.0
+ */
+function mbwp_print_browserSync_script() { ?>
+	<script type="text/javascript" id="__bs_script__">//<![CDATA[
+		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.2.2.js'><\/script>".replace("HOST", location.hostname));
+	//]]></script>
+	<?php
 }
