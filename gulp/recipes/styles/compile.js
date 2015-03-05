@@ -1,6 +1,7 @@
 var _            = require('lodash');
 var yargs        = require('yargs');
 var gulp         = require('gulp');
+var filter       = require('gulp-filter');
 var plumber      = require('gulp-plumber');
 var gulpif       = require('gulp-if');
 var sourcemaps   = require('gulp-sourcemaps');
@@ -17,6 +18,8 @@ var project      = require('../../../package.json');
  *
  */
 module.exports = function (cb) {
+	var filterCSS = filter('**/*.css');
+
 	return gulp.src(['assets/scss/**/*.scss', '!assets/scss/**/_*'])
 		.pipe(plumber({ errorHandler: displayError }))
 
@@ -37,7 +40,10 @@ module.exports = function (cb) {
 		.pipe(gulpif(!yargs.argv.build, sourcemaps.write('./')))
 
 		.pipe(gulp.dest('../' + project.name + '/assets/css'))
+
+		.pipe(gulpif(!yargs.argv.build, filterCSS))
 		.pipe(gulpif(!yargs.argv.build, browserSync.reload({ stream: true })))
+		.pipe(gulpif(!yargs.argv.build, filterCSS.restore()))
 
 		.pipe(notify({
 			message: pumped('SCSS compiled.'),
