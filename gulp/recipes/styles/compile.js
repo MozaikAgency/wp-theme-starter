@@ -1,4 +1,5 @@
 var _            = require('lodash');
+var yargs        = require('yargs');
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var gulpif       = require('gulp-if');
@@ -11,9 +12,6 @@ var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 var project      = require('../../../package.json');
 
-
-var devmode = false;
-
 /**
  * Compile SCSS to CSS
  *
@@ -21,7 +19,9 @@ var devmode = false;
 module.exports = function (cb) {
 	return gulp.src(['assets/scss/**/*.scss', '!assets/scss/**/_*'])
 		.pipe(plumber({ errorHandler: displayError }))
-		.pipe(gulpif(devmode, sourcemaps.init()))
+
+		.pipe(gulpif(!yargs.argv.build, sourcemaps.init()))
+
 		.pipe(sass({ errorToConsole: true }))
 		.pipe(autoprefixer(
 			'last 2 version'
@@ -33,9 +33,12 @@ module.exports = function (cb) {
 			 'ios 6',
 			 'android 4'*/
 		))
-		.pipe(gulpif(devmode, sourcemaps.write()))
+
+		.pipe(gulpif(!yargs.argv.build, sourcemaps.write('./')))
+
 		.pipe(gulp.dest('../' + project.name + '/assets/css'))
-		.pipe(gulpif(devmode, browserSync.reload({ stream: true })))
+		.pipe(gulpif(!yargs.argv.build, browserSync.reload({ stream: true })))
+
 		.pipe(notify({
 			message: pumped('SCSS compiled.'),
 			onLast: true

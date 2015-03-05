@@ -1,23 +1,32 @@
 var gulp = require('gulp');
 
 
-
 /**
  * Grouped
  */
-gulp.task('default', [
-  'scripts:watch',
-  'styles:watch',
-  'theme:watch',
-  'browser:sync'
-]);
+var yargs = require('yargs');
+
+if (yargs.argv.build) {
+	gulp.task('default', [
+		'scripts:minify',
+		'styles:minify',
+		'theme:move'
+	]);
+} else {
+	gulp.task('default', [
+		'scripts:watch',
+		'styles:watch',
+		'theme:watch',
+		'browser:sync'
+	]);
+}
 
 
 
 /**
  * Browser
  */
-var browserSync = require('./gulp/recipes/browsersync');
+var browserSync = require('./gulp/recipes/browser-sync');
 
 gulp.task('browser:sync', [], browserSync);
 
