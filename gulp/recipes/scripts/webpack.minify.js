@@ -12,8 +12,11 @@ var webpackPack = require('./webpack.pack');
 module.exports = function (cb) {
 	return webpackPack(cb, {
 		plugins: [
-			new webpack.optimize.DedupePlugin({minimize: true}),
-			new webpack.optimize.UglifyJsPlugin({minimize: true})
+			new webpack.optimize.DedupePlugin(),
+			new webpack.optimize.OccurenceOrderPlugin(true),
+			new webpack.optimize.UglifyJsPlugin({
+				minimize: true
+			})
 		]
 	});
 };
