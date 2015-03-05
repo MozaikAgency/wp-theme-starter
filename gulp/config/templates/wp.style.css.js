@@ -1,4 +1,4 @@
-var project = require('../../package.json');
+var project = require('../../../package.json');
 
 module.exports = [
 '/*\n\

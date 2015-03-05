@@ -9,8 +9,8 @@ var notify       = require('gulp-notify');
 var yargs        = require('yargs');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
-var style        = require('../../config/wp.style');
-var bSSnippet    = require('../../config/browser-sync.snippet');
+var style        = require('../../config/templates/wp.style.css.js');
+var bSSnippet    = require('../../config/templates/browser-sync.snippet.js');
 var project      = require('../../../package.json');
 
 
