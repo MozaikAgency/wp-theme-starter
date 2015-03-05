@@ -41,7 +41,7 @@ The goals of the boilerplate are to:
 1. Install WordPress and clear it of unnecessary default themes & plugins
 1. Clone/Download this repository into a directory in your WordPress `wp-content/themes` directory
 1. Change the `package.json` with your new theme's configuration
-1. Open the terminal and `cd wp-content/themes/<themename>`
+1. Open the terminal and `cd wp-content/themes/<devthemename>`
 1. Run `npm install` to install all dev dependencies
 1. Run `gulp` to begin the dev build process that uses libsass, browsersync and webpack
 1. Log in to the admin and enable the *built theme*
