@@ -114,9 +114,7 @@ function mbwp_styles() {
 
 	$theme_dir = get_template_directory_uri();
 
-	$suffix = WP_DEBUG ? '' : '.min';
-
-	wp_enqueue_style( 'main', "$theme_dir/assets/css/main{$suffix}.css", array(), null, 'all' );
+	wp_enqueue_style( 'main', "$theme_dir/assets/css/main.css", array(), null, 'all' );
 }
 
 
@@ -130,7 +128,5 @@ function mbwp_scripts() {
 
 	$theme_dir = get_template_directory_uri();
 
-	$suffix = WP_DEBUG ? '' : '.min';
-
-	wp_enqueue_script( 'main', "$theme_dir/assets/js/main{$suffix}.js", array(), null, true );
+	wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array(), null, true );
 }
