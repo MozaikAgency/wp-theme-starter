@@ -9,5 +9,8 @@ var project = require('../../../package.json');
  *
  */
 module.exports = function (cb) {
-	del(['../' + project.name + '/**/*.php'], { force: true }, cb);
+	del([
+		'../' + project.name + '/**/*.php',
+		'!../' + project.name + '/assets'
+	], { force: true }, cb);
 };
