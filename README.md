@@ -31,7 +31,7 @@ The goals of the boilerplate are to:
 	
 ### JavaScript
 
-1. Understand what [modular JavaScript](http://addyosmani.com/writing-modular-js/) is and how it can help create better, encapsulated code
+1. Understand [modular JavaScript](http://addyosmani.com/writing-modular-js/)
 
 ## Development Guidelines
 
