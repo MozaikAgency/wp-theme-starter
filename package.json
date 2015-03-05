@@ -19,6 +19,7 @@
   "devDependencies": {
     "babel-core": ">= 4.6.6",
     "babel-loader": ">= 4.0.0",
+    "bower-webpack-plugin": "^0.1.6",
     "browser-sync": ">= 2.2.1",
     "del": ">= 1.1.1",
     "gulp": ">= 3.8.11",

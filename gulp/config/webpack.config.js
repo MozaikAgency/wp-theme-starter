@@ -1,3 +1,6 @@
+var BowerWebpackPlugin = require('bower-webpack-plugin');
+
+
 /**
  * Config for WebPack
  *
@@ -12,7 +15,14 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
+			{
+				test: /\.jsx?$/,
+				exclude: /node_modules|bower_components/,
+				loader: 'babel-loader'
+			}
 		]
-	}
+	},
+	plugins: [
+		new BowerWebpackPlugin()
+	]
 };
