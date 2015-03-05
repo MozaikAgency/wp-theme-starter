@@ -14,9 +14,12 @@ The goals of the boilerplate are to:
 ## Reading Recommendations
 
 1. [WordPress Developer Documentation](http://codex.wordpress.org/Developer_Documentation)
-1. We generally follow the [WordPress PHP Coding Standards](https://make.wordpress.org/core/handbook/coding-standards/php/) in our WP code.
+1. We generally follow the [WordPress PHP Coding Standards](https://make.wordpress.org/core/handbook/coding-standards/php/) in our WP code
+1. This project uses [webpack](http://webpack.github.io/) to provide support for modular JS, read up on the functionality & tools it provides
 
 ## Important Prerequisites
+
+### WordPress
 
 1. Read [the WordPress theme development guidelines](http://codex.wordpress.org/Theme_Development)
 1. Understand [the WordPress template hierarchy](http://codex.wordpress.org/images/9/96/wp-template-hierarchy.jpg)
@@ -25,6 +28,10 @@ The goals of the boilerplate are to:
 1. Read up on the following WordPress core APIs:
 	- [the Plugin API](http://codex.wordpress.org/Plugin_API)
 	- [the Shortcode API](http://codex.wordpress.org/Shortcode_API)
+	
+### JavaScript
+
+1. Understand what [modular JavaScript](http://addyosmani.com/writing-modular-js/) is and how it can help create better, encapsulated code
 
 ## Development Guidelines
 
