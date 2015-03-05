@@ -53,7 +53,7 @@ The goals of the boilerplate are to:
 1. For your convenience during development:
 	- use `npm install --save <module(s)>` to easily manage dependencies, then use `var <module> = require('<module>');` anywhere you want to use them
 	- explore the `/library` directory in the dev theme for anything useful to your project. If you find anything
-	  copy it into your `/theme` folder somewhere under `/theme/includes`, modify it as you require and include it where you need it
+	  copy it into your `/theme` folder somewhere under `/theme/includes`, modify it as you require and include it where you need it <== Not implemented yet
 
 ### Production
 
