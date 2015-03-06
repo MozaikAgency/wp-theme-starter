@@ -4,7 +4,6 @@ var add          = require('gulp-add');
 var gulpif       = require('gulp-if');
 var filter       = require('gulp-filter');
 var insert       = require('gulp-insert');
-var changed      = require('gulp-changed');
 var notify       = require('gulp-notify');
 var yargs        = require('yargs');
 var displayError = require('../../utils/displayError');
@@ -34,8 +33,6 @@ module.exports = function () {
 		.pipe(gulpif(!yargs.argv.build, filterFunc))
 		.pipe(gulpif(!yargs.argv.build, insert.append(bSSnippet)))
 		.pipe(gulpif(!yargs.argv.build, filterFunc.restore()))
-
-		.pipe(changed('../' + project.name, { hasChanged: changed.compareSha1Digest }))
 
 		.pipe(gulp.dest('../' + project.name))
 		.pipe(notify({
