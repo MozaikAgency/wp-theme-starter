@@ -8,12 +8,14 @@ var yargs = require('yargs');
 
 if (yargs.argv.build) {
 	gulp.task('default', [
+		'images:compress',
 		'scripts:minify',
 		'styles:minify',
 		'theme:move'
 	]);
 } else {
 	gulp.task('default', [
+		'images:watch',
 		'scripts:watch',
 		'styles:watch',
 		'theme:watch',
@@ -29,6 +31,20 @@ if (yargs.argv.build) {
 var browserSync = require('./gulp/recipes/browser-sync');
 
 gulp.task('browser:sync', [], browserSync);
+
+
+/**
+ * Images
+ */
+var imagesClean    = require('./gulp/recipes/images/clean');
+var imagesMove     = require('./gulp/recipes/images/move');
+var imagesWatch    = require('./gulp/recipes/images/watch');
+var imagesCompress = require('./gulp/recipes/images/compress');
+
+gulp.task('images:clean',    [], imagesClean);
+gulp.task('images:move',     ['images:clean'], imagesMove);
+gulp.task('images:watch',    ['images:move'],  imagesWatch);
+gulp.task('images:compress', ['images:move'],  imagesCompress);
 
 
 
