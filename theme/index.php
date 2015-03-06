@@ -8,17 +8,29 @@
 ?>
 <?php get_header(); ?>
 
+<article>
 
-<h1>Welcome!</h1>
+	<header>
+		<h1>Welcome!</h1>
 
-<h2>The Mozaik WordPress Theme Bootstrap</h2>
+		<h2>The Mozaik WordPress Theme Bootstrap</h2>
+	</header>
 
-<p>
-	Build tools included! :)
-</p>
+	<p>
+		Build tools included! :)
+	</p>
 
-<p>
-	<strong>Happy Hacking!</strong>
-</p>
+	<p>
+		<strong>Happy Hacking!</strong>
+	</p>
+
+	<footer>
+		<a target="_blank"
+		   href="https://github.com/MozaikAgency/wp-theme-bootstrap">
+			<small>check out the README</small>
+		</a>
+	</footer>
+
+</article>
 
 <?php get_footer(); ?>

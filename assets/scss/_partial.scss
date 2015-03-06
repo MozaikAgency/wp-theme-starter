@@ -1,0 +1,32 @@
+article {
+	box-sizing: border-box;
+	margin: 0 auto;
+	border: 1px solid transparent;
+	padding: 0 20px;
+	max-width: 540px;
+}
+
+small {
+	font-size: .5em;
+	font-style: italic;
+}
+
+a {
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	line-height: 1;
+
+	&:after {
+		content: '';
+		display: block;
+		height: 1px;
+		background-color: white;
+		transition: 0.4s ease-out;
+	}
+
+	&:hover:after {
+		opacity: 0;
+		transform: translateY(5px);
+	}
+}

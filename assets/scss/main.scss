@@ -1,7 +1,29 @@
-.s {
-	display: none;
+html,
+body {
+	margin: 0;
+	padding: 0;
 }
 
-.hello {
-	display: table;
+html {
+	height: 100%;
+
+	font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	color: rgba(white, 0.9);
+
+	background: url('/mbwp/wp-content/themes/you_should_probably_change_this/assets/img/10.jpg');
+	background-size: cover;
+
+	@media all and (max-width: 600px) {
+		font-size: 1em;
+	}
 }
+
+body {
+	min-height: 100%;
+
+	background: linear-gradient(to bottom right, rgba(cornflowerblue, 0.8), rgba(blueviolet, 0.8));
+	text-align: center;
+}
+
+@import "partial";
