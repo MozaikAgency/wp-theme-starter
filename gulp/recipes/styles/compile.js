@@ -26,16 +26,14 @@ module.exports = function (cb) {
 		.pipe(gulpif(!yargs.argv.build, sourcemaps.init()))
 
 		.pipe(sass({ errorToConsole: true }))
-		.pipe(autoprefixer(
-			'last 2 version'
-			/*'safari 5',
-			 'ie 7',
-			 'ie 8',
-			 'ie 9',
-			 'opera 12.1',
-			 'ios 6',
-			 'android 4'*/
-		))
+		.pipe(autoprefixer({ browers: [
+			'last 2 version',
+			'safari >= 5',
+			'ie >= 7',
+			'opera >= 12.1',
+			'ios >= 6',
+			'android >= 4'
+		]}))
 
 		.pipe(gulpif(!yargs.argv.build, sourcemaps.write('./')))
 

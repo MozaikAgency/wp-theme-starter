@@ -9,5 +9,5 @@ var project = require('../../../package.json');
  *
  */
 module.exports = function (cb) {
-	del(['../' + project.name + '/assets/css/**/*.(css|map)'], { force: true }, cb);
+	del(['../' + project.name + '/assets/css/**/*.{css,map}'], { force: true }, cb);
 };
