@@ -19,6 +19,10 @@ The goals of the boilerplate are to:
 
 ## Important Prerequisites
 
+### Technical
+
+1. Have [node and npm](https://nodejs.org/) installed on your system.
+
 ### WordPress
 
 1. Read [the WordPress theme development guidelines](http://codex.wordpress.org/Theme_Development)
