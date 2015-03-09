@@ -33,6 +33,9 @@ The goals of the boilerplate are to:
 1. Read up on the following WordPress core APIs:
 	- [the Plugin API](http://codex.wordpress.org/Plugin_API)
 	- [the Shortcode API](http://codex.wordpress.org/Shortcode_API)
+1. Understand when you should use a Custom Functionality Plugin instead of implementing functionality within a theme
+ 	- [Creating a custom functions plugin for end users](http://justintadlock.com/archives/2011/02/02/creating-a-custom-functions-plugin-for-end-users)
+ 	- [How to Create a Custom Functionality Plugin (And Why You Need One)](https://www.nutsandboltsmedia.com/how-to-create-a-custom-functionality-plugin-and-why-you-need-one/)
 	
 ### JavaScript
 
@@ -56,7 +59,8 @@ The goals of the boilerplate are to:
 1. Run `npm install` to install all dev dependencies
 1. Change the `package.json` with your new theme's configuration
 1. Run `gulp` to begin the dev build process that uses libsass, browser-sync and webpack
-1. Log in to the admin and enable the *built theme* (**Note:** The dev theme is not a valid theme, don't delete it or try to enable it)
+1. Log in to the admin and enable the **built theme**
+	 (**Note:** The *dev theme* is not a valid theme, that's fine! Don't delete it or try to enable it)
 
 ### Development
 
