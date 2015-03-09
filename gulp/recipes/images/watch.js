@@ -1,12 +1,18 @@
-var gulp  = require('gulp');
-var watch = require('gulp-watch');
+var gulp   = require('gulp');
+var watch  = require('gulp-watch');
+var config = require('../../config/images');
 
 
-module.exports = function () {
-	watch([
-		'assets/img/**/*.{gif,ico,jpg,jpeg,png,webp}',
-		'!assets/img/sprites'
-	], function () {
-		gulp.start('images:move');
+/**
+ * Watch image files
+ * for changes
+ *
+ * @param done
+ */
+module.exports = function (done) {
+	watch(config.paths.watch, function () {
+		gulp.start('images:dev');
 	});
+
+	done();
 };

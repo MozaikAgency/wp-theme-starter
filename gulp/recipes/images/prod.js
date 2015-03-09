@@ -4,16 +4,19 @@ var imagemin     = require('gulp-imagemin');
 var notify       = require('gulp-notify');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
-var project      = require('../../../package.json');
+
+// config
+var config       = require('../../config/images');
 
 
 /**
- * Compress Images in
- * the built theme
+ * Compress Images and
+ * move them to the
+ * built theme
  *
  */
 module.exports = function () {
-	return gulp.src(['../' + project.name + '/assets/img/**/*.{gif,ico,jpg,jpeg,png,webp}'])
+	return gulp.src(config.paths.src)
 		.pipe(plumber({ errorHandler: displayError }))
 
 		.pipe(imagemin({
@@ -21,7 +24,7 @@ module.exports = function () {
 			interlaced: true
 		}))
 
-		.pipe(gulp.dest('../' + project.name + '/assets/img'))
+		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({
 			message: pumped('Images Compressed'),
 			onLast: true

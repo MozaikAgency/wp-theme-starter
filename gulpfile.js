@@ -4,24 +4,20 @@ var gulp = require('gulp');
 /**
  * Grouped
  */
-var yargs = require('yargs');
+gulp.task('default', [
+	 'images:watch',
+	'scripts:watch',
+	 'styles:watch',
+	  'theme:watch',
+	'browser:sync'
+]);
 
-if (yargs.argv.build) {
-	gulp.task('default', [
-		'images:compress',
-		'scripts:minify',
-		'styles:minify',
-		'theme:move'
-	]);
-} else {
-	gulp.task('default', [
-		'images:watch',
-		'scripts:watch',
-		'styles:watch',
-		'theme:watch',
-		'browser:sync'
-	]);
-}
+gulp.task('prod', [
+	 'images:prod',
+	'scripts:prod',
+	 'styles:prod',
+	  'theme:prod'
+]);
 
 
 
@@ -36,45 +32,45 @@ gulp.task('browser:sync', [], browserSync);
 /**
  * Images
  */
-var imagesClean    = require('./gulp/recipes/images/clean');
-var imagesMove     = require('./gulp/recipes/images/move');
-var imagesWatch    = require('./gulp/recipes/images/watch');
-var imagesCompress = require('./gulp/recipes/images/compress');
+var imagesClean = require('./gulp/recipes/images/clean');
+var imagesDev   = require('./gulp/recipes/images/dev');
+var imagesProd  = require('./gulp/recipes/images/prod');
+var imagesWatch = require('./gulp/recipes/images/watch');
 
-gulp.task('images:clean',    [], imagesClean);
-gulp.task('images:move',     ['images:clean'], imagesMove);
-gulp.task('images:watch',    ['images:move'],  imagesWatch);
-gulp.task('images:compress', ['images:move'],  imagesCompress);
+gulp.task('images:clean', [], imagesClean);
+gulp.task('images:dev',   ['images:clean'], imagesDev);
+gulp.task('images:prod',  ['images:clean'], imagesProd);
+gulp.task('images:watch', ['images:dev'],   imagesWatch);
 
 
 
 /**
  * Scripts
  */
-var scriptsClean  = require('./gulp/recipes/scripts/clean');
-var scriptsPack   = require('./gulp/recipes/scripts/webpack.pack.js');
-var scriptsWatch  = require('./gulp/recipes/scripts/webpack.watch.js');
-var scriptsMinify = require('./gulp/recipes/scripts/webpack.minify.js');
+var scriptsClean = require('./gulp/recipes/scripts/clean');
+var scriptsDev   = require('./gulp/recipes/scripts/dev');
+var scriptsProd  = require('./gulp/recipes/scripts/prod');
+var scriptsWatch = require('./gulp/recipes/scripts/watch');
 
-gulp.task('scripts:clean',  [], scriptsClean);
-gulp.task('scripts:pack',   ['scripts:clean'], scriptsPack);
-gulp.task('scripts:watch',  ['scripts:clean'], scriptsWatch);
-gulp.task('scripts:minify', ['scripts:clean'], scriptsMinify);
+gulp.task('scripts:clean', [], scriptsClean);
+gulp.task('scripts:dev',   ['scripts:clean'], scriptsDev);
+gulp.task('scripts:prod',  ['scripts:clean'], scriptsProd);
+gulp.task('scripts:watch', ['scripts:clean'], scriptsWatch);
 
 
 
 /**
  * Styles
  */
-var stylesClean   = require('./gulp/recipes/styles/clean');
-var stylesCompile = require('./gulp/recipes/styles/compile');
-var stylesWatch   = require('./gulp/recipes/styles/watch');
-var stylesMinify  = require('./gulp/recipes/styles/minify');
+var stylesClean = require('./gulp/recipes/styles/clean');
+var stylesDev   = require('./gulp/recipes/styles/dev');
+var stylesProd  = require('./gulp/recipes/styles/prod');
+var stylesWatch = require('./gulp/recipes/styles/watch');
 
-gulp.task('styles:clean',   [], stylesClean);
-gulp.task('styles:compile', ['styles:clean'],   stylesCompile);
-gulp.task('styles:watch',   ['styles:compile'], stylesWatch);
-gulp.task('styles:minify',  ['styles:compile'], stylesMinify);
+gulp.task('styles:clean', [], stylesClean);
+gulp.task('styles:dev',   ['styles:clean'], stylesDev);
+gulp.task('styles:prod',  ['styles:clean'], stylesProd);
+gulp.task('styles:watch', ['styles:dev'],   stylesWatch);
 
 
 
@@ -82,18 +78,11 @@ gulp.task('styles:minify',  ['styles:compile'], stylesMinify);
  * Theme
  */
 var themeClean = require('./gulp/recipes/theme/clean');
-var themeMove  = require('./gulp/recipes/theme/move');
+var themeDev   = require('./gulp/recipes/theme/dev');
+var themeProd  = require('./gulp/recipes/theme/prod');
 var themeWatch = require('./gulp/recipes/theme/watch');
 
 gulp.task('theme:clean', [], themeClean);
-gulp.task('theme:move',  ['theme:clean'], themeMove);
-gulp.task('theme:watch', ['theme:move'],  themeWatch);
-
-
-
-/**
- * Project
- */
-var projectZip = require('./gulp/recipes/project/zip');
-
-gulp.task('project:zip', ['theme:build'], projectZip);
+gulp.task('theme:dev',   ['theme:clean'], themeDev);
+gulp.task('theme:prod',  ['theme:clean'], themeProd);
+gulp.task('theme:watch', ['theme:dev'],   themeWatch);

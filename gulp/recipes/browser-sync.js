@@ -1,15 +1,12 @@
 var browserSync = require('browser-sync');
-var project     = require('../../package.json');
+var assets      = require('../config/common').paths.assets;
 
 /**
  *
  */
 module.exports = function () {
   browserSync({
-    files: [
-			'../' + project.name + '/assets/**/*',
-			'!../' + project.name + '/assets/**/*.map'
-		],
+    files: [assets.dest + '/**/*', '!' + assets.dest + '/**/*.map'],
 		logSnippet: false,
 		server: false,
 		open: false

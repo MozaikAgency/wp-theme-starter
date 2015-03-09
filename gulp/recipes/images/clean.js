@@ -1,5 +1,5 @@
-var del     = require('del');
-var project = require('../../../package.json');
+var del    = require('del');
+var config = require('../../config/images');
 
 
 /**
@@ -8,6 +8,6 @@ var project = require('../../../package.json');
  * asset directory
  *
  */
-module.exports = function (cb) {
-	del(['../' + project.name + '/assets/img/**/*.{gif,ico,jpg,jpeg,png,webp}'], { force: true }, cb);
+module.exports = function (done) {
+	del(config.paths.clean, { force: true }, done);
 };

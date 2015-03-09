@@ -1,5 +1,5 @@
 var del     = require('del');
-var project = require('../../../package.json');
+var config  = require('../../config/theme');
 
 
 /**
@@ -8,9 +8,6 @@ var project = require('../../../package.json');
  * directory
  *
  */
-module.exports = function (cb) {
-	del([
-		'../' + project.name + '/**/*.php',
-		'!../' + project.name + '/assets'
-	], { force: true }, cb);
+module.exports = function (done) {
+	del(config.paths.clean, { force: true }, done);
 };

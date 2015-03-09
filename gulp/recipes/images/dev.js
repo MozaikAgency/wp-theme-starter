@@ -3,7 +3,9 @@ var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
-var project      = require('../../../package.json');
+
+// config
+var config       = require('../../config/images');
 
 
 /**
@@ -12,9 +14,10 @@ var project      = require('../../../package.json');
  *
  */
 module.exports = function () {
-	return gulp.src(['assets/img/**/*.{gif,ico,jpg,jpeg,png,webp}', '!assets/img/sprites'])
+	return gulp.src(config.paths.src)
 		.pipe(plumber({errorHandler: displayError}))
-		.pipe(gulp.dest('../' + project.name + '/assets/img'))
+
+		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({
 			message: pumped('Images Moved'),
 			onLast: true

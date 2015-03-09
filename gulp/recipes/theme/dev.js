@@ -1,28 +1,32 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var add          = require('gulp-add');
-var gulpif       = require('gulp-if');
 var filter       = require('gulp-filter');
 var insert       = require('gulp-insert');
 var notify       = require('gulp-notify');
-var yargs        = require('yargs');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
-var style        = require('../../config/templates/wp.style.css.js');
-var bSSnippet    = require('../../config/templates/browser-sync.snippet.js');
+
+// config
 var project      = require('../../../package.json');
+var config       = require('../../config/theme');
+var style        = require('../../config/templates/wordpress.style.css.js');
+var bSSnippet    = require('../../config/templates/browser-sync.snippet.js');
 
 
 /**
  * Move the Theme to
  * the build directory
+ * add required files
+ * and add browser-sync
+ * snippet
  *
  * @returns {*}
  */
 module.exports = function () {
 	var filterFunc = filter('functions.php');
 
-	return gulp.src(['theme/**/*', '!theme/README.md'], { base: 'theme' })
+	return gulp.src(config.paths.src)
 		.pipe(plumber({ errorHandler: displayError }))
 
 		.pipe(add({
@@ -30,11 +34,14 @@ module.exports = function () {
 			'style.css': style
 		}))
 
-		.pipe(gulpif(!yargs.argv.build, filterFunc))
-		.pipe(gulpif(!yargs.argv.build, insert.append(bSSnippet)))
-		.pipe(gulpif(!yargs.argv.build, filterFunc.restore()))
+		.pipe(filterFunc) // We only want to append the
+		                  // Browser-sync snippet to the
+		                  // functions.php so we need to
+		                  // filter the gulp stream
+		.pipe(insert.append(bSSnippet))
+		.pipe(filterFunc.restore())
 
-		.pipe(gulp.dest('../' + project.name))
+		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({
 			message: pumped('Theme Moved!'),
 			onLast: true

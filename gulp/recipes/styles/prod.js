@@ -1,23 +1,33 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
+var sass         = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var minify       = require('gulp-minify-css');
 var notify       = require('gulp-notify');
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
-var project      = require('../../../package.json');
+
+// config
+var config       = require('../../config/styles');
 
 
 /**
- * Minify CSS
+ * Compile SCSS to CSS
+ * and Minify
  *
  */
 module.exports = function () {
-	return gulp.src(['../' + project.name + '/assets/css/**/*.css'])
+	return gulp.src(config.paths.src)
 		.pipe(plumber({ errorHandler: displayError }))
+
+		.pipe(sass({errorToConsole: true}))
+		.pipe(autoprefixer(config.options.autoprefixer))
+
 		.pipe(minify())
-		.pipe(gulp.dest('../' + project.name + '/assets/css'))
+
+		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({
-			message: pumped('CSS Minified.'),
+			message: pumped('SCSS Compiled & Minified.'),
 			onLast: true
 		}));
 };

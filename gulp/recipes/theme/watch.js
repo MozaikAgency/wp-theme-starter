@@ -1,8 +1,18 @@
-var gulp  = require('gulp');
-var watch = require('gulp-watch');
+var gulp   = require('gulp');
+var watch  = require('gulp-watch');
+var config = require('../../config/theme');
 
-module.exports = function () {
-	watch(['theme/**/*', '!theme/README.md'], function () {
-		gulp.start('theme:move');
+
+/**
+ * Watch theme files
+ * for changes
+ *
+ * @param done
+ */
+module.exports = function (done) {
+	watch(config.paths.watch, function () {
+		gulp.start('theme:dev');
 	});
+
+	done();
 };
