@@ -16,6 +16,10 @@
     "theme",
     "gulp"
   ],
+  "scripts": {
+    "gulp-dev": "gulp",
+    "gulp-production": "gulp --build"
+  },
   "devDependencies": {
     "babel-core": ">= 4.6.6",
     "babel-loader": ">= 4.0.0",
