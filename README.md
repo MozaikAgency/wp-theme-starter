@@ -56,7 +56,7 @@ The goals of the boilerplate are to:
 1. Run `npm install` to install all dev dependencies
 1. Change the `package.json` with your new theme's configuration
 1. Run `gulp` to begin the dev build process that uses libsass, browser-sync and webpack
-1. Log in to the admin and enable the *built theme*
+1. Log in to the admin and enable the *built theme* (**Note:** The dev theme is not a valid theme, don't delete it or try to enable it)
 
 ### Development
 
