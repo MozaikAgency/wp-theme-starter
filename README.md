@@ -21,8 +21,8 @@ The goals of the boilerplate are to:
 
 ### Technical
 
-1. Have [node and npm](https://nodejs.org/) installed on your system
-1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed
+1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12 && npm@^2.5.1)*
+1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.8.11)*
 
 ### WordPress
 
