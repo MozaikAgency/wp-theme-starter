@@ -75,5 +75,5 @@ The goals of the boilerplate are to:
 
 1. Delete files you are not using from inside the `/theme` directory
 1. [Add a screenshot.png](http://codex.wordpress.org/Theme_Development#Screenshot)
-1. Before deploying run `gulp --build` to generate a production ready version of the built theme
+1. Before deploying run `gulp build` to generate a production ready version of the built theme
 1. Deploy the built theme directory, *not the dev directory*

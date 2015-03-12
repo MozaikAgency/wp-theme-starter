@@ -12,7 +12,7 @@ gulp.task('default', [
 	'browser:sync'
 ]);
 
-gulp.task('prod', [
+gulp.task('build', [
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
