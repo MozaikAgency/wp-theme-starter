@@ -1,0 +1,65 @@
+/* =========================================
+		Hero
+   ========================================= */
+
+.hero {
+	position: relative;
+	z-index: 1;
+	min-height: 100%;
+
+	background: top center no-repeat url('/mbwp/wp-content/themes/you_should_probably_change_this/assets/img/everest.jpg');
+	background-size: cover;
+
+	&:after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+
+		background: linear-gradient(to bottom right, rgba(cornflowerblue, 0.8), rgba(blueviolet, 0.8));
+	}
+}
+
+.hero__content {
+	box-sizing: border-box;
+	margin: 0 auto;
+	border: 1px solid transparent;
+	padding: 50px 20px;
+	max-width: 540px;
+
+	font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	color: rgba(white, 0.9);
+
+	text-align: center;
+
+	@media all and (max-width: 420px) {
+		font-size: 1em;
+	}
+}
+
+.hero__cta {
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+
+	font-size: .5em;
+	font-style: italic;
+	line-height: 1;
+
+	&:after {
+		content: '';
+		display: block;
+		height: 1px;
+		background-color: white;
+		transition: 0.4s ease-out;
+	}
+
+	&:hover:after {
+		opacity: 0;
+		transform: translateY(5px);
+	}
+}

@@ -1,7 +1,10 @@
 /* =========================================
-		Elements
+		Site
    ========================================= */
 
-@import "site";
-
-@import "hero";
+.site,
+.site__body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}

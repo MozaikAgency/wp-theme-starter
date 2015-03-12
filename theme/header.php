@@ -7,7 +7,7 @@
  */
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html class="site" <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta httpEquiv="X-UA-Compatible" content="IE=Edge"/>
@@ -15,7 +15,7 @@
 
 	<?php wp_head(); ?>
 </head>
-<body>
+<body class="site__body">
 <?php // <body> closes in footer.php ?>
 
 
