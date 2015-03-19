@@ -31,11 +31,30 @@ module.exports = {
 						exclude: /node_modules|bower_components/,
 						loader: 'babel-loader'
 					}
+				],
+				preLoaders: [
+					{
+						test: /\.jsx?$/,
+						exclude: /node_modules|bower_components/,
+						loader: 'jshint-loader'
+					}
 				]
 			},
 			plugins: [
 				new BowerWebpackPlugin()
-			]
+			],
+			jshint: {
+				bitwise: true,
+				browser: true,
+				curly: true,
+				eqeqeq: true,
+				forin: true,
+				noarg: true,
+				noempty: true,
+				strict: true,
+				undef: true,
+				esnext: true
+			}
 		}
 	}
 };
