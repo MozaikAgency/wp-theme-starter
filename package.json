@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "gulp",
-    "prod": "gulp prod"
+    "prod": "gulp build"
   },
   "devDependencies": {
     "babel-core": "^4.7.5",
