@@ -28,7 +28,7 @@ module.exports = function (cb) {
 
 		.pipe(sourcemaps.init())
 
-		.pipe(sass({ errorToConsole: true }))
+		.pipe(sass({ errLogToConsole: true }))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
 		.pipe(sourcemaps.write('./'))

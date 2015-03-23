@@ -20,7 +20,7 @@ module.exports = function () {
 	return gulp.src(config.paths.src)
 		.pipe(plumber({ errorHandler: displayError }))
 
-		.pipe(sass({errorToConsole: true}))
+		.pipe(sass({ errLogToConsole: true }))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
 		.pipe(minify())
