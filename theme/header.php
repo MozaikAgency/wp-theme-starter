@@ -10,7 +10,7 @@
 <html class="site" <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta httpEquiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<meta name="viewport" content="width=device-width"/>
 
 	<?php wp_head(); ?>
