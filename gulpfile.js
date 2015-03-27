@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 
 
-
 /**
  * Safely handle misconfigured
  * project name
@@ -9,10 +8,15 @@ var gulp = require('gulp');
 var path = require('path');
 var project = require('./package.json');
 if (project.name === path.basename(__dirname)) {
-	console.log('[' + new Date().toLocaleTimeString() + '] \x1b[31m%s\x1b[0m', 'The \"name\" value in your package.json configuration \'' + project.name + '\' cannot be the same as the directory name of the development theme \'' + path.basename(__dirname) + '\'.');
-	console.log('[' + new Date().toLocaleTimeString() + '] Please either rename the development theme directory (to \'' + project.name +  '_dev\' for example) or change the name value in your package.json to something else.');
+	console.log('[' + new Date().toLocaleTimeString() + '] Config Error: \x1b[31m%s\x1b[0m', 'The \"name\" value in your package.json configuration \'' + project.name + '\'');
+	console.log('[' + new Date().toLocaleTimeString() + ']               \x1b[31m%s\x1b[0m', 'cannot be the same as the directory name of the development theme \'' + path.basename(__dirname) + '\'.');
+	console.log('[' + new Date().toLocaleTimeString() + '] Please either rename the development theme directory (to \'' + project.name +  '_dev\' for example)');
+	console.log('[' + new Date().toLocaleTimeString() + '] or change the name value in your package.json to something else.');
 	process.exit(1);
 }
+
+// gulpfile booting message
+console.log('[' + new Date().toLocaleTimeString() + '] \x1b[32m%s\x1b[0m', 'Starting to Gulp! Please wait...');
 
 
 
