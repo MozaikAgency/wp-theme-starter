@@ -19,7 +19,7 @@ module.exports = function () {
 
 		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({
-			message: pumped('Images Compressed'),
+			message: pumped('Fonts Moved'),
 			onLast: true
 		}));
 };
