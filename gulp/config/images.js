@@ -1,7 +1,7 @@
 var assets = require('./common').paths.assets;
 
 /**
- * Style Building
+ * Image Building
  * Configuration
  * Object
  *
