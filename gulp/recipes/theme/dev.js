@@ -1,5 +1,7 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
+var transform    = require('vinyl-transform');
+var map          = require('map-stream');
 var add          = require('gulp-add');
 var filter       = require('gulp-filter');
 var insert       = require('gulp-insert');
@@ -10,8 +12,9 @@ var pumped       = require('../../utils/pumped');
 // config
 var project      = require('../../../package.json');
 var config       = require('../../config/theme');
-var style        = require('../../config/templates/wordpress.style.css.js');
-var bSSnippet    = require('../../config/templates/browser-sync.snippet.js');
+var includeDev   = require('../../config/templates/devmode.php.include');
+var style        = require('../../config/templates/wordpress.style.css');
+var bSSnippet    = require('../../config/templates/browser-sync.snippet');
 
 
 /**
@@ -24,10 +27,23 @@ var bSSnippet    = require('../../config/templates/browser-sync.snippet.js');
  * @returns {*}
  */
 module.exports = function () {
+	var filterPHP  = filter('**/*.php');
 	var filterFunc = filter('functions.php');
 
 	return gulp.src(config.paths.src)
 		.pipe(plumber({ errorHandler: displayError }))
+
+		.pipe(filterPHP) // Filter php files and transform
+		                 // them to simply include the file
+		                 // from the dev theme. This is to
+		                 // make it possible to debug php from
+		                 // within the dev theme
+		.pipe(transform(function (filename) {
+			return map(function (chunk, next) {
+				return next(null, includeDev(filename));
+			});
+		}))
+		.pipe(filterPHP.restore())
 
 		.pipe(add({
 			'.gitignore': '*',

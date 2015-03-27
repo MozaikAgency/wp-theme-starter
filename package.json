@@ -42,7 +42,9 @@
     "jshint": "^2.6.3",
     "jshint-loader": "^0.8.3",
     "lodash": "^3.5.0",
+    "map-stream": "0.0.5",
     "node-notifier": "^4.1.2",
-    "vinyl-named": "^1.1.0"
+    "vinyl-named": "^1.1.0",
+    "vinyl-transform": "^1.0.0"
   }
 }
