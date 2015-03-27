@@ -24,6 +24,7 @@ console.log('[' + new Date().toLocaleTimeString() + '] \x1b[32m%s\x1b[0m', 'Star
  * Grouped
  */
 gulp.task('default', [
+	  'fonts:watch',
 	 'images:watch',
 	'scripts:watch',
 	 'styles:watch',
@@ -32,6 +33,7 @@ gulp.task('default', [
 ]);
 
 gulp.task('build', [
+	  'fonts:prod',
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
@@ -43,6 +45,15 @@ gulp.task('build', [
  * Browser
  */
 gulp.task('browser:sync', [], require('./gulp/recipes/browser-sync'));
+
+
+/**
+ * Fonts
+ */
+gulp.task('fonts:clean', [],              require('./gulp/recipes/fonts/clean'));
+gulp.task('fonts:dev',   ['fonts:clean'], require('./gulp/recipes/fonts/dev'));
+gulp.task('fonts:prod',  ['fonts:clean'], require('./gulp/recipes/fonts/prod'));
+gulp.task('fonts:watch', ['fonts:dev'],   require('./gulp/recipes/fonts/watch'));
 
 
 /**
