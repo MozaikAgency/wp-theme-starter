@@ -50,7 +50,7 @@ The goals of the boilerplate are to:
 1. Install WordPress and clear it of unnecessary default themes & plugins
 1. Clone/Download the contents of this repository into a directory in your WordPress `wp-content/themes` directory (eg: "my-theme_dev") _this will be your "dev theme"_
 1. Open the terminal and navigate to the dev theme, `cd wp-content/themes/<my-theme>_dev`
-1. requires _nodejs@^0.12_ ([download here](https://nodejs.org/download/)) and [_gulp_](https://github.com/gulpjs/gulp/blob/master/) (run `npm install gulp -g` after installing node)
+1. The next steps require nodejs **@^0.12** ([download here](https://nodejs.org/download/)) and [gulpjs](https://github.com/gulpjs/gulp/blob/master/) (run `npm install gulp -g` after installing node)
 1. Run `npm install` to install all dev dependencies
 1. Change the `package.json` with your new theme's configuration (specifically: name, prettyName, description, version, author, authorURI, license & keywords)
 1. Run `gulp` to generate the "built theme" for the first time
