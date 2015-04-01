@@ -12,9 +12,9 @@ var pumped       = require('../../utils/pumped');
 // config
 var project      = require('../../../package.json');
 var config       = require('../../config/theme');
-var includeDev   = require('../../templates/devmode.php.include');
-var style        = require('../../templates/wordpress.style.css');
-var bSSnippet    = require('../../templates/browser-sync.snippet');
+var includeDev   = require('../../templates/devmode-php-include');
+var style        = require('../../templates/wordpress-style-css');
+var bSSnippet    = require('../../templates/browser-sync-snippet');
 
 
 /**
