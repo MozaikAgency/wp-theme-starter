@@ -40,7 +40,11 @@ module.exports = function () {
 		                 // within the dev theme
 		.pipe(transform(function (filename) {
 			return map(function (chunk, next) {
-				return next(null, includeDev(filename));
+				var templateDef = chunk.toString().match(/Template Name:.+/);
+				if (templateDef) {
+					templateDef = templateDef[0];
+				}
+				return next(null, includeDev(filename, templateDef));
 			});
 		}))
 		.pipe(filterPHP.restore())
