@@ -1,11 +1,13 @@
-module.exports = function (filename, templateDef) {
-	templateDef = templateDef || '';
+module.exports = function (filename, definitions) {
+
+	var preservedDefs = definitions && definitions.length
+		? ' * ' + definitions.join('\n * ') + '\n *'
+		: '';
 	
 	return [
 		'<?php',
 		'/**',
-		' * ' + templateDef,
-		' *',
+		preservedDefs,
 		' * DEVELOPMENT MODE ONLY',
 		' *',
 		' * Includes and Runs php files directly',

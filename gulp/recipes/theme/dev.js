@@ -16,7 +16,6 @@ var includeDev   = require('../../templates/devmode-php-include');
 var style        = require('../../templates/wordpress-style-css');
 var bSSnippet    = require('../../templates/browser-sync-snippet');
 
-
 /**
  * Move the Theme to
  * the build directory
@@ -40,11 +39,13 @@ module.exports = function () {
 		                 // within the dev theme
 		.pipe(transform(function (filename) {
 			return map(function (chunk, next) {
-				var templateDef = chunk.toString().match(/Template Name:.+/);
-				if (templateDef) {
-					templateDef = templateDef[0];
+
+				var definitions = [];
+				if (config.options.transform.preserve) {
+					definitions = chunk.toString().match(config.options.transform.preserve);
 				}
-				return next(null, includeDev(filename, templateDef));
+
+				return next(null, includeDev(filename, definitions));
 			});
 		}))
 		.pipe(filterPHP.restore())
