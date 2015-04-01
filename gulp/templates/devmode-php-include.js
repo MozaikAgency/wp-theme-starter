@@ -1,8 +1,8 @@
 module.exports = function (filename, definitions) {
 
-	var preservedDefs = definitions && definitions.length
+	var preservedDefs = (definitions && definitions.length)
 		? ' * ' + definitions.join('\n * ') + '\n *'
-		: '';
+		: ' *';
 	
 	return [
 		'<?php',
