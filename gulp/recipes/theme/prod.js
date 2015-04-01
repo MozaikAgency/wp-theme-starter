@@ -8,7 +8,7 @@ var pumped       = require('../../utils/pumped');
 // config
 var project      = require('../../../package.json');
 var config       = require('../../config/theme');
-var style        = require('../../config/templates/wordpress.style.css.js');
+var style        = require('../../templates/wordpress.style.css.js');
 
 
 /**
