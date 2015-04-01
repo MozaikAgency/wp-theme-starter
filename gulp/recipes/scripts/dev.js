@@ -5,7 +5,10 @@ var gulpWebpack  = require('gulp-webpack');
 var lodash       = require('lodash');
 var browserSync  = require('browser-sync');
 var notifier     = require('node-notifier');
+
+// utils
 var displayError = require('../../utils/displayError');
+var deepMerge    = require('../../utils/deepMerge');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -27,7 +30,7 @@ module.exports = function () {
 		.pipe(gulpWebpack(
 			lodash.merge(config.options.webpack, {
 				devtool: 'eval'
-			}), null, function () {
+			}, deepMerge), null, function () {
 				// reload browser-sync when
 				// a package is updated
 				browserSync.reload();
