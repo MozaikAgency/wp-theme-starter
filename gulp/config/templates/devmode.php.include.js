@@ -1,7 +1,11 @@
-module.exports = function (filename) {
+module.exports = function (filename, templateDef) {
+	templateDef = templateDef || '';
+	
 	return [
 		'<?php',
 		'/**',
+		' * ' + templateDef,
+		' *',
 		' * DEVELOPMENT MODE ONLY',
 		' *',
 		' * Includes and Runs php files directly',
