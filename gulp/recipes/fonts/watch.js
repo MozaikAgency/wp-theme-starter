@@ -1,5 +1,7 @@
 var gulp   = require('gulp');
 var watch  = require('gulp-watch');
+
+// config
 var config = require('../../config/fonts');
 
 

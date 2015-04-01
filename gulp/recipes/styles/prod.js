@@ -4,6 +4,8 @@ var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var minify       = require('gulp-minify-css');
 var notify       = require('gulp-notify');
+
+// utils
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 

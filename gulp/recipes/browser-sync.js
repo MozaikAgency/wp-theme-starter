@@ -1,4 +1,6 @@
 var browserSync = require('browser-sync');
+
+// config
 var paths       = require('../config/common').paths;
 
 /**

@@ -1,4 +1,6 @@
 var del    = require('del');
+
+// config
 var config = require('../../config/styles');
 
 

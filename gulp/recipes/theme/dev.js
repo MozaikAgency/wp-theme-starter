@@ -6,12 +6,16 @@ var add          = require('gulp-add');
 var filter       = require('gulp-filter');
 var insert       = require('gulp-insert');
 var notify       = require('gulp-notify');
+
+// utils
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
 var project      = require('../../../package.json');
 var config       = require('../../config/theme');
+
+// templates
 var includeDev   = require('../../templates/devmode-php-include');
 var style        = require('../../templates/wordpress-style-css');
 var bSSnippet    = require('../../templates/browser-sync-snippet');

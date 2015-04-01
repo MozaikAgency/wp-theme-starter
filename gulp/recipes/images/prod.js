@@ -2,6 +2,8 @@ var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var imagemin     = require('gulp-imagemin');
 var notify       = require('gulp-notify');
+
+// utils
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 

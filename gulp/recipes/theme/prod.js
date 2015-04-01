@@ -2,12 +2,16 @@ var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var add          = require('gulp-add');
 var notify       = require('gulp-notify');
+
+// utils
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
 var project      = require('../../../package.json');
 var config       = require('../../config/theme');
+
+// templates
 var style        = require('../../templates/wordpress-style-css.js');
 
 

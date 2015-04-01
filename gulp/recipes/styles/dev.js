@@ -6,6 +6,8 @@ var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var notify       = require('gulp-notify');
 var browserSync  = require('browser-sync');
+
+// utils
 var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
