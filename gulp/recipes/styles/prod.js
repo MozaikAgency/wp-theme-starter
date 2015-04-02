@@ -22,7 +22,7 @@ module.exports = function () {
 	return gulp.src(config.paths.src)
 		.pipe(plumber({ errorHandler: displayError }))
 
-		.pipe(sass({ errLogToConsole: true }))
+		.pipe(sass(config.options.sass))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
 		.pipe(minify())

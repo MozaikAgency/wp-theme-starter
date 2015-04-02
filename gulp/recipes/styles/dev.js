@@ -30,7 +30,7 @@ module.exports = function (cb) {
 
 		.pipe(sourcemaps.init())
 
-		.pipe(sass({ errLogToConsole: true }))
+		.pipe(sass(config.options.sass))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
 		.pipe(sourcemaps.write('./'))
