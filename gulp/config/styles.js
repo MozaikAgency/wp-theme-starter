@@ -10,7 +10,7 @@ var assets = require('./common').paths.assets;
 module.exports = {
 	paths: {
 		watch: assets.src  + '/scss/**/*.scss',
-		src:   [assets.src + '/scss/**/*.scss', '!' + assets.src + '/scss/**/_*'],
+		src:   [assets.src + '/scss/*.scss', '!' + assets.src + '/scss/**/_*'],
 		dest:  assets.dest + '/css',
 		clean: assets.dest + '/css/**/*.{css,map}'
 	},
