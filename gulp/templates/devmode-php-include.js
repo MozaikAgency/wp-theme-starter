@@ -18,6 +18,6 @@ module.exports = function (filename, definitions) {
 		' * for production before deploying!',
 		' *',
 		' */',
-		'include_once \'' + filename + '\';'
+		'include \'' + filename + '\';'
 	].join('\n');
 };
