@@ -22,7 +22,7 @@ module.exports = {
 			// templates during theme template
 			// transformation in watch & dev mode
 			preserve: new RegExp([
-				"Template Name:.*"
+				"(^|\\s)Template Name:.*"
 			].join('|'), 'g')
 		}
 	}
