@@ -50,7 +50,7 @@ The goals of the boilerplate are to:
 1. The next steps require nodejs **@^0.12** ([download here](https://nodejs.org/download/)) and [gulpjs](https://github.com/gulpjs/gulp/blob/master/) (run `npm install gulp -g` after installing node)
 1. Run `npm install` to install all dev dependencies
 1. Change the `package.json` with your new theme's configuration (specifically: name, prettyName, description, version, author, authorURI, license & keywords)
-1. Run `gulp` to generate the "built theme" for the first time
+1. Run `gulp build` to generate the "built theme" for the first time
 1. Log in to the admin and enable the *built theme*
 	 (**Note:** The *dev theme* is not a valid theme, that's fine! Don't delete it or try to enable it!)
 1. Start Developing!
