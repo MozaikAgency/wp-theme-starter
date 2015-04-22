@@ -9,13 +9,13 @@ var paths       = require('../config/common').paths;
 module.exports = function () {
   browserSync({
     files: [
-			paths.theme.dest + '/**/*',
-			'!' + paths.assets.dest + '/**/*.map',
-			'!' + paths.theme.dest + '/README.md',
-			'!' + paths.theme.dest + '/style.css'
+			paths.assets.dest + '/**/*',
+			'!' + paths.assets.dest + '/**/*.map'
 		],
 		logSnippet: false,
 		server: false,
-		open: false
+		open: false,
+		reloadDelay: 100,
+		reloadDebounce: 100
   });
 };

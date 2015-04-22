@@ -6,6 +6,8 @@ var add          = require('gulp-add');
 var filter       = require('gulp-filter');
 var insert       = require('gulp-insert');
 var notify       = require('gulp-notify');
+var browserSync  = require('browser-sync');
+
 
 // utils
 var displayError = require('../../utils/displayError');
@@ -70,5 +72,6 @@ module.exports = function () {
 		.pipe(notify({
 			message: pumped('Theme Moved!'),
 			onLast: true
-		}));
+		}))
+		.on('end', browserSync.reload);
 };
