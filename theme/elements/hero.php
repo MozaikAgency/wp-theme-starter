@@ -1,3 +1,10 @@
+<?php
+/**
+ * Simple Page Hero Element
+ *
+ * @author: Mozaik Ltd. <http://mozaik.com/>
+ */
+?>
 <article class="hero">
 	<div class="hero__content">
 
@@ -10,7 +17,7 @@
 		</p>
 
 		<p>
-			<strong>Happy Hacking! </strong>
+			<strong>Happy Hacking!</strong>
 		</p>
 
 		<footer>
