@@ -13,8 +13,12 @@ module.exports = [
 	' * Theme Styles are in the assets/css folder,',
 	' * this file is only used for theme initialization',
 	' *',
-	' * This file is generated automagically by the build',
-	' * process. See more at: http://',
+	' * This file is generated automagically by the',
+	' * build system. To edit theme styles use the files',
+	' * in the "dev theme", in the assets/scss folder',
+	' *',
+	' * See more at:',
+	' * https://github.com/MozaikAgency/wp-theme-bootstrap',
 	' *',
 	' */'
 ].join('');
