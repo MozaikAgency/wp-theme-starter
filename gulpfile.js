@@ -1,5 +1,5 @@
 var gulp  = require('gulp');
-var gutil = require('gutil');
+var gutil = require('gulp-util');
 
 // utils
 var validateConfig = require('./gulp/utils/validateConfig');
