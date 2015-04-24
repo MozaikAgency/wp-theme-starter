@@ -1,6 +1,7 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
+var browserSync  = require('browser-sync');
 
 // utils
 var displayError = require('../../utils/displayError');
@@ -23,5 +24,7 @@ module.exports = function () {
 		.pipe(notify({
 			message: pumped('Images Moved'),
 			onLast: true
-		}));
+		}))
+
+		.on('end', browserSync.reload);
 };

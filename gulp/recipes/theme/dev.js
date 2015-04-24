@@ -73,5 +73,6 @@ module.exports = function () {
 			message: pumped('Theme Moved!'),
 			onLast: true
 		}))
+
 		.on('end', browserSync.reload);
 };
