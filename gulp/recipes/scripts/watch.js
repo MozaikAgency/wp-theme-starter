@@ -4,11 +4,11 @@ var named        = require('vinyl-named');
 var gulpWebpack  = require('gulp-webpack');
 var lodash       = require('lodash');
 var browserSync  = require('browser-sync');
-var notifier     = require('node-notifier');
 
 // utils
 var displayError = require('../../utils/displayError');
 var deepMerge    = require('../../utils/deepMerge');
+var notifaker    = require('../../utils/gulp-notifaker');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -40,11 +40,7 @@ module.exports = function () {
 				// a package is updated
 				browserSync.reload();
 
-				notifier.notify({
-					title:   'Webpack',
-					message: pumped('JS Packaged'),
-					onLast:  true
-				});
+				notifaker(pumped('JS Packaged'));
    	 	})
 		)
 
