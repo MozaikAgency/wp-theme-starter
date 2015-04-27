@@ -1,4 +1,4 @@
-# <PROJECT CODE> - <PROJECT NAME>
+# $PROJECT CODE$ - $PROJECT NAME$
 
 Please keep a log here of things that 
 you needed to do that were out of the ordinary.
