@@ -13,13 +13,14 @@
 
 /**--- Actions ---**/
 
-add_action( 'after_setup_theme',  'mbwp_setup' );
+add_action( 'after_setup_theme',  'theme_setup' );
 
-add_action( 'wp_enqueue_scripts', 'mbwp_styles' );
+add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
-add_action( 'wp_enqueue_scripts', 'mbwp_scripts' );
+add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 /**--- Filters ---**/
+
 
 
 /* =========================================
@@ -34,7 +35,7 @@ add_action( 'wp_enqueue_scripts', 'mbwp_scripts' );
  *
  * @since 1.0
  */
-function mbwp_setup() {
+function theme_setup() {
 
 	// Let wp know we want to use html5 for content
 	add_theme_support( 'html5', array(
@@ -49,7 +50,7 @@ function mbwp_setup() {
 	// Let wp know we want to use post thumbnails
 	/*
 	add_theme_support( 'post-thumbnails', array(
-		'post'
+		'post', 'page'
 	) );
 	*/
 
@@ -57,8 +58,8 @@ function mbwp_setup() {
 	// Register navigation menus for theme
 	/*
 	register_nav_menus( array(
-		'primary' => __( 'Main Menu',   '$NAME$' ),
-		'footer'  => __( 'Footer Menu', '$NAME$' )
+		'primary' => 'Main Menu',
+		'footer'  => 'Footer Menu'
 	) );
 	*/
 
@@ -110,7 +111,7 @@ function mbwp_setup() {
  *
  * @since 1.0
  */
-function mbwp_styles() {
+function theme_styles() {
 
 	$theme_dir = get_template_directory_uri();
 
@@ -124,7 +125,7 @@ function mbwp_styles() {
  *
  * @since 1.0
  */
-function mbwp_scripts() {
+function theme_scripts() {
 
 	$theme_dir = get_template_directory_uri();
 
