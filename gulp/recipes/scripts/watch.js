@@ -8,7 +8,8 @@ var browserSync  = require('browser-sync');
 // utils
 var displayError = require('../../utils/displayError');
 var deepMerge    = require('../../utils/deepMerge');
-var notifaker    = require('../../utils/gulp-notifaker');
+var logStats     = require('../../utils/webpackLogStats');
+var notifaker    = require('../../utils/notifaker');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -35,11 +36,12 @@ module.exports = function () {
 				watch: true,
 				devtool: 'eval',
 				keepalive: true
-			}, deepMerge), null, function () {
+			}, deepMerge), null, function (err, stats) {
+				logStats(err, stats, { watch: true });
+
 				// reload browser-sync when
 				// a package is updated
 				browserSync.reload();
-
 				notifaker(pumped('JS Packaged'));
    	 	})
 		)
