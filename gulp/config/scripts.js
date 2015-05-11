@@ -29,24 +29,24 @@ module.exports = {
 					{
 						test: /\.jsx?$/,
 						exclude: /node_modules|bower_components/,
-						loader: 'jshint-loader'
+						loader: 'eslint-loader'
+					}
+				],
+				loaders: [
+					{
+						test: /\.jsx?$/,
+						exclude: /node_modules|bower_components/,
+						loader: 'babel-loader'
 					}
 				]
 			},
 			plugins: [
 				new BowerWebpackPlugin()
 			],
-			jshint: {
-				bitwise: true,
-				browser: true,
-				curly: true,
-				eqeqeq: true,
-				forin: true,
-				noarg: true,
-				noempty: true,
-				strict: true,
-				undef: true,
-				esnext: true
+			esling: {
+				emitError: true,
+				emitWarning: true,
+				configFile: '../../.eslintrc'
 			}
 		}
 	}

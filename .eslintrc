@@ -1,0 +1,22 @@
+{
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "es6": true
+  },
+  "rules": {
+    "eqeqeq": 1,
+    "curly": 1,
+    "guard-for-in": 1,
+    "vars-on-top": 1,
+    "no-eq-null": 1,
+    "no-reserved-keys": 1,
+    "brace-style": 1,
+    "quotes": [1, "single", "avoid-escape"],
+    "eol-last": 0,
+    "no-console": 1
+  }
+}
