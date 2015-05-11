@@ -2,7 +2,7 @@
   "name": "you_should_probably_change_this",
   "prettyName": "You should probably change this...",
   "description": "The 2015 theme for <Example.com>. Built by Mozaik Ltd. for <Example>",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "author": "Mozaik Ltd.",
   "authorURI": "http://mozaik.com/",
   "license": "GPLv2 or later",
@@ -21,8 +21,6 @@
     "prod": "gulp build"
   },
   "devDependencies": {
-    "babel-core": "^5.2.17",
-    "babel-loader": "^5.0.0",
     "bower-webpack-plugin": "^0.1.8",
     "browser-sync": "^2.7.1",
     "del": "^1.1.1",
