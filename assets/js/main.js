@@ -1,17 +1,13 @@
+/**
+ * Support for ES6+ via Babel.js!
+ */
 
+import message from './_partial';
 
-
-var partial = require('./_partial');
-
-
-
-var { foo, bar } = {
-	foo: ['1', '2', '3'],
-	bar: { hello: 'World' },
-	baz: 'Oh, No!'
+let { foo, baz } = {
+	foo: 'Hello',
+	bar: 'Cruel',
+	baz: 'World'
 };
 
-
-console.log(foo);
-console.log(bar);
-console.log(partial);
+console.log(foo, baz, message);

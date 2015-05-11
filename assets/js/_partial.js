@@ -1,3 +1,1 @@
-
-
-module.exports = 'alive!!!!'
+export default 'I\'m alive!!!!!';
