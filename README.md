@@ -38,7 +38,7 @@ The goals of the boilerplate are to:
 
 ### CSS
 
-1. The boilerplate assumes you are using SCSS to write your styles and compiles to CSS using [libsass](http://libsass.org/)
+1. The boilerplate assumes you are using SCSS to write your styles and compiles to CSS using [Libsass](http://libsass.org/)
 1. [Autoprefixer](https://github.com/postcss/autoprefixer) is used for adding the correct vendor prefixes to the final generated CSS
 
 ## Development Guidelines
