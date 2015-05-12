@@ -28,14 +28,24 @@ module.exports = {
 				preLoaders: [
 					{
 						test: /\.jsx?$/,
-						exclude: /node_modules|bower_components/,
+						exclude: [
+							/node_modules/,
+							/bower_components/,
+							/vendor/,
+							/polyfills/
+						],
 						loader: 'eslint-loader'
 					}
 				],
 				loaders: [
 					{
 						test: /\.jsx?$/,
-						exclude: /node_modules|bower_components/,
+						exclude: [
+							/node_modules/,
+							/bower_components/,
+							/vendor/,
+							/polyfills/
+						],
 						loader: 'babel-loader'
 					}
 				]
