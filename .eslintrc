@@ -5,7 +5,9 @@
   "env": {
     "browser": true,
     "jquery": true,
-    "es6": true
+    "node": true,
+    "es6": true,
+    "amd": true
   },
   "rules": {
     "eqeqeq": 1,
@@ -15,8 +17,9 @@
     "no-eq-null": 1,
     "no-reserved-keys": 1,
     "brace-style": 1,
+    "no-console": 1,
     "quotes": [1, "single", "avoid-escape"],
     "eol-last": 0,
-    "no-console": 1
+    "no-use-before-define": 0
   }
 }
