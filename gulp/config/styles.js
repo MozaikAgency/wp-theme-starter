@@ -16,9 +16,7 @@ module.exports = {
 	},
 
 	options: {
-		sass: {
-			errLogToConsole: true
-		},
+		sass: {},
 		autoprefixer: {
 			browsers: [
 				'last 2 version',

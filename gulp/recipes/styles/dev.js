@@ -29,7 +29,7 @@ module.exports = function (cb) {
 
 		.pipe(sourcemaps.init())
 
-		.pipe(sass(config.options.sass))
+		.pipe(sass.sync(config.options.sass).on('error', sass.logError))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
 		.pipe(sourcemaps.write('./'))

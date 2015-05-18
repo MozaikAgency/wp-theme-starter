@@ -21,7 +21,7 @@ module.exports = function () {
 	return gulp.src(config.paths.src)
 		.pipe(plumber())
 
-		.pipe(sass(config.options.sass))
+		.pipe(sass.sync(config.options.sass).on('error', sass.logError))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
 		.pipe(minify())
