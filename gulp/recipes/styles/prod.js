@@ -6,7 +6,6 @@ var minify       = require('gulp-minify-css');
 var notify       = require('gulp-notify');
 
 // utils
-var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -20,7 +19,7 @@ var config       = require('../../config/styles');
  */
 module.exports = function () {
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(sass(config.options.sass))
 		.pipe(autoprefixer(config.options.autoprefixer))

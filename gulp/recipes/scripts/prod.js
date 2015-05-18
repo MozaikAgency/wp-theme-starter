@@ -6,7 +6,6 @@ var lodash       = require('lodash');
 var notify       = require('gulp-notify');
 
 // utils
-var displayError = require('../../utils/displayError');
 var deepMerge    = require('../../utils/deepMerge');
 var pumped       = require('../../utils/pumped');
 
@@ -21,7 +20,7 @@ var config       = require('../../config/scripts');
  */
 module.exports = function () {
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(named()) // vinyl-named is used to allow for
 									 // multiple entry files

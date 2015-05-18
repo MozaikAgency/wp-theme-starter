@@ -4,7 +4,6 @@ var imagemin     = require('gulp-imagemin');
 var notify       = require('gulp-notify');
 
 // utils
-var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -19,7 +18,7 @@ var config       = require('../../config/images');
  */
 module.exports = function () {
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(imagemin({
 			progressive: true,

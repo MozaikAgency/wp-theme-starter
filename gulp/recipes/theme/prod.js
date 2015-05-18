@@ -4,7 +4,6 @@ var add          = require('gulp-add');
 var notify       = require('gulp-notify');
 
 // utils
-var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -24,7 +23,7 @@ var style        = require('../../templates/wordpress-style-css.js');
  */
 module.exports = function () {
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(add({
 			'.gitignore': '*',

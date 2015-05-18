@@ -10,7 +10,6 @@ var browserSync  = require('browser-sync');
 
 
 // utils
-var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -36,7 +35,7 @@ module.exports = function () {
 	var filterFunc = filter('functions.php');
 
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(filterPHP) // Filter php files and transform
 		                 // them to simply include the file

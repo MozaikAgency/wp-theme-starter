@@ -3,7 +3,6 @@ var plumber      = require('gulp-plumber');
 var notify       = require('gulp-notify');
 
 // utils
-var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -17,7 +16,7 @@ var config       = require('../../config/fonts');
  */
 module.exports = function () {
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({

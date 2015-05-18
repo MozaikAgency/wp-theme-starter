@@ -8,7 +8,6 @@ var notify       = require('gulp-notify');
 var browserSync  = require('browser-sync');
 
 // utils
-var displayError = require('../../utils/displayError');
 var pumped       = require('../../utils/pumped');
 
 // config
@@ -26,7 +25,7 @@ module.exports = function (cb) {
 	var filterCSS = filter('**/*.css');
 
 	return gulp.src(config.paths.src)
-		.pipe(plumber({ errorHandler: displayError }))
+		.pipe(plumber())
 
 		.pipe(sourcemaps.init())
 
