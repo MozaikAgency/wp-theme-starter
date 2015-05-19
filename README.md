@@ -106,28 +106,28 @@ To use jQuery, or any other global library, in your webpack-ed js you have a cou
 	   to the jQuery package we downloaded earlier. We can achieve this by adding the following to the `plugins` 
 	   section of your webpack config:
 	   
-		...
-		plugins: [
 			...
-			webpack.ProvidePlugin({
-				'$' : 'jquery',
-				'jQuery': 'jquery',
-				'window.jQuery': 'jquery'
-			}),
-		],
-		...
+			plugins: [
+				...
+				webpack.ProvidePlugin({
+					'$' : 'jquery',
+					'jQuery': 'jquery',
+					'window.jQuery': 'jquery'
+				}),
+			],
+			...
 
 - Use jQuery as an external package:
 	1. Declare jQuery as an external dependency of your `main.js` in the `wp_enqueue_script` function in your `functions.php` file.
 	   Something like this:
 	   
-		wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
+			wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
 			
 	1. Declare jQuery as an external dependency in webpack. Add the following to `./gulp/config/scripts.js` in the webpack section of
 		 the config:
 	
-		...
-		externals: {
-			jquery: 'window.jQuery'
-		}
-		...
+			...
+			externals: {
+				jquery: 'window.jQuery'
+			}
+			...
