@@ -87,3 +87,47 @@ The goals of the boilerplate are to:
 1. We generally follow the [WordPress PHP Coding Standards](https://make.wordpress.org/core/handbook/coding-standards/php/) in our WP code
 1. The build process supports the [<abbr title="EcmaScript 6">ES6</abbr> JavaScript syntax](https://babeljs.io/docs/learn-es6/) by using [babel.js](https://babeljs.io/) to transpile ES6
    to ES5.
+   
+## FAQ
+
+### 1. How do I use jQuery with wp-theme-bootstrap ?
+
+As mentioned above, wp-theme-bootstrap uses [webpack](http://webpack.github.io/) to handle concatenating, minifying and optimizing the javascript in the theme.
+Webpack, like Browserify and RequireJS, is a module loader for javascript and as such requires each module (file) to declare the dependencies it has within it. 
+To use jQuery, or any other global library, in your webpack-ed js you have a couple of choices:
+
+- Use jQuery as a dependency for all modules in the project and include it in the final concatenated package (Recommended):
+	1. With the terminal open _within the dev theme_, type `npm install jquery --save` to install jquery for the project
+	1. In the `./gulp/config/scripts.js` file add this line to the top of the file to expose webpack within this file:
+	
+			var webpack = require('gulp-webpack').webpack;
+	    
+	1. Then within the file declare that any instance of `$`,`jQuery` or `window.jQuery` within the project refers
+	   to the jQuery package we downloaded earlier. We can achieve this by adding the following to the `plugins` 
+	   section of your webpack config:
+	   
+		...
+		plugins: [
+			...
+			webpack.ProvidePlugin({
+				'$' : 'jquery',
+				'jQuery': 'jquery',
+				'window.jQuery': 'jquery'
+			}),
+		],
+		...
+
+- Use jQuery as an external package:
+	1. Declare jQuery as an external dependency of your `main.js` in the `wp_enqueue_script` function in your `functions.php` file.
+	   Something like this:
+	   
+		wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
+			
+	1. Declare jQuery as an external dependency in webpack. Add the following to `./gulp/config/scripts.js` in the webpack section of
+		 the config:
+	
+		...
+		externals: {
+			jquery: 'window.jQuery'
+		}
+		...
