@@ -10,16 +10,16 @@ var theme  = paths.theme;
  */
 module.exports = {
 	paths: {
-		watch: [theme.src + '/**/*', '!' + theme.src + '/README.md'],
-		src:   [theme.src + '/**/*', '!' + theme.src + '/README.md'],
+		watch: theme.src + '/**/*.{json,php,png}',
+		src:   theme.src + '/**/*.{json,php,png}',
 		dest:  theme.dest,
-		clean: [theme.dest + '/**/*.php', '!' + paths.assets.dest]
+		clean: [theme.dest + '/**/*.{css,json,php,png}', '!' + paths.assets.dest]
 	},
 
 	options: {
 		transform: {
-			// Preserves matching strings from
-			// templates during theme template
+			// Preserves matching comment strings
+			// from templates during theme template
 			// transformation in watch & dev mode
 			preserve: new RegExp([
 				"(^|\\s)Template Name:.*"
