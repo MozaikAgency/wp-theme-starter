@@ -13,7 +13,7 @@ module.exports = {
 		watch: theme.src + '/**/*.{json,php,png}',
 		src:   theme.src + '/**/*.{json,php,png}',
 		dest:  theme.dest,
-		clean: [theme.dest + '/**/*.{css,json,php,png}', '!' + paths.assets.dest]
+		clean: [theme.dest + '/**/*.{css,json,php,png}', '!' + paths.assets.dest + '/**/*']
 	},
 
 	options: {
