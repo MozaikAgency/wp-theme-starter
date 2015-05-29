@@ -51,7 +51,14 @@ module.exports = {
 				]
 			},
 			plugins: [
-				new BowerWebpackPlugin()
+				new BowerWebpackPlugin({
+					excludes: [
+						/\.css$/,
+						/\.png$/,
+						/mCSB/,
+						/fonts/
+					]
+				})
 			],
 			esling: {
 				emitError: true,
