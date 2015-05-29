@@ -20,12 +20,20 @@ module.exports = {
 		autoprefixer: {
 			browsers: [
 				'last 2 version',
-				'safari >= 5',
-				'ie >= 7',
-				'opera >= 12.1',
-				'ios >= 6',
-				'android >= 4'
+				'ie >= 8'
 			]
+		},
+		minify: {
+			advanced: true,
+			aggressiveMerging: true,
+			keepBreaks: false,
+			keepSpecialComments: 0,
+			compatibility: 'ie8',
+			mediaMerging: true,
+			restructuring: true,
+			rebase: true,
+			roundingPrecision: 2,
+			shorthandCompacting: true
 		}
 	}
 };

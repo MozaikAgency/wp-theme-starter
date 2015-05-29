@@ -24,7 +24,7 @@ module.exports = function () {
 		.pipe(sass.sync(config.options.sass).on('error', sass.logError))
 		.pipe(autoprefixer(config.options.autoprefixer))
 
-		.pipe(minify())
+		.pipe(minify(config.options.minify))
 
 		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({
