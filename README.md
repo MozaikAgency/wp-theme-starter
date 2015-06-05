@@ -109,7 +109,7 @@ To use jQuery, or any other global library, in your webpack-ed js you have a cou
 			...
 			plugins: [
 				...
-				webpack.ProvidePlugin({
+				new webpack.ProvidePlugin({
 					'$' : 'jquery',
 					'jQuery': 'jquery',
 					'window.jQuery': 'jquery'
