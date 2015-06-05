@@ -52,7 +52,7 @@
 	font-size: .5em;
 	font-style: italic;
 	line-height: 1;
-	transition: 0.4s ease-out;
+	transition: 0.3s ease-out;
 
 	&:after {
 		content: '';
@@ -60,6 +60,7 @@
 		left: -5%;
 		bottom: -1px;
 		z-index: -1;
+		border-radius: 2px;
 		height: 1px;
 		width: 110%;
 		background-color: $ca_txt_highlight;
