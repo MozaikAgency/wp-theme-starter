@@ -15,7 +15,7 @@ The goals of the boilerplate are to:
 1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.2 && npm@^2.7.4)*
 1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.8.11)*
 
-- *You can use [`nvm`](https://github.com/creationix/nvm) to manage the node versions installed on your computer*
+- *You can use [`nvm`](https://github.com/creationix/nvm) if you are running a UNIX based OS (Linux or OSX) or [`nvmw`](https://github.com/hakobera/nvmw) if you are running Windows to manage the node versions installed on your computer*
 - *You can use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) to update the node modules in your theme (Note that updating may break things, so be careful)* 
 
 ### WordPress
