@@ -12,7 +12,9 @@
 		<div class="hero__content">
 
 			<header>
-				<h1>The Mozaik WordPress Theme Bootstrap</h1>
+				<h1 class="hero__title">
+					The Mozaik WordPress Theme Bootstrap
+				</h1>
 			</header>
 
 			<p>
