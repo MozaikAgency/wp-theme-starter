@@ -2,8 +2,8 @@ var gulp  = require('gulp');
 var gutil = require('gulp-util');
 
 // utils
-var validateConfig = require('./gulp/utils/validateConfig');
-var lazyQuire      = require('./gulp/utils/lazyQuire');
+var validateConfig = require('./gulp/core/utils/validateConfig');
+var lazyQuire      = require('./gulp/core/utils/lazyQuire');
 
 // config
 var project = require('./package.json');
@@ -41,49 +41,49 @@ gulp.task('build', [
 /**
  * Browser
  */
-gulp.task('browser:sync', [], lazyQuire(require, './gulp/recipes/browser-sync'));
+gulp.task('browser:sync', [], lazyQuire(require, './gulp/core/recipes/browser-sync'));
 
 
 /**
  * Fonts
  */
-gulp.task('fonts:clean', [],              lazyQuire(require, './gulp/recipes/fonts/clean'));
-gulp.task('fonts:dev',   ['fonts:clean'], lazyQuire(require, './gulp/recipes/fonts/dev'));
-gulp.task('fonts:prod',  ['fonts:clean'], lazyQuire(require, './gulp/recipes/fonts/prod'));
-gulp.task('fonts:watch', ['fonts:dev'],   lazyQuire(require, './gulp/recipes/fonts/watch'));
+gulp.task('fonts:clean', [],              lazyQuire(require, './gulp/core/recipes/fonts/clean'));
+gulp.task('fonts:dev',   ['fonts:clean'], lazyQuire(require, './gulp/core/recipes/fonts/dev'));
+gulp.task('fonts:prod',  ['fonts:clean'], lazyQuire(require, './gulp/core/recipes/fonts/prod'));
+gulp.task('fonts:watch', ['fonts:dev'],   lazyQuire(require, './gulp/core/recipes/fonts/watch'));
 
 
 /**
  * Images
  */
-gulp.task('images:clean', [],               lazyQuire(require, './gulp/recipes/images/clean'));
-gulp.task('images:dev',   ['images:clean'], lazyQuire(require, './gulp/recipes/images/dev'));
-gulp.task('images:prod',  ['images:clean'], lazyQuire(require, './gulp/recipes/images/prod'));
-gulp.task('images:watch', ['images:dev'],   lazyQuire(require, './gulp/recipes/images/watch'));
+gulp.task('images:clean', [],               lazyQuire(require, './gulp/core/recipes/images/clean'));
+gulp.task('images:dev',   ['images:clean'], lazyQuire(require, './gulp/core/recipes/images/dev'));
+gulp.task('images:prod',  ['images:clean'], lazyQuire(require, './gulp/core/recipes/images/prod'));
+gulp.task('images:watch', ['images:dev'],   lazyQuire(require, './gulp/core/recipes/images/watch'));
 
 
 /**
  * Scripts
  */
-gulp.task('scripts:clean', [],                lazyQuire(require, './gulp/recipes/scripts/clean'));
-gulp.task('scripts:dev',   ['scripts:clean'], lazyQuire(require, './gulp/recipes/scripts/dev'));
-gulp.task('scripts:prod',  ['scripts:clean'], lazyQuire(require, './gulp/recipes/scripts/prod'));
-gulp.task('scripts:watch', ['scripts:clean'], lazyQuire(require, './gulp/recipes/scripts/watch'));
+gulp.task('scripts:clean', [],                lazyQuire(require, './gulp/core/recipes/scripts/clean'));
+gulp.task('scripts:dev',   ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/dev'));
+gulp.task('scripts:prod',  ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/prod'));
+gulp.task('scripts:watch', ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/watch'));
 
 
 /**
  * Styles
  */
-gulp.task('styles:clean', [],               lazyQuire(require, './gulp/recipes/styles/clean'));
-gulp.task('styles:dev',   ['styles:clean'], lazyQuire(require, './gulp/recipes/styles/dev'));
-gulp.task('styles:prod',  ['styles:clean'], lazyQuire(require, './gulp/recipes/styles/prod'));
-gulp.task('styles:watch', ['styles:dev'],   lazyQuire(require, './gulp/recipes/styles/watch'));
+gulp.task('styles:clean', [],               lazyQuire(require, './gulp/core/recipes/styles/clean'));
+gulp.task('styles:dev',   ['styles:clean'], lazyQuire(require, './gulp/core/recipes/styles/dev'));
+gulp.task('styles:prod',  ['styles:clean'], lazyQuire(require, './gulp/core/recipes/styles/prod'));
+gulp.task('styles:watch', ['styles:dev'],   lazyQuire(require, './gulp/core/recipes/styles/watch'));
 
 
 /**
  * Theme
  */
-gulp.task('theme:clean', [],              lazyQuire(require, './gulp/recipes/theme/clean'));
-gulp.task('theme:dev',   ['theme:clean'], lazyQuire(require, './gulp/recipes/theme/dev'));
-gulp.task('theme:prod',  ['theme:clean'], lazyQuire(require, './gulp/recipes/theme/prod'));
-gulp.task('theme:watch', ['theme:dev'],   lazyQuire(require, './gulp/recipes/theme/watch'));
+gulp.task('theme:clean', [],              lazyQuire(require, './gulp/core/recipes/theme/clean'));
+gulp.task('theme:dev',   ['theme:clean'], lazyQuire(require, './gulp/core/recipes/theme/dev'));
+gulp.task('theme:prod',  ['theme:clean'], lazyQuire(require, './gulp/core/recipes/theme/prod'));
+gulp.task('theme:watch', ['theme:dev'],   lazyQuire(require, './gulp/core/recipes/theme/watch'));

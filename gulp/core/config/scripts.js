@@ -1,5 +1,8 @@
-var assets = require('./common').paths.assets;
+var path               = require('path');
 var BowerWebpackPlugin = require('bower-webpack-plugin');
+
+// config
+var assets = require('./common').paths.assets;
 
 /**
  * Script Building
@@ -11,7 +14,10 @@ var BowerWebpackPlugin = require('bower-webpack-plugin');
 module.exports = {
 	paths: {
 		watch: assets.src  + '/js/**/*.js',
-		src:   [assets.src + '/js/*.js', '!' + assets.src + '/js/**/_*'],
+		src:   [
+			assets.src + '/js/*.js',
+			'!' + assets.src + '/js/**/_*'
+		],
 		dest:  assets.dest + '/js',
 		clean: assets.dest + '/js/**/*.{js,map}'
 	},
@@ -20,6 +26,9 @@ module.exports = {
 		webpack: {
 			resolve: {
 				extensions: ['', '.js', '.jsx']
+			},
+			output: {
+				chunkFilename: 'chunk-[name].js'
 			},
 			stats: {
 				colors: true
@@ -53,17 +62,19 @@ module.exports = {
 			plugins: [
 				new BowerWebpackPlugin({
 					excludes: [
-						/\.css$/,
+						/\.(le|s?c|sa)ss$/,
 						/\.png$/,
+						/\.jpg$/,
+						/\.gif$/,
 						/mCSB/,
 						/fonts/
 					]
 				})
 			],
-			esling: {
+			eslint: {
 				emitError: true,
 				emitWarning: true,
-				configFile: '../../.eslintrc'
+				configFile: path.resolve('./.eslintrc')
 			}
 		}
 	}

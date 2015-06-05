@@ -13,7 +13,7 @@ var browserSync  = require('browser-sync');
 var pumped       = require('../../utils/pumped');
 
 // config
-var project      = require('../../../package.json');
+var project      = require('../../../../package.json');
 var config       = require('../../config/theme');
 
 // templates
