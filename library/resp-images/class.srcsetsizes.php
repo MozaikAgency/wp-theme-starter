@@ -1,4 +1,9 @@
 <?php
+/**
+ * WordPress Srcset Sizes Helper
+ *
+ * @author Max G J Panas <http://maxpanas.com>
+ */
 
 
 

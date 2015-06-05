@@ -1,12 +1,16 @@
 <?php
 /**
- * Picture Element Helper
+ * WordPress Responsive Background
+ * Image Helper
  *
+ * @author Max G J Panas <http://maxpanas.com>
  */
 
 
 /**
- * Class MOZ_Picture
+ * Class MOZ_Background_Picture
+ *
+ *
  */
 class MOZ_Background_Picture extends MOZ_SrcSetSizes {
 

@@ -1,7 +1,9 @@
 <?php
 /**
- * Picture Element Helper
+ * WordPress Picture Element
+ * Helper
  *
+ * @author Max G J Panas <http://maxpanas.com>
  */
 
 

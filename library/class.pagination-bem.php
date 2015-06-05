@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * WordPress Pagination extension
+ * to support BEM class naming
+ * conventions
+ *
+ * @author Max G J Panas <http://maxpanas.com>
+ */
 
 
 /**
