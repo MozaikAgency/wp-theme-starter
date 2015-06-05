@@ -71,7 +71,7 @@ function theme_setup() {
 
 
 	// Remove toolbar for all users in front end
-	show_admin_bar( false );
+	// show_admin_bar( false );
 
 
 	// Add Custom Image Sizes
