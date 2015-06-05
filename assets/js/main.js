@@ -2,7 +2,9 @@
  * Support for ES6+ via Babel.js!
  */
 
-import message from './_partial';
+import './vendor/webpack.publicPath';
+
+import message from './partials/partial';
 
 let { foo, baz } = {
 	foo: 'Hello',
@@ -11,3 +13,13 @@ let { foo, baz } = {
 };
 
 console.log(foo, baz, message);
+
+if ('Hello' === foo) {
+	/**
+	 * Webpack Chunking
+	 */
+	require.ensure(['./chunks/module'], function (require) {
+		var moduleMessage = require('./chunks/module');
+		console.log(moduleMessage);
+	}, 'module');
+}
