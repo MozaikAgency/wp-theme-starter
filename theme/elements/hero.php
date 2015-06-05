@@ -27,20 +27,7 @@
 				check out the README
 			</a>
 
-			<p>
-				<a class="github-button" href="https://github.com/MozaikAgency/wp-theme-bootstrap/fork"
-				   data-icon="octicon-git-branch" data-count-href="/MozaikAgency/wp-theme-bootstrap/network"
-				   data-count-api="/repos/MozaikAgency/wp-theme-bootstrap#forks_count" data-count-aria-label="# forks on GitHub"
-				   aria-label="Fork MozaikAgency/wp-theme-bootstrap on GitHub">Fork</a>
-				<a class="github-button"
-				   href="https://github.com/MozaikAgency/wp-theme-bootstrap"
-				   data-icon="octicon-star"
-				   data-count-href="/MozaikAgency/wp-theme-bootstrap/stargazers"
-				   data-count-api="/repos/MozaikAgency/wp-theme-bootstrap#stargazers_count"
-				   data-count-aria-label="# stargazers on GitHub"
-				   aria-label="Star MozaikAgency/wp-theme-bootstrap on GitHub">Star</a>
-				<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
-			</p>
+			<?php get_template_part( 'elements/github' ); ?>
 		</footer>
 
 	</div>
