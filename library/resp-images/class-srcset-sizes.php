@@ -8,10 +8,10 @@
 
 
 /**
- * Class MOZ_SrcSetSizes
+ * Class MOZ_Srcset_Sizes
  *
  */
-class MOZ_SrcSetSizes {
+class MOZ_Srcset_Sizes {
 
 	/**
 	 * @var int

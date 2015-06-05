@@ -9,8 +9,9 @@
 
 /**
  * Class MOZ_Picture
+ *
  */
-class MOZ_Picture extends MOZ_SrcSetSizes {
+class MOZ_Picture extends MOZ_Srcset_Sizes {
 
 
 	/**

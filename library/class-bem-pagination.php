@@ -9,10 +9,10 @@
 
 
 /**
- * Class MOZ_Pagination
+ * Class MOZ_BEM_Pagination
  *
  */
-class MOZ_Pagination {
+class MOZ_BEM_Pagination {
 
 
 	/**

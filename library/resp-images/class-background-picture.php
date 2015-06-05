@@ -10,9 +10,8 @@
 /**
  * Class MOZ_Background_Picture
  *
- *
  */
-class MOZ_Background_Picture extends MOZ_SrcSetSizes {
+class MOZ_Background_Picture extends MOZ_Srcset_Sizes {
 
 
 	/**
