@@ -1,0 +1,16 @@
+/* =========================================
+		Functions -- ParseInt
+   ========================================= */
+
+/**
+ * Parses the input string into
+ * an integer
+ *
+ * @param $n string
+ *
+ * @returns int
+ */
+@function parseInt($n) {
+	/* 2 */
+	@return $n / ($n * 0 + 1);
+}

@@ -7,7 +7,7 @@
 	z-index: 1;
 	min-height: 100%;
 
-	background: top center no-repeat url('../img/everest.jpg');
+	background: top center no-repeat url($p_images + 'everest.jpg');
 	background-size: cover;
 
 	&:after {
@@ -27,39 +27,51 @@
 	box-sizing: border-box;
 	margin: 0 auto;
 	border: 1px solid transparent;
-	padding: 50px 20px;
-	max-width: 540px;
+	padding: 50px $d_default_gutter;
+	max-width: $d_container_max;
 
-	font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
-	font-size: 2em;
-	color: rgba(white, 0.9);
+	font-family: $t_font_display;
+	font-size: 1em;
+	color: rgba($ca_txt_body, 0.9);
 
 	text-align: center;
 
-	@media all and (max-width: 420px) {
-		font-size: 1em;
+	@include bp($b_mobile) {
+		font-size: 2em;
 	}
 }
 
 .hero__cta {
+	position: relative;
+	z-index: 1;
+
 	display: inline-block;
-	color: white;
+	color: $ca_txt_highlight;
 	text-decoration: none;
 
 	font-size: .5em;
 	font-style: italic;
 	line-height: 1;
+	transition: 0.4s ease-out;
 
 	&:after {
 		content: '';
-		display: block;
+		position: absolute;
+		left: -5%;
+		bottom: -1px;
+		z-index: -1;
 		height: 1px;
-		background-color: white;
-		transition: 0.4s ease-out;
+		width: 110%;
+		background-color: $ca_txt_highlight;
+		transition: 0.2s ease;
 	}
 
-	&:hover:after {
-		opacity: 0;
-		transform: translateY(5px);
+	&:hover {
+		color: $ca_highlight;
+
+		&:after {
+			height: calc(100% + 1px);
+			transform: scale(1.5);
+		}
 	}
 }

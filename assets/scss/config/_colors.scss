@@ -1,0 +1,59 @@
+/* =========================================
+		Color Index
+   ========================================= */
+/**
+ * Prefix colors with $c_ this
+ * makes them easily findable
+ * with auto complete
+ *
+ * Give colors their names in the
+ * index. This makes it easier to
+ * arrange them reasonably in the
+ * index
+ */
+
+// examples:
+
+$c_black: #000;
+
+$c_white: #fff;
+
+$c_red: #f00;
+
+$c_green: #0f0;
+
+
+/* =========================================
+		Colors Applied
+   ========================================= */
+/**
+ * Prefix applied colors with $ca_
+ * this makes them easily findable
+ * with auto complete
+ *
+ * Define where colors where and how
+ * colors are used. This makes it
+ * easier to use them in the rest
+ * of the sass code
+ */
+
+// examples:
+
+// state
+$ca_highlight: blueviolet;
+
+$ca_error: $c_red;
+
+$ca_success: $c_green;
+
+
+// elements
+$ca_bg_body: transparent;
+
+
+// typography
+$ca_txt_display: $c_white;
+
+$ca_txt_body: $c_white;
+
+$ca_txt_highlight: $c_white;

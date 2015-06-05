@@ -1,0 +1,17 @@
+/* =========================================
+		BP - Breakpoint Mixin
+   ========================================= */
+
+
+/**
+ * Helper to make it
+ * easier to print
+ * media queries
+ *
+ * @param $query
+ */
+@mixin bp($query) {
+	@media all and #{$query} {
+		@content;
+	}
+}

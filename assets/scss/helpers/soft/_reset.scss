@@ -1,0 +1,20 @@
+/* =========================================
+		Some Styles Reset
+   ========================================= */
+
+/**
+ * reset every style
+ * ever... kinda, you
+ * get the idea.
+ *
+ */
+%reset {
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	font: inherit;
+	line-height: inherit;
+	background: none;
+	outline: none;
+}

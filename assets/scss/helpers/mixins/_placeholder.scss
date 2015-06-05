@@ -1,0 +1,19 @@
+/* =========================================
+		Placeholder
+   ========================================= */
+
+/**
+ * Convenience mixin to
+ * help style input
+ * placeholder
+ * text
+ *
+ */
+@mixin placeholder {
+	:-moz-placeholder,
+	::-moz-placeholder,
+	:-ms-input-placeholder,
+	::-webkit-input-placeholder {
+		@content
+	}
+}

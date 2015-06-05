@@ -1,0 +1,27 @@
+/* =========================================
+		No Collapse
+   ========================================= */
+
+
+// @config
+
+/**
+ * De-Collapse Margins
+ *
+ * Prevent Margins from collapsing
+ */
+%nocollapse {
+	&:before,
+	&:after {
+		content: "\00a0"; /* No-break space character */
+		display: block;
+		overflow: hidden;
+		height: 0;
+	}
+}
+
+// ---
+
+.nocollapse {
+	@extend %nocollapse;
+}

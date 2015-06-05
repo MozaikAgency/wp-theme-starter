@@ -1,0 +1,55 @@
+/* =========================================
+		Magnific Popup Config
+   ========================================= */
+/**
+ * Configuration for Magnific-Popup
+ *
+ * Include configuration for other third
+ * party modules in the config directory
+ * in individual files like this
+ */
+
+$mfp-overlay-color: transparent;
+$mfp-overlay-opacity: 1;
+
+$mfp-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+$mfp-popup-padding-left: 0;        // Padding from left and from right side
+$mfp-popup-padding-left-mobile: 0; // Same as above, but is applied when width of window is less than 800px
+
+$mfp-z-index-base: 1040; // Base z-index of popup
+
+$mfp-include-arrows: false; // include styles for nav arrows
+$mfp-controls-opacity: 0.65;
+$mfp-controls-color: #FFF;
+$mfp-controls-border-color: #3F3F3F;
+$mfp-inner-close-icon-color: #333;
+$mfp-controls-text-color: #CCC; // Color of preloader and "1 of X" indicator
+$mfp-controls-text-color-hover: #FFF;
+
+$mfp-IE7support: true; // Very basic IE7 support
+
+// Iframe-type options
+$mfp-include-iframe-type: false;
+/*
+$mfp-iframe-padding-top: 40px;
+$mfp-iframe-background: #000;
+$mfp-iframe-max-width: 900px;
+$mfp-iframe-ratio: 9/16;
+*/
+
+// Image-type options
+$mfp-include-image-type: false;
+/*
+$mfp-image-background: #444;
+$mfp-image-padding-top: 40px;
+$mfp-image-padding-bottom: 40px;
+$mfp-include-mobile-layout-for-image: true; // Removes paddings from top and bottom
+*/
+
+// Image caption options
+$mfp-caption-title-color: #F3F3F3;
+$mfp-caption-subtitle-color: #BDBDBD;
+
+// A11y
+$mfp-use-visuallyhidden: true; // Hide content from browsers, but make it available for screen readers
