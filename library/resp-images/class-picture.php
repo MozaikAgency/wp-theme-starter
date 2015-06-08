@@ -41,7 +41,7 @@ class MOZ_Picture extends MOZ_Srcset_Sizes {
 
 			<picture<?php if ( ! empty( $options['class'] ) ) echo " {$options['class']}"; ?>>
 
-				<?php foreach ( $sizes as $size => $query ) :
+				<?php foreach ( array_reverse( $sizes ) as $size => $query ) :
 					$src = wp_get_attachment_image_src( $image, $size, false );
 					?>
 					<source srcset="<?php echo esc_attr( $src[0] ); ?>"
