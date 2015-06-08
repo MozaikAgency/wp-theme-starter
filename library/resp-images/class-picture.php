@@ -53,8 +53,6 @@ class MOZ_Picture extends MOZ_Srcset_Sizes {
 				<?php $base_src = wp_get_attachment_image_src( $image, $base_size, false ); ?>
 				<img srcset="<?php echo esc_attr( $base_src[0] ); ?>"
 				     alt="<?php echo esc_attr( $options['alt'] ); ?>"
-				     width="<?php echo esc_attr( $base_src[1] ); ?>"
-				     height="<?php echo esc_attr( $base_src[2] ); ?>"
 					/>
 
 			</picture>
