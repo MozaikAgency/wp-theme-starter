@@ -4,15 +4,9 @@
 
 import './vendor/webpack.publicPath';
 
-import message from './partials/partial';
 
-let { foo, baz } = {
-	foo: 'Hello',
-	bar: 'Cruel',
-	baz: 'World'
-};
+import { foo, baz } from './partials/partial';
 
-console.log(foo, baz, message);
 
 if ('Hello' === foo) {
 	/**
