@@ -1,3 +1,8 @@
+// utils
+var deepMerge = require('../utils/deepMerge');
+
+// config
+var overrides = require('../../config/styles');
 var assets = require('./common').paths.assets;
 
 /**
@@ -7,7 +12,7 @@ var assets = require('./common').paths.assets;
  *
  * @type {{}}
  */
-module.exports = {
+module.exports = deepMerge({
 	paths: {
 		watch: [
 			assets.src + '/scss/**/*.scss',
@@ -42,4 +47,4 @@ module.exports = {
 			shorthandCompacting: true
 		}
 	}
-};
+}, overrides);

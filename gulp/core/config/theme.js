@@ -1,5 +1,10 @@
-var paths  = require('./common').paths;
-var theme  = paths.theme;
+// utils
+var deepMerge = require('../utils/deepMerge');
+
+// config
+var overrides = require('../../config/theme');
+var paths = require('./common').paths;
+var theme = paths.theme;
 
 /**
  * Theme Building
@@ -8,7 +13,7 @@ var theme  = paths.theme;
  *
  * @type {{}}
  */
-module.exports = {
+module.exports = deepMerge({
 	paths: {
 		watch: theme.src + '/**/*.{json,php,png}',
 		src:   theme.src + '/**/*.{json,php,png}',
@@ -29,4 +34,4 @@ module.exports = {
 			].join('|'), 'g')
 		}
 	}
-};
+}, overrides);

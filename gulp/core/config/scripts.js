@@ -1,7 +1,12 @@
 var path               = require('path');
+var webpack            = require('gulp-webpack').webpack;
 var BowerWebpackPlugin = require('bower-webpack-plugin');
 
+// utils
+var deepMerge = require('../utils/deepMerge');
+
 // config
+var overrides = require('../../config/scripts');
 var assets = require('./common').paths.assets;
 
 /**
@@ -11,7 +16,7 @@ var assets = require('./common').paths.assets;
  *
  * @type {{}}
  */
-module.exports = {
+module.exports = deepMerge({
 	paths: {
 		watch: assets.src  + '/js/**/*.js',
 		src:   [
@@ -24,58 +29,91 @@ module.exports = {
 
 	options: {
 		webpack: {
-			resolve: {
-				extensions: ['', '.js', '.jsx']
+
+			// merged with defaults
+			// for :watch task
+			watch: {
+				cache: true,
+				watch: true,
+				devtool: 'eval',
+				keepalive: true
 			},
-			output: {
-				chunkFilename: 'chunk-[name].js'
+
+
+			// merged with defaults
+			// for :dev task
+			dev: {
+				devtool: 'eval'
 			},
-			stats: {
-				colors: true
-			},
-			module: {
-				preLoaders: [
-					{
-						test: /\.jsx?$/,
-						exclude: [
-							/node_modules/,
-							/bower_components/,
-							/vendor/,
-							/polyfills/
-						],
-						loader: 'eslint-loader'
-					}
-				],
-				loaders: [
-					{
-						test: /\.jsx?$/,
-						exclude: [
-							/node_modules/,
-							/bower_components/,
-							/vendor/,
-							/polyfills/
-						],
-						loader: 'babel-loader'
-					}
+
+
+			// merged with defaults
+			// for :prod task
+			prod: {
+				plugins: [
+					new webpack.optimize.DedupePlugin(),
+					new webpack.optimize.OccurenceOrderPlugin(true),
+					new webpack.optimize.UglifyJsPlugin({
+						minimize: true
+					})
 				]
 			},
-			plugins: [
-				new BowerWebpackPlugin({
-					excludes: [
-						/\.(le|s?c|sa)ss$/,
-						/\.png$/,
-						/\.jpg$/,
-						/\.gif$/,
-						/mCSB/,
-						/fonts/
+
+			defaults: {
+				resolve: {
+					extensions: ['', '.js', '.jsx']
+				},
+				output: {
+					chunkFilename: 'chunk-[name].js'
+				},
+				stats: {
+					colors: true
+				},
+				module: {
+					preLoaders: [
+						{
+							test: /\.jsx?$/,
+							exclude: [
+								/node_modules/,
+								/bower_components/,
+								/vendor/,
+								/polyfills/
+							],
+							loader: 'eslint-loader'
+						}
+					],
+					loaders: [
+						{
+							test: /\.jsx?$/,
+							exclude: [
+								/node_modules/,
+								/bower_components/,
+								/vendor/,
+								/polyfills/
+							],
+							loader: 'babel-loader'
+						}
 					]
-				})
-			],
-			eslint: {
-				emitError: true,
-				emitWarning: true,
-				configFile: path.resolve('./.eslintrc')
+				},
+				plugins: [
+					new BowerWebpackPlugin({
+						excludes: [
+							/\.(le|s?c|sa)ss$/,
+							/\.png$/,
+							/\.jpg$/,
+							/\.gif$/,
+							/mCSB/,
+							/fonts/
+						]
+					})
+				],
+				eslint: {
+					emitError: true,
+					emitWarning: true,
+					configFile: path.resolve('./.eslintrc')
+				}
 			}
+
 		}
 	}
-};
+}, overrides);

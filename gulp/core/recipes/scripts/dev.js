@@ -2,7 +2,6 @@ var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var named        = require('vinyl-named');
 var gulpWebpack  = require('gulp-webpack');
-var lodash       = require('lodash');
 var browserSync  = require('browser-sync');
 
 // utils
@@ -28,9 +27,10 @@ module.exports = function () {
 		.pipe(named()) // vinyl-named is used to allow for
 		               // multiple entry files
 		.pipe(gulpWebpack(
-			lodash.merge(config.options.webpack, {
-				devtool: 'eval'
-			}, deepMerge), null, function (err, stats) {
+			deepMerge(
+				config.options.webpack.defaults,
+				config.options.webpack.dev
+			), null, function (err, stats) {
 				logStats(err, stats);
 
 				// reload browser-sync when

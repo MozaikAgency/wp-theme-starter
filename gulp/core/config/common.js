@@ -1,6 +1,17 @@
-var project = require('../../../package.json');
+// utils
+var deepMerge = require('../utils/deepMerge');
 
-module.exports = {
+// config
+var project = require('../../../package.json');
+var overrides = require('../../config/common');
+
+
+/**
+ * Common config
+ * for all tasks
+ *
+ */
+module.exports = deepMerge({
 	paths: {
 		theme: {
 			src: 'theme',
@@ -11,4 +22,4 @@ module.exports = {
 			dest: '../' + project.name +  '/assets'
 		}
 	}
-};
+}, overrides);
