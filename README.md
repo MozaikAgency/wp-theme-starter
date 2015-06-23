@@ -132,10 +132,12 @@ To use jQuery, or any other global library, in your webpack-ed js you have a cou
 		 the config:
 
 			...
-			webpack: {
-				defaults: {
-					externals: {
-						jquery: 'window.jQuery'
+			options: {
+				webpack: {
+					defaults: {
+						externals: {
+							jquery: 'window.jQuery'
+						}
 					}
 				}
 			}
