@@ -123,7 +123,7 @@ To use jQuery, or any other global library, in your webpack-ed js you have a cou
 			...
 
 - Use jQuery as an external package:
-	1. Declare jQuery as an external dependency of your `main.js` in the `wp_enqueue_script` function in your `functions.php` file.
+	1. Declare jQuery as an external dependency of your `main.js` in the `theme_scripts` function in your `functions.php` file.
 	   Something like this:
 	   
 			wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
