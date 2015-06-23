@@ -106,7 +106,7 @@ function theme_setup() {
 	get_template_part( 'library/class-walker-bem-menu' );
 	get_template_part( 'library/class-bem-pagination' );
 	...
-  */
+	*/
 }
 
 
