@@ -1,0 +1,19 @@
+# Mozaik Theme Bootstrap - Responsive Images
+
+The WordPress responsive images implementation offered here is based on
+the proposed Responsive Images Standard as outlined here:
+ 
+- [http://scottjehl.github.io/picturefill/](http://scottjehl.github.io/picturefill/)
+
+For compatibility with older browsers (IE9+) you will need to add the following snippet
+in the head of your theme, right before the **closing** `</head>` tag.
+
+	<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js"></scrip>
+
+For compatibility with even older browsers (IE7+) you will need to add the following snipper
+in the head of your theme, *right after the **opening** `<head>` tag.* 
+(Or use [Modernizr](http://modernizr.com/) which includes the shim)
+
+	<!--[if lt IE 9]>
+	    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+	<![endif]-->

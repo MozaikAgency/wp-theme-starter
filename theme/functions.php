@@ -89,11 +89,10 @@ function theme_setup() {
 	define( 'ICL_DONT_LOAD_LANGUAGES_JS', true );
 
 
-	// CF7 configuration
-	// Note: Contact Form 7 Configuration needs to be done
-	//       in wp-config.php. add the following snippet
-	//       under the line:
-	//       define( 'WP_DEBUG', false );
+	// Contact Form 7 Configuration needs to be done
+	// in wp-config.php. add the following snippet
+	// under the line:
+	// define( 'WP_DEBUG', false );
 	/*
 	//Contact Form 7 Plugin Configuration
 	define ( 'WPCF7_LOAD_JS',  false ); // Added to disable JS loading
@@ -102,6 +101,12 @@ function theme_setup() {
 	*/
 
 
+	// You can load library files here
+	/*
+	get_template_part( 'library/class-walker-bem-menu' );
+	get_template_part( 'library/class-bem-pagination' );
+	...
+  */
 }
 
 
