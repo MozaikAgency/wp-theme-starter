@@ -97,7 +97,7 @@ Webpack, like Browserify and RequireJS, is a module loader for javascript and as
 To use jQuery, or any other global library, in your webpack-ed js you have a couple of choices:
 
 - Use jQuery as a dependency for all modules in the project and include it in the final concatenated package (Recommended):
-	1. With the terminal open _within the dev theme_, type `npm install jquery --save` to install jquery for the project
+	1. With the terminal open _within the dev theme_, type `npm install jquery --save` or `bower install jquery --save` to install jquery for the project
 	1. In the `./gulp/config/scripts.js` file add this line to the top of the file to expose webpack within this file:
 	
 			var webpack = require('gulp-webpack').webpack;
