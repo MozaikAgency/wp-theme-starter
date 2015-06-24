@@ -53,11 +53,11 @@ class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param object $item   Menu item data object.
-	 * @param int    $depth  Depth of menu item. Used for padding.
-	 * @param array  $args   An array of arguments. @see wp_nav_menu()
-	 * @param int    $id     Current item ID.
+	 * @param string        $output Passed by reference. Used to append additional content.
+	 * @param object        $item   Menu item data object.
+	 * @param int           $depth  Depth of menu item. Used for padding.
+	 * @param object|array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param int           $id     Current item ID.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
@@ -161,7 +161,7 @@ class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
 
 		if ( isset( $children_elements[$element->ID] ) && ! empty( $children_elements[$element->ID] ) ) {
 			$element->has_children = true;
-			$element->current_item_ancestor = self::array_any( $children_elements[$element->ID], array( &$this, 'is_ancestor_of'	)	);
+			$element->current_item_ancestor = self::any_children_active( $element, $children_elements );
 		}
 
 		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
@@ -171,33 +171,40 @@ class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
 
 	/**
 	 * Return whether a particular child
-	 * is a active ancestor
+	 * is an active ancestor
 	 *
 	 * @param $child
 	 *
 	 * @return bool
 	 */
-	function is_ancestor_of( $child ) {
+	function is_child_active( $child ) {
 		return $child->current || $child->current_item_parent || $child->current_item_ancestor;
 	}
 
 
 
 	/**
-	 * Array Any implementation
-	 * return true if callback
-	 * returns true for any element
-	 * of the array
+	 * Recursively go through the current
+	 * children tree and return true if any
+	 * of all the current node's children
+	 * is active
 	 *
-	 * @param array $array
-	 * @param bool  $callable
+	 * @param object $element
+	 * @param array  $children_elements
 	 *
 	 * @return bool
 	 */
-	function array_any( array $array, $callable = false ) {
-		$callable = $callable ? : function ( $value ) { return ! ! $value; };
-		foreach ( $array as $value ) {
-			if ( call_user_func( $callable, $value ) ) {
+	function any_children_active( $element, $children_elements ) {
+		if ( ! isset( $children_elements[ $element->ID ] ) ) {
+			return false;
+		}
+
+		foreach ( $children_elements[ $element->ID ] as $child ) {
+			if ( self::is_child_active( $child ) ) {
+				return true;
+			}
+
+			if ( self::any_children_active( $child, $children_elements ) ) {
 				return true;
 			}
 		}
