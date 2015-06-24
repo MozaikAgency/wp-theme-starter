@@ -10,7 +10,7 @@
 <html class="site" <?php language_attributes(); ?>>
 <head>
 	<!--[if lt IE 9]>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<![endif]-->
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
