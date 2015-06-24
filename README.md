@@ -88,6 +88,10 @@ The goals of the boilerplate are to:
 1. The build process supports the [<abbr title="EcmaScript 6">ES6</abbr> JavaScript syntax](https://babeljs.io/docs/learn-es6/) by using [babel.js](https://babeljs.io/) to transpile ES6
    to ES5.
    
+## License
+
+This Theme Boilerplate is licensed under the [MIT license](http://opensource.org/licenses/MIT) see `license.txt`.
+
 ## FAQ
 
 ### 1. How do I use jQuery with wp-theme-bootstrap ?
