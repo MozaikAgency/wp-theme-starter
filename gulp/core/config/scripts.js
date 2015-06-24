@@ -1,5 +1,5 @@
 var path               = require('path');
-var webpack            = require('gulp-webpack').webpack;
+var webpack            = require('webpack-stream').webpack;
 var BowerWebpackPlugin = require('bower-webpack-plugin');
 
 // utils

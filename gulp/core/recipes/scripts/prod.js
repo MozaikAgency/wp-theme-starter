@@ -1,7 +1,7 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var named        = require('vinyl-named');
-var gulpWebpack  = require('gulp-webpack');
+var gulpWebpack  = require('webpack-stream');
 var notify       = require('gulp-notify');
 
 // utils
