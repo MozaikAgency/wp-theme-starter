@@ -6,7 +6,7 @@ var validateConfig = require('./gulp/core/utils/validateConfig');
 var lazyQuire      = require('./gulp/core/utils/lazyQuire');
 
 // config
-var project = require('./package.json');
+var project = require('./project.config');
 
 // validate the project
 // configuration

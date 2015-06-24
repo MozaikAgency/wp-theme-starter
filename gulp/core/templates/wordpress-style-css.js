@@ -1,4 +1,18 @@
-var project = require('../../../package.json');
+var project = require('../../../project.config');
+
+
+var extraOptions = [];
+if (project.parentTheme) {
+	extraOptions.push(' * Parent Theme: ' + project.parentTheme);
+}
+
+if (project.keywords.length) {
+	extraOptions.push(' * Keywords: ' + project.keywords.join(', '));
+}
+
+extraOptions.push(' *');
+extraOptions = extraOptions.join('\n');
+
 
 module.exports = [
 	'/**',
@@ -9,7 +23,7 @@ module.exports = [
 	' * Version: '     + project.version,
 	' * License: '     + project.license,
 	' * Text Domain: ' + project.name,
-	' *',
+	extraOptions,
 	' * Theme Styles are in the assets/css folder,',
 	' * this file is only used for theme initialization',
 	' *',

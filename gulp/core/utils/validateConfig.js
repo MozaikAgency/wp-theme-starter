@@ -18,11 +18,11 @@ module.exports = function (project) {
 	if (project.name === path.basename(__dirname)) {
 		validationFailed = true;
 
-		gutil.log('Config Error', gutil.colors.red('The \"name\" value in your package.json configuration \'' + project.name + '\''));
+		gutil.log('Config Error', gutil.colors.red('The \"name\" value in your project.config configuration \'' + project.name + '\''));
 		gutil.log('            ', gutil.colors.red('cannot be the same as the directory name of the development theme \'' + path.basename(__dirname) + '\'.'));
 
 		gutil.log('Please either rename the development theme directory (to \'' + project.name + '_dev\' for example)');
-		gutil.log('or change the name value in your package.json to something else.');
+		gutil.log('or change the name value in your project.config to something else.');
 	}
 
 	if (validationFailed) {

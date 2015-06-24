@@ -58,7 +58,7 @@ The goals of the boilerplate are to:
 1. Open the terminal and navigate to the dev theme, *eg:* `cd wp-content/themes/<my-theme>_dev`
 1. (**Note:** The next steps **require** nodejs *@^0.12.2* and gulpjs *@^3.8.11*)
 1. Run `npm install` to install all dev dependencies
-1. Change the `package.json` with your new theme's configuration (specifically: name, prettyName, description, version, author, authorURI, license & keywords)
+1. Change the `project.config.js` file with your new theme's configuration
 1. Run `gulp build` to generate the "built theme" for the first time
 1. Log in to the admin and enable the *built theme*
 	 (**Note:** The *dev theme* is not a valid theme, that's fine! Don't delete it or try to enable it!)

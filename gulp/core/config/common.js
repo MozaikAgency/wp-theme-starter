@@ -2,7 +2,7 @@
 var deepMerge = require('../utils/deepMerge');
 
 // config
-var project = require('../../../package.json');
+var project = require('../../../project.config');
 var overrides = require('../../config/common');
 
 
