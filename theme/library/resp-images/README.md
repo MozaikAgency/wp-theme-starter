@@ -10,7 +10,7 @@ in the head of your theme, right before the **closing** `</head>` tag.
 
 	<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js"></scrip>
 
-For compatibility with even older browsers (IE7+) you will need to add the following snipper
+For compatibility with even older browsers (IE7+) you will need to add the following snippet
 in the head of your theme, *right after the **opening** `<head>` tag.* 
 (Or use [Modernizr](http://modernizr.com/) which includes the shim)
 
