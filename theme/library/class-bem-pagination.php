@@ -16,13 +16,16 @@ class MOZ_BEM_Pagination {
 
 
 	/**
-	 * Prints the pagination for the current loop
+	 * Returns pagination for the currently
+	 * active loop
 	 *
 	 * @uses MOZ_Pagination::get_pagination_arr()
 	 *
-	 * @param string $args
+	 * @param array|string $args
+	 *
+	 * @return string
 	 */
-	static function pagination( $args = '' ) {
+	static function get_pagination( $args = '' ) {
 		// theme-wide pagination defaults
 		$args = wp_parse_args( $args, array(
 			'prev_next' => false
@@ -31,11 +34,11 @@ class MOZ_BEM_Pagination {
 		$pagination_items = self::get_pagination_arr( $args );
 
 		if ( empty( $pagination_items ) ) {
-			return;
+			return '';
 		}
 
-		echo '<nav class="pagination">';
-			echo '<ul class="pagination__list">';
+		$html = '<nav class="pagination">';
+			$html .= '<ul class="pagination__list">';
 
 			foreach ( $pagination_items as $item ) {
 				if ( false === $item['text'] ) {
@@ -46,15 +49,29 @@ class MOZ_BEM_Pagination {
 				$maybe_href     = false === $item['link'] ? '' : " href=\"{$item['link']}\"";
 				$maybe_modifier = 'page' === $item['type'] ? '' : " pagination__item--{$item['type']}";
 
-				echo '<li class="pagination__list-item">';
-					echo "<$tag{$maybe_href} class=\"pagination__item{$maybe_modifier}\">";
-						echo $item['text'];
-					echo "</$tag>";
-				echo '</li>';
+				$html .= '<li class="pagination__list-item">';
+					$html .= "<$tag{$maybe_href} class=\"pagination__item{$maybe_modifier}\">";
+						$html .= $item['text'];
+					$html .= "</$tag>";
+				$html .= '</li>';
 			}
 
-			echo '</ul>';
-		echo '</nav>';
+			$html .= '</ul>';
+		$html .= '</nav>';
+
+		return $html;
+	}
+
+
+
+	/**
+	 * Prints pagination for the currently
+	 * active loop
+	 *
+	 * @param array|string $args
+	 */
+	function pagination( $args = '' ) {
+		echo self::get_pagination( $args );
 	}
 
 
