@@ -17,10 +17,10 @@
 module.exports = {
 	name: 'you_should_probably_change_this',
 	prettyName: 'You should probably change this...',
-	description: 'The 2015 theme for {Example.com}. Built by Mozaik Ltd. for {Example}',
+	description: 'The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}',
 	parentTheme: false,
 	version: '0.1.0',
-	author: 'John Doe <john@example.com>',
+	author: 'John & Jane Doe <john@example.com>',
 	authorURI: 'http://example.com',
 	license: 'GPLv2 or later',
 	keywords: []
