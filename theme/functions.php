@@ -3,7 +3,6 @@
  * Theme Functions &
  * Functionality
  *
- * @author Mozaik Ltd. <http://mozaik.com>
  */
 
 

@@ -3,8 +3,6 @@
  * Github Social Stuff
  *
  * Just delete this template :)
- *
- * @author: Mozaik Ltd. <http://mozaik.com/>
  */
 ?>
 <p>

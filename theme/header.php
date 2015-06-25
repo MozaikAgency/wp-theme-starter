@@ -3,7 +3,6 @@
  * Header file common to all
  * templates
  *
- * @author: Mozaik Ltd. <http://mozaik.com>
  */
 ?>
 <!doctype html>
