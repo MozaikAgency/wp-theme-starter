@@ -20,7 +20,7 @@ module.exports = {
 	description: 'The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}',
 	parentTheme: false,
 	version: '0.1.0',
-	author: 'John & Jane Doe <john@example.com>',
+	author: 'John & Jane Doe <jd@example.com>',
 	authorURI: 'http://example.com',
 	license: 'GPLv2 or later',
 	keywords: []
