@@ -1,29 +1,37 @@
 var project = require('../../../project.config');
 
+var possibleOptions = {
+	name: 'Text Domain',
+	prettyName: 'Theme Name',
+	themeURI: 'Theme URI',
+	description: 'Description',
+	parentTheme: 'Template',
+	version: 'Version',
+	author: 'Author',
+	authorURI: 'Author URI',
+	license: 'License',
+	licenseURI: 'License URI',
+	tags: 'Tags'
+};
+var options = [];
+var value;
 
-var extraOptions = [];
-if (project.parentTheme) {
-	extraOptions.push(' * Parent Theme: ' + project.parentTheme);
+for (var optionKey in possibleOptions) {
+	if (possibleOptions.hasOwnProperty(optionKey) && project.hasOwnProperty(optionKey)) {
+		value = project[optionKey];
+		if (Array.isArray(value)) {
+			value = value.join(', ');
+		}
+
+		options.push([' * ', possibleOptions[optionKey], ': ', value].join(''));
+	}
 }
-
-if (project.keywords.length) {
-	extraOptions.push(' * Keywords: ' + project.keywords.join(', '));
-}
-
-extraOptions.push(' *');
-extraOptions = extraOptions.join('\n');
 
 
 module.exports = [
 	'/**',
-	' * Theme Name: '  + project.prettyName,
-	' * Author: '      + project.author,
-	' * Author URI: '  + project.authorURI,
-	' * Description: ' + project.description,
-	' * Version: '     + project.version,
-	' * License: '     + project.license,
-	' * Text Domain: ' + project.name,
-	extraOptions,
+	options.join('\n'),
+	' *',
 	' * Theme Styles are in the assets/css folder,',
 	' * this file is only used for theme initialization',
 	' *',
