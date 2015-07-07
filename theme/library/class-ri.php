@@ -42,7 +42,7 @@ class MOZ_RI {
 		), $extras );
 
 		$unique = uniqid( 'moz-background-picture--' );
-		$attrs['class'] .= "moz-background-picture $unique";
+		$attrs['class'] .= " moz-background-picture $unique";
 
 		$alt = $attrs['alt'];
 		unset( $attrs['alt'] );
