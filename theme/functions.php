@@ -100,12 +100,8 @@ function theme_setup() {
 	*/
 
 
-	// You can load library files here
-	/*
-	get_template_part( 'library/class-walker-bem-menu' );
-	get_template_part( 'library/class-bem-pagination' );
-	...
-	*/
+	// Library Loader
+	get_template_part( 'library/library-loader' );
 }
 
 
