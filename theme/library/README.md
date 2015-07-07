@@ -22,3 +22,42 @@ in the head of your theme, *right after the **opening** `<head>` tag.*
 	<!--[if lt IE 9]>
 	    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<![endif]-->
+
+Demo of responsive images use in theme, for an example image with id 10:
+
+	<div style="height: 300px;position: relative;">
+		<?php
+		  // using a background image
+			MOZ_RI::background( 10, 'thumbnail', array(
+				'medium' => '(min-width: 500px)',
+				'large'  => '(min-width: 1000px)',
+				'full'   => '(min-width: 1200px)'
+			), array(
+				'alt' => __( 'A picture of penguins', 'moz' )
+			) );
+		?>
+	</div>
+	
+	<?php
+	  // using the picture element
+		MOZ_RI::picture( 10, 'thumbnail', array(
+			'medium' => '(min-width: 500px)',
+			'large'  => '(min-width: 1000px)',
+			'full'   => '(min-width: 1200px)'
+		), array(
+			'alt' => __( 'A picture of penguins', 'moz' )
+		) );
+	
+	  // using an image with srcset/sizes
+		MOZ_RI::image( 10, array(
+			'thumbnail',
+			'medium',
+			'large',
+			'full'
+		), array(
+			'(min-width: 1024px) 1024px',
+			'100vw'
+		), array(
+			'alt' => __( 'A picture of penguins', 'moz' )
+		) );
+	?>
