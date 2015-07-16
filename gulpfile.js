@@ -32,7 +32,7 @@ gulp.task('default', [
 
 gulp.task('build', [
 	  'fonts:prod',
-      'svg:prod',
+	    'svg:prod',
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
