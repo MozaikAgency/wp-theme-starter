@@ -25,6 +25,7 @@
 			</p>
 
 			<footer>
+
 				<a class="hero__cta"
 				   target="_blank"
 				   href="https://github.com/MozaikAgency/wp-theme-bootstrap">
@@ -32,6 +33,20 @@
 				</a>
 
 				<?php get_template_part( 'elements/github' ); ?>
+
+				<div class="hero__icon">
+					<?php echo file_get_contents( get_template_directory() . '\assets\svg\medal.svg' ); ?>
+				</div>
+
+				<div class="hero__credits">
+					<p>
+						Background image of Everest courtesy of <a href="https://unsplash.it/">Unsplash It.</a>
+					</p>
+					<p>
+						SVG medal created by Creative Stall, from the <a href="https://thenounproject.com/creativestall/">Noun Project.</a>
+					</p>
+				</div>
+
 			</footer>
 
 		</div>

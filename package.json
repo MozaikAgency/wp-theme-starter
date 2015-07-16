@@ -1,7 +1,7 @@
 {
   "name": "mozaik-theme-bootstrap",
   "description": "WordPress Theme Boilerplate - Build Tools Included :)",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "author": "Mozaik Ltd.",
   "authorURI": "http://mozaik.com/",
   "license": "MIT",
@@ -38,6 +38,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.2.4",
     "lodash": "^3.9.3",

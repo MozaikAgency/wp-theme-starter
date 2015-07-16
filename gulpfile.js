@@ -22,6 +22,7 @@ gutil.log(gutil.colors.green('Starting to Gulp! Please wait...'));
  */
 gulp.task('default', [
 	  'fonts:watch',
+			'svg:watch',
 	 'images:watch',
 	'scripts:watch',
 	 'styles:watch',
@@ -31,6 +32,7 @@ gulp.task('default', [
 
 gulp.task('build', [
 	  'fonts:prod',
+			'svg:prod',
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
@@ -51,6 +53,15 @@ gulp.task('fonts:clean', [],              lazyQuire(require, './gulp/core/recipe
 gulp.task('fonts:dev',   ['fonts:clean'], lazyQuire(require, './gulp/core/recipes/fonts/dev'));
 gulp.task('fonts:prod',  ['fonts:clean'], lazyQuire(require, './gulp/core/recipes/fonts/prod'));
 gulp.task('fonts:watch', ['fonts:dev'],   lazyQuire(require, './gulp/core/recipes/fonts/watch'));
+
+
+/**
+ * Svgs
+ */
+gulp.task('svg:clean', [],            lazyQuire(require, './gulp/core/recipes/svg/clean'));
+gulp.task('svg:dev',   ['svg:clean'], lazyQuire(require, './gulp/core/recipes/svg/dev'));
+gulp.task('svg:prod',  ['svg:clean'], lazyQuire(require, './gulp/core/recipes/svg/prod'));
+gulp.task('svg:watch', ['svg:dev'],   lazyQuire(require, './gulp/core/recipes/svg/watch'));
 
 
 /**

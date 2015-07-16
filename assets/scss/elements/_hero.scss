@@ -81,3 +81,36 @@
 		}
 	}
 }
+
+.hero__icon {
+	margin: 0 auto;
+	width: 50px;
+
+	path, polygon {
+		fill: $c_white;
+	}
+}
+
+.hero__credits {
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	padding: $d_default_gutter;
+	width: 100%;
+	max-width: $d_container_max;
+
+	font-size: 10px;
+	color: $c_white;
+	text-align: center;
+
+	p {
+		margin: 0.2em;
+	}
+
+	a {
+		color: $c_white;
+	}
+}
