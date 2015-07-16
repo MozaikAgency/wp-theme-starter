@@ -51,20 +51,19 @@ class MOZ_RI {
 
 		ob_start(); ?>
 
-		<style>
-			.<?php echo $unique; ?> {
-				background-image: url('<?php echo wp_get_attachment_image_src( $image, $base_size )[0]; ?>');
-			}
-
-			<?php foreach ( $sizes as $size => $query ) : ?>
-			@media all and <?php echo esc_html( $query ); ?> {
+			<style>
 				.<?php echo $unique; ?> {
-					background-image: url('<?php echo wp_get_attachment_image_src( $image, $size )[0]; ?>');
+					background-image: url('<?php echo wp_get_attachment_image_src( $image, $base_size )[0]; ?>');
 				}
-			}
 
-			<?php endforeach; ?>
-		</style>
+				<?php foreach ( $sizes as $size => $query ) : ?>
+					@media all and <?php echo esc_html( $query ); ?> {
+						.<?php echo $unique; ?> {
+							background-image: url('<?php echo wp_get_attachment_image_src( $image, $size )[0]; ?>');
+						}
+					}
+				<?php endforeach; ?>
+			</style>
 
 		<?php
 		$content .= ob_get_clean();
@@ -108,6 +107,9 @@ class MOZ_RI {
 
 		$content = array();
 
+		// required for IE9 support...
+		$content[] = '<!--[if IE 9]><video style="display: none;"><![endif]-->';
+
 		foreach ( array_reverse( $sizes ) as $size => $query ) {
 			$src       = wp_get_attachment_image_src( $image, $size, false );
 			$content[] = MOZ_Helpers::get_sc_element( 'source', array(
@@ -122,7 +124,10 @@ class MOZ_RI {
 			'srcset' => esc_attr( $base_src[0] ),
 			'alt'    => MOZ_Helpers::get_img_alt( $image )
 		), $extras );
+
 		$content[] = MOZ_Helpers::get_sc_element( 'img', $attrs );
+
+		$content[] = '<!--[if IE 9]></video><![endif]-->';
 
 		return MOZ_Helpers::get_element( 'picture', array(), implode( '', $content ) );
 	}
