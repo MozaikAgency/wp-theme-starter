@@ -104,7 +104,7 @@ To use jQuery, or any other global library, in your webpack-ed js you have a cou
 	1. With the terminal open _within the dev theme_, type `npm install jquery --save` or `bower install jquery --save` to install jquery for the project
 	1. In the `./gulp/config/scripts.js` file add this line to the top of the file to expose webpack within this file:
 	
-			var webpack = require('gulp-webpack').webpack;
+			var webpack = require('webpack');
 	    
 	1. Then within the file declare that any instance of `$`,`jQuery` or `window.jQuery` within the project refers
 	   to the jQuery package we downloaded earlier. We can achieve this by adding the following to the config object:
