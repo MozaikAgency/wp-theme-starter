@@ -22,7 +22,7 @@ gutil.log(gutil.colors.green('Starting to Gulp! Please wait...'));
  */
 gulp.task('default', [
 	  'fonts:watch',
-			'svg:watch',
+	    'svg:watch',
 	 'images:watch',
 	'scripts:watch',
 	 'styles:watch',
@@ -32,7 +32,7 @@ gulp.task('default', [
 
 gulp.task('build', [
 	  'fonts:prod',
-			'svg:prod',
+      'svg:prod',
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
