@@ -7,11 +7,85 @@
  */
 
 
+
 /**
  * Class MOZ_RI
  */
 class MOZ_RI {
 
+
+	/**
+	 * Determine whether an
+	 * image should be
+	 * lazy-loaded
+	 *
+	 * @param array $extras
+	 *
+	 * @return bool
+	 */
+	public static function is_lazy( &$extras ) {
+		$lazy = false;
+
+		if ( isset( $extras['lazy'] ) ) {
+			$lazy = ! ! $extras['lazy'];
+			unset( $extras['lazy'] );
+		}
+
+		return $lazy;
+	}
+
+
+	/**
+	 * Maybe lazify the attributes
+	 * of an image depending on
+	 * whether it should
+	 * be lazyloaded
+	 *
+	 * @param bool  $is_lazy
+	 * @param array $attrs
+	 * @param bool  $add_class
+	 * @param bool  $add_src
+	 *
+	 * @return array
+	 */
+	public static function maybe_lazify( $is_lazy = false, $attrs = array(), $add_class = true, $add_src = true ) {
+		if ( ! $is_lazy ) {
+			return $attrs;
+		}
+
+		$lazifiables = array( 'src', 'srcset' );
+		foreach ( $lazifiables as $lazifiable ) {
+			if ( isset( $attrs[ $lazifiable ] ) ) {
+				$attrs["data-$lazifiable"] = $attrs[ $lazifiable ];
+				unset( $attrs[ $lazifiable ] );
+			}
+		}
+
+		if ( $add_class ) {
+			$attrs['class'] = isset( $attrs['class'] )
+				? "{$attrs['class']} lazyload"
+				: 'lazyload';
+		}
+
+		if ( $add_src ) {
+			$attrs['src'] = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+		}
+
+		return $attrs;
+	}
+
+
+	/**
+	 * Get an image's alt
+	 * attribute
+	 *
+	 * @param $image
+	 *
+	 * @return string
+	 */
+	public static function get_img_alt( $image ) {
+		return trim( strip_tags( get_post_meta( $image, '_wp_attachment_image_alt', true ) ) );
+	}
 
 
 	/**
@@ -35,21 +109,35 @@ class MOZ_RI {
 			return false;
 		}
 
+		$is_lazy = self::is_lazy( $extras );
+
 		$attrs = array_merge( array(
 			'class' => '',
 			'role'  => 'img',
-			'alt'   => MOZ_Helpers::get_img_alt( $image )
+			'alt'   => self::get_img_alt( $image )
 		), $extras );
-
-		$unique = uniqid( 'moz-background-picture--' );
-		$attrs['class'] .= " moz-background-picture $unique";
 
 		$alt = $attrs['alt'];
 		unset( $attrs['alt'] );
 
-		$content = MOZ_Helpers::get_element( 'span', array( 'class' => 'visuallyhidden' ), $alt );
+		$content = MOZ_Html::get_element( 'span', array( 'class' => 'visuallyhidden' ), $alt );
 
-		ob_start(); ?>
+		$unique = uniqid( 'moz-background-picture--' );
+		$attrs['class'] .= " moz-background-picture $unique";
+
+		if ( $is_lazy ) {
+			$attrs['class'] .= ' lazyload';
+
+			$bgset = array( wp_get_attachment_image_src( $image, $base_size, false )[0] );
+			foreach ( $sizes as $size => $query ) {
+				$src = wp_get_attachment_image_src( $image, $size, false );
+				$bgset[] = "$src[0] [$query]";
+			}
+			$attrs['data-sizes'] = 'auto';
+			$attrs['data-bgset'] = implode( ' | ', array_reverse( $bgset ) );
+
+		} else {
+			ob_start(); ?>
 
 			<style>
 				.<?php echo $unique; ?> {
@@ -57,20 +145,21 @@ class MOZ_RI {
 				}
 
 				<?php foreach ( $sizes as $size => $query ) : ?>
-					@media all and <?php echo esc_html( $query ); ?> {
-						.<?php echo $unique; ?> {
-							background-image: url('<?php echo wp_get_attachment_image_src( $image, $size )[0]; ?>');
-						}
+				@media all and <?php echo esc_html( $query ); ?> {
+					.<?php echo $unique; ?> {
+						background-image: url('<?php echo wp_get_attachment_image_src( $image, $size )[0]; ?>');
 					}
+				}
+
 				<?php endforeach; ?>
 			</style>
 
-		<?php
-		$content .= ob_get_clean();
+			<?php
+			$content .= ob_get_clean();
+		}
 
-		return MOZ_Helpers::get_element( 'span', $attrs, $content );
+		return MOZ_Html::get_element( 'span', $attrs, $content );
 	}
-
 
 
 	/**
@@ -86,7 +175,6 @@ class MOZ_RI {
 	public static function background( $image, $base_size, $sizes, $extras = array() ) {
 		echo self::get_background( $image, $base_size, $sizes, $extras );
 	}
-
 
 
 	/**
@@ -105,31 +193,37 @@ class MOZ_RI {
 			return false;
 		}
 
+		$is_lazy = self::is_lazy( $extras );
+
 		$content = array();
 
 		// required for IE9 support...
 		$content[] = '<!--[if IE 9]><video style="display: none;"><![endif]-->';
 
 		foreach ( array_reverse( $sizes ) as $size => $query ) {
-			$src       = wp_get_attachment_image_src( $image, $size, false );
-			$content[] = MOZ_Helpers::get_sc_element( 'source', array(
+			$src = wp_get_attachment_image_src( $image, $size, false );
+
+			$attrs = self::maybe_lazify( $is_lazy, array(
 				'srcset' => esc_attr( $src[0] ),
 				'media'  => esc_attr( $query ),
 				'type'   => esc_attr( get_post_mime_type( $image ) )
-			) );
+			), false, false );
+
+			$content[] = MOZ_Html::get_sc_element( 'source', $attrs );
 		}
 
-		$base_src  = wp_get_attachment_image_src( $image, $base_size, false );
-		$attrs     = array_merge( array(
-			'srcset' => esc_attr( $base_src[0] ),
-			'alt'    => MOZ_Helpers::get_img_alt( $image )
-		), $extras );
+		$base_src = wp_get_attachment_image_src( $image, $base_size, false );
 
-		$content[] = MOZ_Helpers::get_sc_element( 'img', $attrs );
+		$attrs = self::maybe_lazify( $is_lazy, array_merge( array(
+			'srcset' => esc_attr( $base_src[0] ),
+			'alt'    => self::get_img_alt( $image )
+		), $extras ) );
+
+		$content[] = MOZ_Html::get_sc_element( 'img', $attrs );
 
 		$content[] = '<!--[if IE 9]></video><![endif]-->';
 
-		return MOZ_Helpers::get_element( 'picture', array(), implode( '', $content ) );
+		return MOZ_Html::get_element( 'picture', array(), implode( '', $content ) );
 	}
 
 
@@ -145,7 +239,6 @@ class MOZ_RI {
 	public static function picture( $image, $base_size, $sizes, $extras = array() ) {
 		echo self::get_picture( $image, $base_size, $sizes, $extras );
 	}
-
 
 
 	/**
@@ -179,15 +272,14 @@ class MOZ_RI {
 			return false;
 		}
 
-		$attrs = array_merge( array(
+		$attrs = self::maybe_lazify( self::is_lazy( $extras ), array_merge( array(
 			'srcset' => implode( ', ', $srcset ),
 			'sizes'  => implode( ', ', $sizes ),
-			'alt'    => MOZ_Helpers::get_img_alt( $image )
-		), $extras );
+			'alt'    => self::get_img_alt( $image )
+		), $extras ) );
 
-		return MOZ_Helpers::get_sc_element( 'img', $attrs );
+		return MOZ_Html::get_sc_element( 'img', $attrs );
 	}
-
 
 
 	/**

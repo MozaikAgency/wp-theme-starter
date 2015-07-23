@@ -50,5 +50,10 @@
     "vinyl-transform": "^1.0.0",
     "webpack": "^1.10.3",
     "webpack-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "lazysizes": "^1.1.4",
+    "object-fit": "^0.4.2",
+    "picturefill": "^2.3.1"
   }
 }

@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<?php wp_head(); ?>
-	<script async defer src="//cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js"></script>
+	<script async defer src="<?php echo get_template_directory_uri(); ?>/assets/js/core.js"></script>
 </head>
 <body class="site__body">
 <?php // <body> closes in footer.php ?>

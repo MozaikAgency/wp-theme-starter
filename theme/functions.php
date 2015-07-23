@@ -69,8 +69,13 @@ function theme_setup() {
 	*/
 
 
+	// Stop WP from printing emoji service on the front
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+
 	// Remove toolbar for all users in front end
-	// show_admin_bar( false );
+	show_admin_bar( false );
 
 
 	// Add Custom Image Sizes

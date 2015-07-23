@@ -8,24 +8,11 @@
 
 
 /**
- * Class MOZ_Helpers
+ * Class MOZ_Html
  *
  *
  */
-class MOZ_Helpers {
-
-
-	/**
-	 * Get an image's alt
-	 * attribute
-	 *
-	 * @param $image
-	 *
-	 * @return string
-	 */
-	public static function get_img_alt( $image ) {
-		return trim( strip_tags( get_post_meta( $image, '_wp_attachment_image_alt', true ) ) );
-	}
+class MOZ_Html {
 
 
 	/**
