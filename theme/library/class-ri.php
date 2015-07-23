@@ -53,7 +53,7 @@ class MOZ_RI {
 			return $attrs;
 		}
 
-		$lazifiables = array( 'src', 'srcset' );
+		$lazifiables = array( 'src', 'srcset', 'sizes' );
 		foreach ( $lazifiables as $lazifiable ) {
 			if ( isset( $attrs[ $lazifiable ] ) ) {
 				$attrs["data-$lazifiable"] = $attrs[ $lazifiable ];
