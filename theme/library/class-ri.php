@@ -36,10 +36,32 @@ class MOZ_RI {
 
 
 	/**
-	 * Maybe lazify the attributes
+	 * Determine whether an
+	 * image should have the
+	 * lazy class from the
+	 * start
+	 *
+	 * @param array $extras
+	 *
+	 * @return bool
+	 */
+	public static function should_add_lazy_class( &$extras ) {
+		$should_add = true;
+
+		if ( isset( $extras['lazy_class'] ) ) {
+			$should_add = ! ! $extras['lazy_class'];
+			unset( $extras['lazy_class'] );
+		}
+
+		return $should_add;
+	}
+
+
+	/**
+	 * Maybe "lazify" the attributes
 	 * of an image depending on
 	 * whether it should
-	 * be lazyloaded
+	 * be lazy-loaded
 	 *
 	 * @param bool  $is_lazy
 	 * @param array $attrs
@@ -61,7 +83,7 @@ class MOZ_RI {
 			}
 		}
 
-		if ( $add_class ) {
+		if ( $add_class && self::should_add_lazy_class( $attrs ) ) {
 			$attrs['class'] = isset( $attrs['class'] )
 				? "{$attrs['class']} lazyload"
 				: 'lazyload';
@@ -126,7 +148,9 @@ class MOZ_RI {
 		$attrs['class'] .= " moz-background-picture $unique";
 
 		if ( $is_lazy ) {
-			$attrs['class'] .= ' lazyload';
+			if ( self::should_add_lazy_class( $attrs ) ) {
+				$attrs['class'] .= ' lazyload';
+			}
 
 			$bgset = array( wp_get_attachment_image_src( $image, $base_size, false )[0] );
 			foreach ( $sizes as $size => $query ) {
@@ -264,7 +288,7 @@ class MOZ_RI {
 		$srcset = array();
 		foreach ( $sources as $size ) {
 			if ( $src = wp_get_attachment_image_src( $image, $size, false ) ) {
-				$srcset[] = "{$src[0]} {$src[1]}w";
+				$srcset[] = "{$src[0]} {$src[1]}w {$src[2]}h";
 			}
 		}
 
@@ -272,7 +296,9 @@ class MOZ_RI {
 			return false;
 		}
 
-		$attrs = self::maybe_lazify( self::is_lazy( $extras ), array_merge( array(
+		$is_lazy = self::is_lazy( $extras );
+
+		$attrs = self::maybe_lazify( $is_lazy, array_merge( array(
 			'srcset' => implode( ', ', $srcset ),
 			'sizes'  => implode( ', ', $sizes ),
 			'alt'    => self::get_img_alt( $image )
