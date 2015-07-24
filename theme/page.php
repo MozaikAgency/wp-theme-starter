@@ -6,15 +6,48 @@
 		Responsive Images Tests
 	</h1>
 
+	<p>
+		Polyfills and Libraries used:
+	</p>
+	<ul class="tests__link-list">
+		<li>
+			<a href="https://github.com/scottjehl/picturefill" target="_blank">
+				PictureFill - Responsive images specification polyfill
+			</a>
+			- Required for FF < v38, IE and safari
+		</li>
+		<li>
+			<a href="https://github.com/aFarkas/lazysizes" target="_blank">
+				LazySizes - Lazy-load images
+			</a>
+			(+ <a href="https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset" target="_blank"><i>bgset plugin</i></a>)
+			- Required for lazy-loading responsive images/backgrounds
+		</li>
+		<li>
+			<a href="https://github.com/anselmh/object-fit" target="_blank">
+				Object-fit Polyfill - Object-fit/position specification polyfill
+			</a>
+			- Required for FF < v36 and IE object-fit/position support
+		</li>
+	</ul>
+
+	<p>
+		Tested on:
+	</p>
 	<dl class="tests__results">
-		<dt>Mac Chrome</dt>             <dd>All Cases Work</dd>
-		<dt>Mac Safari</dt>             <dd>All Cases Work</dd>
-		<dt>Windows 7 Chrome</dt>       <dd>All Cases Work</dd>
-		<dt>Windows 7 Firefox</dt>      <dd>All Cases Work</dd>
-		<dt>Windows 7 Opera</dt>        <dd>All Cases Work</dd>
+		<dt>iOS 8.4 (iPad) Safari</dt>          <dd>All Cases Work (Note: lazy-loaded images load after scrollEnd, not on scroll)</dd>
+		<dt>iOS 8.4 (iPad) Chrome</dt>          <dd>All Cases Work (Note: lazy-loaded images load after scrollEnd, not on scroll)</dd>
+		<dt>Android 5.1 Firefox</dt>            <dd>All Cases Work</dd>
+		<dt>Android 5.1 Chrome</dt>             <dd>All Cases Work</dd>
+		<dt>Android 5.1 Opera</dt>              <dd>All Cases Work</dd>
+		<dt>Mac Chrome</dt>                     <dd>All Cases Work</dd>
+		<dt>Mac Safari</dt>                     <dd>All Cases Work</dd>
+		<dt>Windows 7 Chrome</dt>               <dd>All Cases Work</dd>
+		<dt>Windows 7 Firefox</dt>              <dd>All Cases Work</dd>
+		<dt>Windows 7 Opera</dt>                <dd>All Cases Work</dd>
 		<dt>Windows 7 IE 9 &#8211; 11+</dt>     <dd>All Cases Work (Be careful how you implement object-fit! If the images disappear, you're doing it wrong!)</dd>
-		<dt>Windows 7 Safari 5.1.7</dt> <dd class="tests__warn">Object-fit broken</dd>
-		<dt>Windows XP IE 8</dt>        <dd class="tests__error">Nothing Works...</dd>
+		<dt>Windows 7 Safari 5.1.7</dt>         <dd class="tests__warn">Object-fit broken</dd>
+		<dt>Windows XP IE 8</dt>                <dd class="tests__error">Nothing Works...</dd>
 	</dl>
 
 	<section class="tests__section">

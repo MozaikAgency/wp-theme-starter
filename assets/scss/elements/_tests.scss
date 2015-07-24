@@ -6,6 +6,9 @@
 	margin: 0 auto;
 	padding: 100px 40px;
 	max-width: 1024px;
+
+	font-family: $t_font_body;
+
 	background-color: #fbfbfb;
 	box-shadow: inset 0 0 1px #fff,
 							0 0 10px #dbdbdb;
@@ -14,10 +17,29 @@
 		width: 100%;
 		height: auto;
 	}
+
+	a {
+		color: mediumslateblue;
+		text-decoration: none;
+		transition: 0.4s ease;
+
+		&:hover {
+			color: rebeccapurple;
+		}
+	}
 }
 
 .tests__warn  { color: orange; }
 .tests__error { color: tomato; }
+
+.tests__link-list {
+	margin-bottom: 40px;
+	padding: 0;
+
+	li {
+		margin: 5px 0;
+	}
+}
 
 .tests__results {
 	border: 1px solid #ebebeb;
@@ -47,7 +69,7 @@
 
 .tests__section-subtitle {
 	margin: 50px 0 0;
-	font-size: 1em;
+	font-size: 1.1em;
 	color: #444;
 
 	&:after {
