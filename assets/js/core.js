@@ -6,18 +6,22 @@ import '../../node_modules/lazysizes/plugins/bgset/ls.bgset.js';
 import 'lazysizes';
 
 /** Object-fit/Object-position Polyfill */
-//document.addEventListener('DOMContentLoaded', () => {
-//	window.objectFit = require('object-fit');
-//
-//	window.objectFit.polyfill({
-//		selector: 'img',
-//		fittype: 'cover',
-//		disableCrossDomain: 'true'
-//	});
-//
-//	window.objectFit.polyfill({
-//		selector: 'img',
-//		fittype: 'contain',
-//		disableCrossDomain: 'true'
-//	});
-//});
+window.objectFit = require('object-fit/dist/polyfill.object-fit');
+
+let addEvent = window.addEventListener || window.attachEvent;
+let event = window.addEventListener ? 'DOMContentLoaded' : 'onDOMContentLoaded';
+
+addEvent(event, () => {
+
+	window.objectFit.polyfill({
+		selector: '[data-object-fit="cover"]',
+		fittype: 'cover',
+		disableCrossDomain: true
+	});
+
+	window.objectFit.polyfill({
+		selector: '[data-object-fit="contain"]',
+		fittype: 'contain',
+		disableCrossDomain: true
+	});
+});
