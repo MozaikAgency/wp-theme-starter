@@ -14,7 +14,7 @@
 			<a href="https://github.com/scottjehl/picturefill" target="_blank">
 				PictureFill - Responsive images specification polyfill
 			</a>
-			- Required for FF < v38, IE and safari
+			- Required for FF &lt; v38, IE and safari
 		</li>
 		<li>
 			<a href="https://github.com/aFarkas/lazysizes" target="_blank">
@@ -27,7 +27,7 @@
 			<a href="https://github.com/anselmh/object-fit" target="_blank">
 				Object-fit Polyfill - Object-fit/position specification polyfill
 			</a>
-			- Required for FF < v36 and IE object-fit/position support
+			- Required for FF &lt; v36 and IE object-fit/position support
 		</li>
 	</ul>
 
