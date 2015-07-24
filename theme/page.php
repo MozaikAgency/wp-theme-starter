@@ -7,11 +7,14 @@
 	</h1>
 
 	<dl class="tests__results">
-		<dt>Windows Chrome</dt> <dd>Works</dd>
-		<dt>Windows Firefox</dt><dd>Works</dd>
-		<dt>Windows Opera</dt>  <dd>Works</dd>
-		<dt>Windows Safari</dt> <dd>Object-fit broken</dd>
-		<dt>Windows IE 11</dt>  <dd>Object-fit broken</dd>
+		<dt>Mac Chrome</dt>             <dd>All Cases Work</dd>
+		<dt>Mac Safari</dt>             <dd>All Cases Work</dd>
+		<dt>Windows 7 Chrome</dt>       <dd>All Cases Work</dd>
+		<dt>Windows 7 Firefox</dt>      <dd>All Cases Work</dd>
+		<dt>Windows 7 Opera</dt>        <dd>All Cases Work</dd>
+		<dt>Windows 7 IE 9 - 11+</dt>   <dd>All Cases Work (Be careful how you implement object-fit! If the images disappear, you're doing it wrong!)</dd>
+		<dt>Windows 7 Safari 5.1.7</dt> <dd class="tests__warn">Object-fit broken</dd>
+		<dt>Windows XP IE 8</dt>        <dd class="tests__error">Nothing Works...</dd>
 	</dl>
 
 	<section class="tests__section">
@@ -72,7 +75,7 @@
 			MOZ_RI::picture( 5, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
-			) );
+			), array( 'data-object-fit' => 'cover' ) );
 			?>
 		</p>
 
@@ -85,7 +88,7 @@
 			), array(
 				'(min-width: 1024px) 1024px',
 				'100vw'
-			) );
+			), array( 'data-object-fit' => 'contain' ) );
 			?>
 		</p>
 	</section>
