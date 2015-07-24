@@ -1,7 +1,7 @@
 var browserSync = require('browser-sync');
 
 // config
-var paths       = require('../config/common').paths;
+var config = require('../config/browser-sync');
 
 /**
  * Spin up the browser-sync
@@ -11,13 +11,6 @@ var paths       = require('../config/common').paths;
  *
  */
 module.exports = function (done) {
-  browserSync({
-		logSnippet: false,
-		server: false,
-		open: false,
-		reloadDelay: 100,
-		reloadDebounce: 100
-  });
-
+  browserSync(config);
 	done();
 };
