@@ -35,6 +35,7 @@
  * ( - Reset/Normalize First - )
  */
 @import "vendor/normalize";
+@import "vendor/polyfill.object-fit";
 @import "vendor/moz-backround-picture";
 @import "vendor/magnific-popup";
 @import "vendor/slick";
@@ -55,6 +56,8 @@
  */
 @import "elements/site";
 @import "elements/hero";
+
+@import "elements/tests";
 
 
 

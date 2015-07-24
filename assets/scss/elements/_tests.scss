@@ -1,0 +1,42 @@
+/* =========================================
+		Tests
+   ========================================= */
+
+.tests {
+	margin: 100px auto;
+	padding: 0 40px;
+	max-width: 1024px;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.tests__results {
+	dt {
+		float: left;
+	}
+	dd {
+		padding-left: 100px;
+	}
+}
+
+.tests__section {
+	margin-bottom: 100px;
+}
+
+.tests__section-title {
+	font-family: $t_font_display;
+}
+
+.tests__object-fit {
+	height: 300px;
+
+	img {
+		width: 100%;
+		height: 100%;
+
+		object-fit: cover;
+	}
+}
