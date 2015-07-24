@@ -12,7 +12,7 @@
 		<dt>Windows 7 Chrome</dt>       <dd>All Cases Work</dd>
 		<dt>Windows 7 Firefox</dt>      <dd>All Cases Work</dd>
 		<dt>Windows 7 Opera</dt>        <dd>All Cases Work</dd>
-		<dt>Windows 7 IE 9 - 11+</dt>   <dd>All Cases Work (Be careful how you implement object-fit! If the images disappear, you're doing it wrong!)</dd>
+		<dt>Windows 7 IE 9 &#8211; 11+</dt>     <dd>All Cases Work (Be careful how you implement object-fit! If the images disappear, you're doing it wrong!)</dd>
 		<dt>Windows 7 Safari 5.1.7</dt> <dd class="tests__warn">Object-fit broken</dd>
 		<dt>Windows XP IE 8</dt>        <dd class="tests__error">Nothing Works...</dd>
 	</dl>
@@ -28,6 +28,9 @@
 			picture and img srcset-sizes
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Background Image (no lazy-load)
+		</h3>
 		<p style="height: 300px;position: relative;">
 			<?php
 			// using a background image
@@ -38,6 +41,9 @@
 			?>
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Picture Element (no lazy-load)
+		</h3>
 		<p>
 			<?php
 			MOZ_RI::picture( 7, 'medium', array(
@@ -47,6 +53,9 @@
 			?>
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Image with srcset/sizes (no lazy-load)
+		</h3>
 		<p>
 			<?php
 			MOZ_RI::image( 6, array(
@@ -70,15 +79,23 @@
 			should not look stretched
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Picture Element (no lazy-load, object-fit: cover)
+		</h3>
 		<p class="tests__object-fit">
 			<?php
 			MOZ_RI::picture( 5, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
-			), array( 'data-object-fit' => 'cover' ) );
+			), array(
+				'data-object-fit' => 'cover'
+			) );
 			?>
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Image with srcset/sizes (lazy-load, object-fit: contain)
+		</h3>
 		<p class="tests__object-fit">
 			<?php
 			MOZ_RI::image( 4, array(
@@ -88,7 +105,10 @@
 			), array(
 				'(min-width: 1024px) 1024px',
 				'100vw'
-			), array( 'data-object-fit' => 'contain' ) );
+			), array(
+				'lazy' => true,
+				'data-object-fit' => 'contain'
+			) );
 			?>
 		</p>
 	</section>
@@ -102,6 +122,9 @@
 			when the pictures are requested
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Background Image (lazy-load)
+		</h3>
 		<p style="height: 300px;position: relative;">
 			<?php
 			// using a background image
@@ -114,6 +137,9 @@
 			?>
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Picture Element (lazy-load)
+		</h3>
 		<p>
 			<?php
 			MOZ_RI::picture( 10, 'medium', array(
@@ -125,6 +151,9 @@
 			?>
 		</p>
 
+		<h3 class="tests__section-subtitle">
+			Image with srcset/sizes (lazy-load)
+		</h3>
 		<p>
 			<?php
 			MOZ_RI::image( 8, array(
