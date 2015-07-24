@@ -21,7 +21,7 @@
 				LazySizes - Lazy-load images
 			</a>
 			(+ <a href="https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset" target="_blank"><i>bgset plugin</i></a>)
-			- Required for lazy-loading responsive images/backgrounds
+			- Required for lazy-loading responsive images and background images
 		</li>
 		<li>
 			<a href="https://github.com/anselmh/object-fit" target="_blank">
