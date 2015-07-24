@@ -144,10 +144,10 @@ class MOZ_RI {
 
 		$content = MOZ_Html::get_element( 'span', array( 'class' => 'visuallyhidden' ), $alt );
 
-		$unique = uniqid( 'moz-background-picture--' );
-		$attrs['class'] .= " moz-background-picture $unique";
+		$attrs['class'] .= ' moz-background-picture';
 
 		if ( $is_lazy ) {
+			// lazy loaded background image
 			if ( self::should_add_lazy_class( $attrs ) ) {
 				$attrs['class'] .= ' lazyload';
 			}
@@ -161,6 +161,10 @@ class MOZ_RI {
 			$attrs['data-bgset'] = implode( ' | ', array_reverse( $bgset ) );
 
 		} else {
+			// not lazy-loaded background image
+			$unique = uniqid( 'moz-background-picture--' );
+			$attrs['class'] .= " $unique";
+
 			ob_start(); ?>
 
 			<style>
@@ -236,6 +240,8 @@ class MOZ_RI {
 			$content[] = MOZ_Html::get_sc_element( 'source', $attrs );
 		}
 
+		$content[] = '<!--[if IE 9]></video><![endif]-->';
+
 		$base_src = wp_get_attachment_image_src( $image, $base_size, false );
 
 		$attrs = self::maybe_lazify( $is_lazy, array_merge( array(
@@ -244,8 +250,6 @@ class MOZ_RI {
 		), $extras ) );
 
 		$content[] = MOZ_Html::get_sc_element( 'img', $attrs );
-
-		$content[] = '<!--[if IE 9]></video><![endif]-->';
 
 		return MOZ_Html::get_element( 'picture', array(), implode( '', $content ) );
 	}
