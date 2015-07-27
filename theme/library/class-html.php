@@ -20,14 +20,14 @@ class MOZ_Html {
 	 * element constructed
 	 * by php
 	 *
-	 * @param $tag     string
-	 * @param $attrs   array
+	 * @param string $tag
+	 * @param array  $attrs
 	 *
 	 * @return string
 	 */
 	static function get_sc_element( $tag = 'img', $attrs = array() ) {
 		$html = "<$tag";
-		foreach ( $attrs as $attr => $value ) {
+		foreach ( (array) $attrs as $attr => $value ) {
 			$html .= " $attr=\"$value\"";
 		}
 		$html .= '>';
@@ -41,8 +41,8 @@ class MOZ_Html {
 	 * element constructed
 	 * by php
 	 *
-	 * @param $tag     string
-	 * @param $attrs   array
+	 * @param string $tag
+	 * @param array  $attrs
 	 *
 	 * @return string
 	 */
@@ -56,9 +56,9 @@ class MOZ_Html {
 	 * element constructed
 	 * by php
 	 *
-	 * @param $tag     string
-	 * @param $attrs   array
-	 * @param $content string
+	 * @param string $tag
+	 * @param array  $attrs
+	 * @param string $content
 	 *
 	 * @return string
 	 */
@@ -78,9 +78,9 @@ class MOZ_Html {
 	 * element constructed
 	 * by php
 	 *
-	 * @param $tag     string
-	 * @param $attrs   array
-	 * @param $content string
+	 * @param string $tag
+	 * @param array  $attrs
+	 * @param string $content
 	 *
 	 * @return string
 	 */
