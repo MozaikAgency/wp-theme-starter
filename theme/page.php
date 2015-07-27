@@ -132,15 +132,14 @@
 		<p class="tests__object-fit">
 			<?php
 			MOZ_RI::image( 4, array(
-				'full',
-				'large',
-				'medium'
+				'full', 'large', 'medium'
 			), array(
 				'(min-width: 1024px) 1024px',
 				'100vw'
 			), array(
-				'lazy' => true,
 				'data-object-fit' => 'contain'
+			), array(
+				'lazy' => true,
 			) );
 			?>
 		</p>
@@ -164,7 +163,7 @@
 			MOZ_RI::background( 11, 'medium', array(
 				'large'  => '(min-width: 500px)',
 				'full'   => '(min-width: 1200px)'
-			), array(
+			), null, array(
 				'lazy' => true
 			) );
 			?>
@@ -178,7 +177,7 @@
 			MOZ_RI::picture( 10, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
-			), array(
+			), null, array(
 				'lazy' => true
 			) );
 			?>
@@ -196,7 +195,7 @@
 			), array(
 				'(min-width: 1024px) 1024px',
 				'100vw'
-			), array(
+			), null, array(
 				'lazy' => true
 			) );
 			?>
