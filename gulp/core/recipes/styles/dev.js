@@ -22,7 +22,7 @@ var config       = require('../../config/styles.js');
  *
  */
 module.exports = function (cb) {
-	var filterCSS = filter('**/*.css');
+	var filterCSS = filter('**/*.css', { restore: true });
 
 	return gulp.src(config.paths.src)
 		.pipe(plumber())
@@ -41,7 +41,7 @@ module.exports = function (cb) {
 		                 // Browser-sync on CSS files so we need to
 		                 // filter the stream for the css files
 		.pipe(browserSync.reload({ stream: true }))
-		.pipe(filterCSS.restore())
+		.pipe(filterCSS.restore)
 
 		.pipe(notify({
 			message: pumped('SCSS Compiled.'),
