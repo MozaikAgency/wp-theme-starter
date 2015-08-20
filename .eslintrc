@@ -15,7 +15,6 @@
     "guard-for-in": 1,
     "vars-on-top": 1,
     "no-eq-null": 1,
-    "no-reserved-keys": 1,
     "brace-style": 1,
     "no-console": 1,
     "quotes": [

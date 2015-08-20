@@ -31,8 +31,8 @@ var bSSnippet    = require('../../templates/browser-sync-snippet');
  * @returns {*}
  */
 module.exports = function () {
-	var filterPHP  = filter('**/*.php');
-	var filterFunc = filter('functions.php');
+	var filterPHP  = filter('**/*.php', { restore: true });
+	var filterFunc = filter('functions.php', { restore: true });
 
 	return gulp.src(config.paths.src)
 		.pipe(plumber())
@@ -53,7 +53,7 @@ module.exports = function () {
 				return next(null, includeDev(filename, definitions));
 			});
 		}))
-		.pipe(filterPHP.restore())
+		.pipe(filterPHP.restore)
 
 		.pipe(add({
 			'.gitignore': '*',
@@ -65,7 +65,7 @@ module.exports = function () {
 		                  // functions.php so we need to
 		                  // filter the gulp stream
 		.pipe(insert.append(bSSnippet))
-		.pipe(filterFunc.restore())
+		.pipe(filterFunc.restore)
 
 		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({

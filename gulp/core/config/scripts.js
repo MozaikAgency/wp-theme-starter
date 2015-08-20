@@ -54,7 +54,14 @@ module.exports = deepMerge({
 					new webpack.optimize.DedupePlugin(),
 					new webpack.optimize.OccurenceOrderPlugin(true),
 					new webpack.optimize.UglifyJsPlugin({
-						minimize: true
+						sourceMap: false,
+						mangle: {
+							source_map: false,
+							comments: false
+						},
+						compress: {
+							warnings: false
+						}
 					})
 				]
 			},
