@@ -1,0 +1,38 @@
+/* =========================================
+		Opposite Direction Function
+   ========================================= */
+
+/**
+ * Returns the opposite direction of each direction in a list
+ * @author Hugo Giraudel
+ *
+ * @param {List} $directions - List of initial directions
+ *
+ * @return {List} - List of opposite directions
+ */
+@function opposite-direction($directions) {
+	$opposite-directions: ();
+	$direction-map: (
+		'top': 'bottom',
+		'up': 'bottom',
+		'right': 'left',
+		'bottom': 'top',
+		'down': 'top',
+		'left': 'right',
+		'center': 'center',
+		'ltr': 'rtl',
+		'rtl': 'ltr'
+	);
+
+	@each $direction in $directions {
+		$direction: to-lower-case($direction);
+
+		@if map-has-key($direction-map, $direction) {
+			$opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+		} @else {
+			@warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+		}
+	}
+
+	@return $opposite-directions;
+}
