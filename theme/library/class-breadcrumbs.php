@@ -1,7 +1,8 @@
 <?php
 /**
- * WordPress Responsive Images
- * Implementation
+ * WordPress Breadcrumbs renderer
+ * to support BEM class namins
+ * conventios
  *
  * @author Max G J Panas <http://maxpanas.com>
  */

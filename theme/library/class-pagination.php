@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Pagination extension
+ * WordPress Pagination renderer
  * to support BEM class naming
  * conventions
  *
