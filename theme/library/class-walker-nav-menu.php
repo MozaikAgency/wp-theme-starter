@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or die();
 
 
 /**
- * Class MOZ_Walker_BEM_Menu
+ * Class MOZ_Walker_Nav_Menu
  *
  * Prints the Html for the multi tier navigation
  * menus
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) or die();
  *
  * @uses  Walker_Nav_Menu
  */
-class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
+class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 	/**
