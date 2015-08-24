@@ -24,7 +24,7 @@ class MOZ_Breadcrumbs {
 	 * @param string $theme_location
 	 * @param array  $options
 	 */
-	static function breadcrumbs( $theme_location = 'primary', $options = array() ) {
+	public static function breadcrumbs( $theme_location = 'primary', $options = array() ) {
 		echo self::get_breadcrumbs( $theme_location, $options );
 	}
 
@@ -39,7 +39,7 @@ class MOZ_Breadcrumbs {
 	 *
 	 * @return string
 	 */
-	static function get_breadcrumbs( $theme_location = 'primary', $options = array() ) {
+	public static function get_breadcrumbs( $theme_location = 'primary', $options = array() ) {
 		$breadcrumbs_items = self::get_breadcrumbs_arr( $theme_location, $options );
 		if ( ! $breadcrumbs_items || empty( $breadcrumbs_items ) ) {
 			return '';
@@ -90,7 +90,7 @@ class MOZ_Breadcrumbs {
 	 *
 	 * @return array
 	 */
-	static protected function get_breadcrumb_arr( $link, $text, $flags = array() ) {
+	protected static function get_breadcrumb_arr( $link, $text, $flags = array() ) {
 		$flags = wp_parse_args( $flags, array(
 			'current'   => false,
 			'parent'    => false,
@@ -115,7 +115,7 @@ class MOZ_Breadcrumbs {
 	 *
 	 * @return array|bool
 	 */
-	static function get_breadcrumbs_arr( $theme_location = 'primary', $options = array() ) {
+	public static function get_breadcrumbs_arr( $theme_location = 'primary', $options = array() ) {
 		$locations = get_nav_menu_locations();
 
 		if ( ! isset( $locations[ $theme_location ] ) ) {

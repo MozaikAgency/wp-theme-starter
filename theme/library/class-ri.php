@@ -25,7 +25,7 @@ class MOZ_RI {
 	 *
 	 * @return bool
 	 */
-	public static function is_lazy( $flags ) {
+	protected static function is_lazy( $flags ) {
 		return isset( $flags['lazy'] ) && ! ! $flags['lazy'];
 	}
 
@@ -42,7 +42,7 @@ class MOZ_RI {
 	 *
 	 * @return bool
 	 */
-	public static function should_add_lazy_class( $flags ) {
+	protected static function should_add_lazy_class( $flags ) {
 		return isset( $flags['lazy_class'] )
 			? ! ! $flags['lazy_class']
 			: true;

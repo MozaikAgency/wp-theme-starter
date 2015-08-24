@@ -22,7 +22,7 @@ class MOZ_Pagination {
 	 *
 	 * @param array|string $args
 	 */
-	function pagination( $args = '' ) {
+	public static function pagination( $args = '' ) {
 		echo self::get_pagination( $args );
 	}
 
@@ -37,7 +37,7 @@ class MOZ_Pagination {
 	 *
 	 * @return string
 	 */
-	static function get_pagination( $args = array() ) {
+	public static function get_pagination( $args = array() ) {
 		$args = wp_parse_args( $args, array(
 			'prev_next' => false
 		) );
@@ -155,7 +155,7 @@ class MOZ_Pagination {
 	 * }
 	 * @return array array of page links.
 	 */
-	static function get_pagination_arr( $args = array() ) {
+	public static function get_pagination_arr( $args = array() ) {
 		/**
 		 * @var $wp_query WP_Query
 		 * @var $wp_rewrite WP_Rewrite
