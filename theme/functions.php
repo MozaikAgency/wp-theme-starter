@@ -48,9 +48,7 @@ function theme_setup() {
 
 	// Let wp know we want to use post thumbnails
 	/*
-	add_theme_support( 'post-thumbnails', array(
-		'post', 'page'
-	) );
+	add_theme_support( 'post-thumbnails' );
 	*/
 
 
