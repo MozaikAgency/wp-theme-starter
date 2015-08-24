@@ -105,6 +105,7 @@ function theme_setup() {
 
 	// Library Loader
 	get_template_part( 'library/library-loader' );
+	get_template_part( 'library/includes-loader' );
 }
 
 
