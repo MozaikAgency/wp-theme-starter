@@ -47,7 +47,7 @@ class MOZ_Breadcrumbs {
 							$attrs['href'] = $crumb['url'];
 						}
 
-						MOZ_Html::get_element( $tag, $attrs, $crumb['title'] );
+						MOZ_Html::element( $tag, $attrs, $crumb['title'] );
 						?>
 					</li>
 				<?php endforeach; ?>
@@ -79,10 +79,16 @@ class MOZ_Breadcrumbs {
 
 		$menu  = wp_get_nav_menu_object( $locations[ $theme_location ] );
 		$items = wp_get_nav_menu_items( $menu->term_id );
-		_wp_menu_item_classes_by_context( $items ); // Set up the class variables, including current-classes
-		$crumbs  = array();
-		$current = false;
 
+		if ( empty( $items ) ) {
+			return array();
+		}
+
+		// Set up the class variables, including current-classes
+		_wp_menu_item_classes_by_context( $items );
+
+		$crumbs  = array();
+		$current_exists = false;
 		foreach ( $items as $item ) {
 			if ( $item->current_item_parent || $item->current_item_ancestor || $item->current ) {
 				$crumbs[] = array(
@@ -95,33 +101,35 @@ class MOZ_Breadcrumbs {
 				);
 
 				if ( $item->current ) {
-					$current = true;
+					$current_exists = true;
 				}
 			}
 		}
 
-		if ( ! empty( $crumbs ) ) {
-			if ( ! $current ) {
-				array_push( $crumbs, array(
-					'url'       => get_permalink(),
-					'title'     => get_the_title(),
-					'current'   => true,
-					'parent'    => false,
-					'ancestor'  => false,
-					'home_link' => false
-				) );
-			}
+		if ( empty( $crumbs ) ) {
+			return array();
+		}
 
-			if ( ! is_front_page() ) {
-				array_unshift( $crumbs, array(
-					'url'       => home_url(),
-					'title'     => $options['home_title'],
-					'current'   => false,
-					'parent'    => false,
-					'ancestor'  => false,
-					'home_link' => true
-				) );
-			}
+		if ( ! $current_exists ) {
+			array_push( $crumbs, array(
+				'url'       => get_permalink(),
+				'title'     => get_the_title(),
+				'current'   => true,
+				'parent'    => false,
+				'ancestor'  => false,
+				'home_link' => false
+			) );
+		}
+
+		if ( ! is_front_page() ) {
+			array_unshift( $crumbs, array(
+				'url'       => home_url(),
+				'title'     => $options['home_title'],
+				'current'   => false,
+				'parent'    => false,
+				'ancestor'  => false,
+				'home_link' => true
+			) );
 		}
 
 		return $crumbs;
