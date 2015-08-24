@@ -1,8 +1,8 @@
 <?php
 /**
  * WordPress Breadcrumbs renderer
- * to support BEM class namins
- * conventios
+ * to support BEM class namings
+ * conventions
  *
  * @author Max G J Panas <http://maxpanas.com>
  */
