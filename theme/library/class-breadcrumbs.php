@@ -16,57 +16,105 @@ class MOZ_Breadcrumbs {
 
 
 	/**
-	 * Print the breadcrumbs based on
-	 * the given menu location
+	 * Print the breadcrumbs HTML
+	 * based on the given menu
+	 * location
 	 *
 	 * @param string $theme_location
 	 * @param array  $options
 	 */
-	static function render( $theme_location = 'primary', $options = array() ) {
-		$crumbs = self::get_as_array( $theme_location, $options );
-		if ( ! $crumbs || empty( $crumbs ) ) {
-			return;
-		}
-
-		?>
-
-		<nav class="breadcrumb">
-			<ul class="breadcrumb__list">
-				<?php foreach ( $crumbs as $crumb ) : ?>
-					<li class="breadcrumb__item">
-						<?php
-						$classes = 'breadcrumb__link';
-						if ( $crumb['current'] ) {
-							$classes .= ' breadcrumb__link--current';
-						}
-
-						$tag   = 'span';
-						$attrs = array( 'class' => $classes );
-						if ( $crumb['url'] && '#' !== $crumb['url'] ) {
-							$tag           = 'a';
-							$attrs['href'] = $crumb['url'];
-						}
-
-						MOZ_Html::element( $tag, $attrs, $crumb['title'] );
-						?>
-					</li>
-				<?php endforeach; ?>
-			</ul>
-		</nav>
-
-		<?php
+	static function breadcrumbs( $theme_location = 'primary', $options = array() ) {
+		echo self::get_breadcrumbs( $theme_location, $options );
 	}
 
 
 	/**
+	 * Return the breadcrumbs HTML
+	 * based on the given menu
+	 * location
+	 *
+	 * @param string $theme_location
+	 * @param array  $options
+	 *
+	 * @return string
+	 */
+	static function get_breadcrumbs( $theme_location = 'primary', $options = array() ) {
+		$breadcrumbs_items = self::get_breadcrumbs_arr( $theme_location, $options );
+		if ( ! $breadcrumbs_items || empty( $breadcrumbs_items ) ) {
+			return '';
+		}
+
+		ob_start();
+		?>
+
+			<nav class="breadcrumbs">
+				<ul class="breadcrumbs__list">
+					<?php foreach ( $breadcrumbs_items as $item ) : ?>
+
+						<li class="breadcrumbs__list-item">
+							<?php
+								$classes = 'breadcrumbs__item';
+								if ( $item['current'] ) {
+									$classes .= ' breadcrumbs__item--current';
+								}
+
+								$tag = 'span';
+								$attrs = array( 'class' => $classes );
+								if ( false !== $item['link'] && '#' !== $item['link'] ) {
+									$tag = 'a';
+									$attrs['href'] = $item['link'];
+								}
+
+								MOZ_Html::element( $tag, $attrs, $item['text'] );
+							?>
+						</li>
+
+					<?php endforeach; ?>
+				</ul>
+			</nav>
+
+		<?php
+		return ob_get_clean();
+	}
+
+
+
+	/**
+	 * Return a single normalized
+	 * breadcrumb properties array
+	 *
+	 * @param string $link
+	 * @param string $text
+	 * @param array  $flags
+	 *
+	 * @return array
+	 */
+	static protected function get_breadcrumb_arr( $link, $text, $flags = array() ) {
+		$flags = wp_parse_args( $flags, array(
+			'current'   => false,
+			'parent'    => false,
+			'ancestor'  => false,
+			'home_link' => false
+		) );
+
+		return array_merge( array(
+			'link' => $link,
+			'text' => $text,
+		), $flags );
+	}
+
+
+
+	/**
 	 * Return the breadcrumbs array
+	 * based on a given menu
 	 *
 	 * @param string $theme_location
 	 * @param array  $options
 	 *
 	 * @return array|bool
 	 */
-	static function get_as_array( $theme_location = 'primary', $options = array() ) {
+	static function get_breadcrumbs_arr( $theme_location = 'primary', $options = array() ) {
 		$locations = get_nav_menu_locations();
 
 		if ( ! isset( $locations[ $theme_location ] ) ) {
@@ -91,14 +139,11 @@ class MOZ_Breadcrumbs {
 		$current_exists = false;
 		foreach ( $items as $item ) {
 			if ( $item->current_item_parent || $item->current_item_ancestor || $item->current ) {
-				$crumbs[] = array(
-					'url'       => $item->url,
-					'title'     => $item->title,
-					'current'   => $item->current,
-					'parent'    => $item->current_item_parent,
-					'ancestor'  => $item->current_item_ancestor,
-					'home_link' => false
-				);
+				$crumbs[] = self::get_breadcrumb_arr( $item->url, $item->title, array(
+					'current'  => $item->current,
+					'parent'   => $item->current_item_parent,
+					'ancestor' => $item->current_item_ancestor
+				) );
 
 				if ( $item->current ) {
 					$current_exists = true;
@@ -111,25 +156,15 @@ class MOZ_Breadcrumbs {
 		}
 
 		if ( ! $current_exists ) {
-			array_push( $crumbs, array(
-				'url'       => get_permalink(),
-				'title'     => get_the_title(),
-				'current'   => true,
-				'parent'    => false,
-				'ancestor'  => false,
-				'home_link' => false
-			) );
+			array_push( $crumbs, self::get_breadcrumb_arr( get_permalink(), get_the_title(), array(
+				'current' => true
+			) ) );
 		}
 
 		if ( ! is_front_page() ) {
-			array_unshift( $crumbs, array(
-				'url'       => home_url(),
-				'title'     => $options['home_title'],
-				'current'   => false,
-				'parent'    => false,
-				'ancestor'  => false,
+			array_unshift( $crumbs, self::get_breadcrumb_arr( home_url(), $options['home_title'], array(
 				'home_link' => true
-			) );
+			) ) );
 		}
 
 		return $crumbs;

@@ -16,62 +16,70 @@ class MOZ_Pagination {
 
 
 	/**
-	 * Returns pagination for the currently
-	 * active loop
-	 *
-	 * @uses MOZ_Pagination::get_pagination_arr()
-	 *
-	 * @param array|string $args
-	 *
-	 * @return string
-	 */
-	static function get_pagination( $args = '' ) {
-		// theme-wide pagination defaults
-		$args = wp_parse_args( $args, array(
-			'prev_next' => false
-		) );
-
-		$pagination_items = self::get_pagination_arr( $args );
-
-		if ( empty( $pagination_items ) ) {
-			return '';
-		}
-
-		$html = '<nav class="pagination">';
-			$html .= '<ul class="pagination__list">';
-
-			foreach ( $pagination_items as $item ) {
-				if ( false === $item['text'] ) {
-					continue;
-				}
-
-				$tag            = false === $item['link'] ? 'span' : 'a';
-				$maybe_href     = false === $item['link'] ? '' : " href=\"{$item['link']}\"";
-				$maybe_modifier = 'page' === $item['type'] ? '' : " pagination__item--{$item['type']}";
-
-				$html .= '<li class="pagination__list-item">';
-					$html .= "<$tag{$maybe_href} class=\"pagination__item{$maybe_modifier}\">";
-						$html .= $item['text'];
-					$html .= "</$tag>";
-				$html .= '</li>';
-			}
-
-			$html .= '</ul>';
-		$html .= '</nav>';
-
-		return $html;
-	}
-
-
-
-	/**
-	 * Prints pagination for the currently
+	 * Print pagination HTML
+	 * for the currently
 	 * active loop
 	 *
 	 * @param array|string $args
 	 */
 	function pagination( $args = '' ) {
 		echo self::get_pagination( $args );
+	}
+
+
+
+	/**
+	 * Returns pagination HTML
+	 * for the currently
+	 * active loop
+	 *
+	 * @param array|string $args
+	 *
+	 * @return string
+	 */
+	static function get_pagination( $args = array() ) {
+		$args = wp_parse_args( $args, array(
+			'prev_next' => false
+		) );
+
+		$pagination_items = array_filter( self::get_pagination_arr( $args ), function ( $item ) {
+			return false !== $item['text'];
+		});
+		if ( empty( $pagination_items ) ) {
+			return '';
+		}
+
+		ob_start();
+		?>
+
+			<nav class="pagination">
+				<ul class="pagination__list">
+					<?php foreach ( $pagination_items as $item ) : ?>
+
+						<li class="pagination__list-item">
+							<?php
+								$classes = 'pagination__item';
+								if ( 'page' === $item['type'] ) {
+									$classes .= " pagination__item--{$item['type']}";
+								}
+
+								$tag = 'span';
+								$attrs = array( 'class' => $classes );
+								if ( false !== $item['link'] && '#' !== $item['link'] ) {
+									$tag = 'a';
+									$attrs['href'] = $item['link'];
+								}
+
+								MOZ_Html::element( $tag, $attrs, $item['text'] );
+							?>
+						</li>
+
+					<?php endforeach; ?>
+				</ul>
+			</nav>
+
+		<?php
+		return ob_get_clean();
 	}
 
 
@@ -147,7 +155,11 @@ class MOZ_Pagination {
 	 * }
 	 * @return array array of page links.
 	 */
-	static function get_pagination_arr( $args = '' ) {
+	static function get_pagination_arr( $args = array() ) {
+		/**
+		 * @var $wp_query WP_Query
+		 * @var $wp_rewrite WP_Rewrite
+		 */
 		global $wp_query, $wp_rewrite;
 
 		// Setting up default values based on the current URL.
