@@ -1,12 +1,38 @@
 # The Mozaik WordPress Theme Boilerplate
 
-The goals of the boilerplate are to:
+This is a WordPress Theme starter-kit meant to offer a first-class developer experience.
 
-1. be a product used and produced by the entire team <br/> (suggestions, issues and pull requests are welcome and encouraged)
-1. be easy to set up, use, understand and extend or modify
-1. guide the development process to be consistent where it can be
-1. offer a robust development and build workflow (currently powered by the cli and gulp)
-1. make getting off the ground with a new project really fast
+### Full Feature List:
+
+- [x] Separate development theme and auto-generated clutter-free production (built) theme
+- [x] Easy enough to port already existing themes over to it
+- [x] gulp build process
+	- [x] Dev Mode
+	  - [x] Auto refresh/injection of assets on save powered by BrowserSync
+		- [x] JavaScript module bundling, chunking and sourcemaps powered by Webpack
+		- [x] JavaScript ES6+ support via Babel
+		- [x] JavaScript linting via eslint
+		- [x] SCSS/SASS compilation and sourcemaps powered by libsass
+		- [ ] SCSS linting via scss-lint (waiting for first stable release of scss-lint)
+		- [x] CSS prefixing via autoprefixer
+	- [x] Production Mode
+		- [x] Minified CSS via cssmin
+		- [x] Uglify, dedupe JS via Webpack
+		- [x] Theme image optimization via imagemin
+		- [x] SVG optimization via svgmin
+ 	- [x] Build process easily extendable
+- [x] NPM and Bower workflows supported
+- [x] Theme Helpers Library
+	- [x] Responsive images specification implementation
+		- [x] helper function to print WordPress media by attachment id using responsive background images,
+		      the picture element or img-srcset-sizes
+		- [x] responsive images polyfill via picturefill
+		- [x] builtin lazyload helper supported by aFarkas/lazysizes
+		- [x] object-fit polyfill courtesy of anselhm/object-fit
+	- [x] BEM Style simplified customizable/extendable nav-menu-walker
+	- [x] BEM Style simplified customizable/extendable pagination renderer that easily supports custom queries
+	- [x] BEM Style simplified customizable/extendable breadcrumbs renderer that is based on a given menu
+- [x] Battle tested. Used in a multitude of small and large scale projects!
 
 ## Important Prerequisites
 
