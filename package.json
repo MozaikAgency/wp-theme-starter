@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "lazysizes": "^1.1.5",
-    "object-fit": "^0.4.2",
+    "object-fit": "^0.4.3",
     "picturefill": "^2.3.1"
   }
 }
