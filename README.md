@@ -24,11 +24,11 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 - [x] NPM and Bower workflows supported
 - [x] Theme Helpers Library
 	- [x] Responsive images specification implementation
-		- [x] helper function to print WordPress media by attachment id using responsive background images,
+		- [x] Helper function to print WordPress media by attachment id using responsive background images,
 		      the picture element or img-srcset-sizes
-		- [x] responsive images polyfill via picturefill
-		- [x] builtin lazyload helper supported by aFarkas/lazysizes
-		- [x] object-fit polyfill courtesy of anselhm/object-fit
+		- [x] Responsive images polyfill via picturefill
+		- [x] Builtin lazyload helper supported by aFarkas/lazysizes
+		- [x] Object-fit polyfill courtesy of anselhm/object-fit
 	- [x] BEM Style simplified customizable/extendable nav-menu-walker
 	- [x] BEM Style simplified customizable/extendable pagination renderer that easily supports custom queries
 	- [x] BEM Style simplified customizable/extendable breadcrumbs renderer that is based on a given menu
