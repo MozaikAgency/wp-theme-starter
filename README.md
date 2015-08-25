@@ -8,7 +8,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 - [x] Easy enough to port already existing themes over to it
 - [x] gulp build process
 	- [x] Dev Mode
-	  - [x] Auto refresh/injection of assets on save powered by BrowserSync
+		- [x] Auto refresh/injection of assets on save powered by BrowserSync
 		- [x] JavaScript module bundling, chunking and sourcemaps powered by Webpack
 		- [x] JavaScript ES6+ support via Babel
 		- [x] JavaScript linting via eslint
@@ -20,7 +20,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 		- [x] Uglify, dedupe JS via Webpack
 		- [x] Theme image optimization via imagemin
 		- [x] SVG optimization via svgmin
- 	- [x] Build process easily extendable
+	- [x] Build process easily extendable
 - [x] NPM and Bower workflows supported
 - [x] Theme Helpers Library
 	- [x] Responsive images specification implementation
