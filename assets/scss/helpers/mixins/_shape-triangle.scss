@@ -1,0 +1,49 @@
+/* =========================================
+		Shape --- Triangle Mixin
+   ========================================= */
+
+/**
+ * Prints the styles to display a CSS
+ * Triangle using the transparent borders trick.
+ *
+ * @param {Value} $direction - direction the triangle should be pointing
+ * @param {Value|List} $dimensions - dimensions of the triangle. Accepts between 1 and 3 separate dimensions
+ * @param {Value} $color - color the triangle should have
+ */
+@mixin shape-triangle($direction: right, $dimensions: 1em, $color: currentColor) {
+	@if not index(top up right bottom down left, $direction) {
+		@error "Triangle direction can only be one of `top`/`up`, `right`, `bottom`/`down` or `left`.";
+	}
+
+	$dirSize: nth($dimensions, 1);
+	$nextSize: $dirSize;
+	$prevSize: $dirSize;
+
+	@if length($dimensions) == 3 {
+		$nextSize: nth($dimensions, 2);
+		$prevSize: nth($dimensions, 3);
+	} @else if length($dimensions) == 2 {
+		$nextSize: nth($dimensions, 2);
+		$prevSize: $nextSize;
+	}
+
+	width: 0;
+	height: 0;
+
+	border: 0 solid transparent;
+	border-#{opposite-direction($direction)}: $dirSize solid $color;
+
+	@if $direction == up {
+		border-right-width: $nextSize;
+		border-left-width: $prevSize;
+	} @else if $direction == down {
+		border-left-width: $nextSize;
+		border-right-width: $prevSize;
+	} @else if $direction == right {
+		border-bottom-width: $nextSize;
+		border-top-width: $prevSize;
+	} @else if $direction == left {
+		border-top-width: $nextSize;
+		border-bottom-width: $prevSize;
+	}
+}

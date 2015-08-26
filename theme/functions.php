@@ -48,9 +48,7 @@ function theme_setup() {
 
 	// Let wp know we want to use post thumbnails
 	/*
-	add_theme_support( 'post-thumbnails', array(
-		'post', 'page'
-	) );
+	add_theme_support( 'post-thumbnails' );
 	*/
 
 
@@ -107,6 +105,7 @@ function theme_setup() {
 
 	// Library Loader
 	get_template_part( 'library/library-loader' );
+	get_template_part( 'includes/includes-loader' );
 }
 
 

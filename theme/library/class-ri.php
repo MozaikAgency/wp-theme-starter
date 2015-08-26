@@ -25,7 +25,7 @@ class MOZ_RI {
 	 *
 	 * @return bool
 	 */
-	public static function is_lazy( $flags ) {
+	protected static function is_lazy( $flags ) {
 		return isset( $flags['lazy'] ) && ! ! $flags['lazy'];
 	}
 
@@ -42,7 +42,7 @@ class MOZ_RI {
 	 *
 	 * @return bool
 	 */
-	public static function should_add_lazy_class( $flags ) {
+	protected static function should_add_lazy_class( $flags ) {
 		return isset( $flags['lazy_class'] )
 			? ! ! $flags['lazy_class']
 			: true;
@@ -116,10 +116,6 @@ class MOZ_RI {
 	 * @return bool|string
 	 */
 	public static function get_background( $image, $base_size, $sizes, $attrs = array(), $flags = array() ) {
-		if ( ! is_array( $sizes ) ) {
-			$sizes = array();
-		}
-
 		if ( ! wp_attachment_is_image( $image ) ) {
 			return false;
 		}
@@ -274,10 +270,6 @@ class MOZ_RI {
 	 * @returns string
 	 */
 	public static function get_image( $image, $sources, $sizes, $attrs = array(), $flags = array() ) {
-		if ( ! is_array( $sizes ) ) {
-			$sizes = array();
-		}
-
 		if ( ! wp_attachment_is_image( $image ) ) {
 			return false;
 		}

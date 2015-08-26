@@ -1,7 +1,12 @@
 <?php
 /**
- * The Library Loader
+ * The Includes Loader
  *
+ * How to:
+ * 1. Create a file like: class-banner-controller.php
+ * 2. In the file write a class like: MInc_Banner_Controller
+ * 3. The class will be autoloaded when called (no need to require/include), eg:
+ *    `new MInc_Banner_Controller();` or `MInc_Banner_Controller::get_title();`
  */
 
 
@@ -12,7 +17,7 @@ defined( 'ABSPATH' ) or die();
 // Register the class autoloader for
 // the mozaik library
 spl_autoload_register( function ( $class ) {
-	$prefix = 'MOZ_';
+	$prefix = 'MInc_';
 
 	if ( substr( $class, 0, strlen( $prefix ) ) == $prefix ) {
 		$class = substr( $class, strlen( $prefix ) );

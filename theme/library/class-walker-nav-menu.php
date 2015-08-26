@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or die();
 
 
 /**
- * Class MOZ_Walker_BEM_Menu
+ * Class MOZ_Walker_Nav_Menu
  *
  * Prints the Html for the multi tier navigation
  * menus
@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) or die();
  *
  * @uses  Walker_Nav_Menu
  */
-class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
+class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 	/**
@@ -177,7 +177,7 @@ class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
 	 *
 	 * @return bool
 	 */
-	function is_child_active( $child ) {
+	public static function is_child_active( $child ) {
 		return $child->current || $child->current_item_parent || $child->current_item_ancestor;
 	}
 
@@ -194,7 +194,7 @@ class MOZ_Walker_BEM_Menu extends Walker_Nav_Menu {
 	 *
 	 * @return bool
 	 */
-	function any_children_active( $element, $children_elements ) {
+	public static function any_children_active( $element, $children_elements ) {
 		if ( ! isset( $children_elements[ $element->ID ] ) ) {
 			return false;
 		}
