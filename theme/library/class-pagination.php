@@ -59,7 +59,7 @@ class MOZ_Pagination {
 						<li class="pagination__list-item">
 							<?php
 								$classes = 'pagination__item';
-								if ( 'page' === $item['type'] ) {
+								if ( 'page' !== $item['type'] ) {
 									$classes .= " pagination__item--{$item['type']}";
 								}
 
