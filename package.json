@@ -1,7 +1,7 @@
 {
   "name": "mozaik-theme-bootstrap",
   "description": "WordPress Theme Boilerplate - Build Tools Included :)",
-  "version": "3.7.2",
+  "version": "3.7.3",
   "author": "Mozaik Ltd.",
   "authorURI": "http://mozaik.com/",
   "license": "MIT",
@@ -20,20 +20,20 @@
     "prod": "gulp build"
   },
   "devDependencies": {
-    "babel-core": "^5.8.22",
+    "babel-core": "^5.8.23",
     "babel-loader": "^5.3.2",
     "bower-webpack-plugin": "^0.1.8",
     "browser-sync": "^2.8.2",
-    "del": "^1.2.1",
-    "eslint": "^1.2.0",
+    "del": "^2.0.0",
+    "eslint": "^1.3.1",
     "eslint-loader": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-add": "^0.0.2",
     "gulp-autoprefixer": "^2.3.1",
-    "gulp-filter": "^3.0.0",
+    "gulp-filter": "^3.0.1",
     "gulp-imagemin": "^2.3.0",
     "gulp-insert": "^0.5.0",
-    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-css": "^1.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
@@ -45,14 +45,14 @@
     "map-stream": "0.0.6",
     "node-libs-browser": "^0.5.2",
     "node-notifier": "^4.2.3",
-    "stream-browserify": "^2.0.0",
+    "stream-browserify": "^2.0.1",
     "vinyl-named": "^1.1.0",
     "vinyl-transform": "^1.0.0",
-    "webpack": "^1.11.0",
+    "webpack": "^1.12.0",
     "webpack-stream": "^2.1.0"
   },
   "dependencies": {
-    "lazysizes": "^1.1.5",
+    "lazysizes": "^1.2.0",
     "object-fit": "^0.4.3",
     "picturefill": "^2.3.1"
   }

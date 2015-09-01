@@ -11,5 +11,6 @@ var config = require('../../config/styles');
  *
  */
 module.exports = function (done) {
-	del(config.paths.clean, { force: true }, done);
+	del(config.paths.clean, { force: true })
+		.then(done);
 };
