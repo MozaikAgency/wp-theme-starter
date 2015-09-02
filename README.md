@@ -39,7 +39,7 @@ This is a WordPress Theme starter-kit meant to offer a generally un-opinionated,
 ### Technical
 
 1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.7)*
-1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.8.11)*
+1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.9.0)*
 
 - *You can use [`nvm`](https://github.com/creationix/nvm) to manage the node versions installed on your computer*
 - *You can use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) to update the node modules in your theme (Note that updating may break things, so be careful)* 
