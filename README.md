@@ -114,7 +114,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 1. Optional stuff:
 	- use `npm install --save <module(s)>` or `bower install --save <module(s)>` to easily manage js dependencies, then use `var <module> = require('<module>');`
 	  or `import <module> from '<module>';` anywhere in your js files you want to use them
-	- explore the `/library` directory in the dev theme for anything useful to your project.
+	- explore the [`/library` directory](https://github.com/MozaikAgency/wp-theme-bootstrap/tree/master/theme/library) in the dev theme for anything useful to your project.
 
 ### Production
 
