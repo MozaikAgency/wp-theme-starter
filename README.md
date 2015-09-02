@@ -4,7 +4,6 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 
 ## Contents
 
-- [Contents](#contents)
 - [Full Feature List:](#full-feature-list)
 - [Important Prerequisites](#important-prerequisites)
 	- [Technical](#technical)
