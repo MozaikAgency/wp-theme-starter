@@ -2,7 +2,27 @@
 
 This is a WordPress Theme starter-kit meant to offer a first-class developer experience.
 
-### Full Feature List:
+## Contents
+
+- [The Mozaik WordPress Theme Boilerplate](#the-mozaik-wordpress-theme-boilerplate)
+	- [Contents](#contents)
+	- [Full Feature List:](#full-feature-list)
+  - [Important Prerequisites](#important-prerequisites)
+    - [Technical](#technical)
+    - [WordPress](#wordpress)
+    - [JavaScript](#javascript)
+    - [CSS](#css)
+  - [Development Guidelines](#development-guidelines)
+  - [Standard Theme Development Process](#standard-theme-development-process)
+    - [Setup](#setup)
+    - [Development](#development)
+    - [Production](#production)
+  - [Reading Recommendations](#reading-recommendations)
+  - [License](#license)
+  - [FAQ](#faq)
+    - [1. How do I use jQuery with wp-theme-bootstrap ?](#1-how-do-i-use-jquery-with-wp-theme-bootstrap-)
+
+## Full Feature List:
 
 - [x] Separate development theme and auto-generated clutter-free production (built) theme
 - [x] Easy enough to port already existing themes over to it
