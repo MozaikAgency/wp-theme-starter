@@ -1,6 +1,6 @@
 # The Mozaik WordPress Theme Boilerplate
 
-This is a WordPress Theme starter-kit meant to offer a first-class developer experience.
+This is a WordPress Theme starter-kit meant to offer a generally un-opinionated, first-class developer experience.
 
 ### Full Feature List:
 
@@ -38,7 +38,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 
 ### Technical
 
-1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.2 && npm@^2.7.4)*
+1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.7)*
 1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.8.11)*
 
 - *You can use [`nvm`](https://github.com/creationix/nvm) to manage the node versions installed on your computer*
@@ -59,7 +59,6 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 	
 ### JavaScript
 
-1. Understand [modular JavaScript](http://addyosmani.com/writing-modular-js/)
 1. This project uses [webpack](http://webpack.github.io/) to provide support for modular JS, read up on the functionality & tools it provides
 
 ### CSS
@@ -111,7 +110,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 
 1. [WordPress Developer Documentation](http://codex.wordpress.org/Developer_Documentation)
 1. We generally follow the [WordPress PHP Coding Standards](https://make.wordpress.org/core/handbook/coding-standards/php/) in our WP code
-1. The build process supports the [<abbr title="EcmaScript 6">ES6</abbr> JavaScript syntax](https://babeljs.io/docs/learn-es6/) by using [babel.js](https://babeljs.io/) to transpile ES6
+1. The build process supports [<abbr title="EcmaScript 2015+">ES6+</abbr> JavaScript syntax](https://babeljs.io/docs/learn-es6/) by using [babel.js](https://babeljs.io/) to transpile ES6+
    to ES5.
    
 ## License
