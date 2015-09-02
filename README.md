@@ -99,7 +99,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 1. Install WordPress and clear it of unnecessary default themes & plugins
 1. Clone/Download the contents of this repository into a directory in your WordPress `wp-content/themes` directory (eg: "my-theme_dev") _this will be your "dev theme"_
 1. Open the terminal and navigate to the dev theme, *eg:* `cd wp-content/themes/<my-theme>_dev`
-1. (**Note:** The next steps **require** nodejs *@^0.12.2* and gulpjs *@^3.8.11*)
+1. (**Note:** The next steps **require** nodejs *@^0.12.7* and gulpjs *@^3.9.0*)
 1. Run `npm install` to install all dev dependencies
 1. Change the `project.config.js` file with your new theme's configuration
 1. Run `gulp build` to generate the "built theme" for the first time
@@ -114,8 +114,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 1. Optional stuff:
 	- use `npm install --save <module(s)>` or `bower install --save <module(s)>` to easily manage js dependencies, then use `var <module> = require('<module>');`
 	  or `import <module> from '<module>';` anywhere in your js files you want to use them
-	- explore the `/library` directory in the dev theme for anything useful to your project. If you find anything
-	  make sure to include it in the `theme_setup` function in your theme's `functions.php`.
+	- explore the `/library` directory in the dev theme for anything useful to your project.
 
 ### Production
 
