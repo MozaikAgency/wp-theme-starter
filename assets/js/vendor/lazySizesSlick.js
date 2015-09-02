@@ -2,6 +2,9 @@
  * Lazy load slick slides
  * with lazysizes
  *
+ * slick: http://kenwheeler.github.io/slick/
+ * lazysizes: https://github.com/aFarkas/lazysizes
+ *
  * @param $slideshow
  * @param imgSelector
  */
