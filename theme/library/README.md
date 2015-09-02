@@ -11,7 +11,7 @@ autoloader mean that using a method from one of the library's classes is as easy
 examples:
 
 ```php
-MOZ_Utils::get_upper( 'Åõ÷áñéóôþ' ); // => EÕ×ÁÑÉÓÔÙ (notice no accents on uppercase)
+MOZ_Utils::get_upper( 'Î•Ï…Ï‡Î±ÏÎ¹ÏƒÏ„ÏŽ' ); // => EÎ¥Î§Î‘Î¡Î™Î£Î¤Î© (notice no accents on uppercase)
 ```
 
 Using the custom nav walker (to print a WP menu with less cruft) can also be as simple as:
