@@ -1,6 +1,6 @@
 # The Mozaik WordPress Theme Boilerplate
 
-This is a WordPress Theme starter-kit meant to offer a generally un-opinionated, first-class developer experience.
+This is a WordPress Theme starter-kit meant to offer a first-class developer experience.
 
 ### Full Feature List:
 
