@@ -1,63 +1,97 @@
 # Mozaik Theme Bootstrap - Library
 
-The Library is a collection of potentially useful custom WordPress related classes
-and functions.
+The Library is a collection of potentially useful custom WordPress related classes.
 
-# Responsive Images
+An autoloader for the library is registered in `library-loader.php` that matches classes
+starting with `MOZ_` and is included by default in the provided `theme_setup` function in 
+the theme's `functions.php`.
 
-The WordPress responsive images implementation offered here is based on
-the proposed Responsive Images Standard as outlined here:
+All methods of the classes in the library are _static_ methods. This plus the aforementioned
+autoloader mean that using a method from one of the library's classes is as easy as the following
+examples:
+
+```php
+MOZ_Utils::get_upper( 'Åõ÷áñéóôþ' ); // => EÕ×ÁÑÉÓÔÙ (notice no accents on uppercase)
+```
+
+Using the custom nav walker (to print a WP menu with less cruft) can also be as simple as:
+
+```php
+wp_nav_menu( array(
+	'theme_location'  => 'primary',
+	'container'       => 'nav',
+	'container_class' => 'menu menu--primary',
+	'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
+	'fallback_cb'     => false,
+	'walker'          => new MOZ_Walker_Nav_Menu
+) ); 
+```
+
+## Responsive Images
+
+The `MOZ_RI` class offers a number of public static methods to help using responsive and even 
+lazy-loaded images in your custom WordPress theme:
+
+- `MOZ_RI::background` prints a responsive background image, given the image's attachment id
+- `MOZ_RI::picture` prints a responsive image using a picture element, given the image's attachment id
+- `MOZ_RI::images` prints a responsive image using srcset-sizes, given the image's attachment id
+
+The responsive images implementation is based on the responsive images specification as it is
+being implemented in browsers and is supported/polyfilled in non-supporting browsers using
+'picturefill'.
+
+Lazy-loading is supported via aFarkas' LazySizes.
+
+The theme also comes with a polyfill for `object-fit: contain` and `object-fit: cover` which are
+css properties for image-like elements to do the same thing to them as `background-size: cover`
+
+For a full set of example implementations as well as a bit of information on browser support see:
+[https://github.com/MozaikAgency/wp-theme-bootstrap/blob/tests/theme/page-respimg.php](https://github.com/MozaikAgency/wp-theme-bootstrap/blob/tests/theme/page-respimg.php)
+
+## Pagination
+
+`MOZ_Pagination` supports printing custom pagination for normal as well as custom WordPress Loops:
+
+For normal loops it can be as simple as:
+
+```php
+MOZ_Pagination::pagination();  
+```
+
+For custom loops all you need to do is pass in the `max_num_pages` var:
  
-- [http://scottjehl.github.io/picturefill/](http://scottjehl.github.io/picturefill/)
+```php
+// custom query
+$current_page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$custom_query = new WP_Query( array(
+  'post_type'      => 'football',
+  'posts_per_page' => 5,
+  'paged'          => $current_page
+) );
 
-For compatibility with older browsers (IE9+) you will need to add the following snippet
-in the head of your theme, right before the **closing** `</head>` tag.
+// custom query loop
+if ( $custom_query->have_posts() ) :
+	while ( $custom_query->have_posts() ) : $custom_query->the_post();
+		// print stuff ...
+	endwhile;
+endif;
 
-	<script async defer src="//cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js"></script>
+// print pagination
+MOZ_Pagination::pagination( array( 
+	'total' => $custom_query->max_num_pages 
+) );
 
-For compatibility with even older browsers (IE7+) you will need to add the following snippet
-in the head of your theme, *right after the **opening** `<head>` tag.* 
-(Or use [Modernizr](http://modernizr.com/) which includes the shim)
+// reset query/postdata (important!)
+wp_reset_postdata();
+```
 
-	<!--[if lt IE 9]>
-	    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<![endif]-->
+## Breadcrumbs
 
-Demo of responsive images use in theme, for an example image with id 10:
+`MOZ_Breadcrumbs` is a simple wp nav menu based breadcrumbs implementation that does not
+use the a nav menu walker to be printed.
 
-	<div style="height: 300px;position: relative;">
-		<?php
-		  // using a background image
-			MOZ_RI::background( 10, 'thumbnail', array(
-				'medium' => '(min-width: 500px)',
-				'large'  => '(min-width: 1000px)',
-				'full'   => '(min-width: 1200px)'
-			), array(
-				'alt' => __( 'A picture of penguins', 'moz' )
-			) );
-		?>
-	</div>
-	
-	<?php
-	  // using the picture element
-		MOZ_RI::picture( 10, 'thumbnail', array(
-			'medium' => '(min-width: 500px)',
-			'large'  => '(min-width: 1000px)',
-			'full'   => '(min-width: 1200px)'
-		), array(
-			'alt' => __( 'A picture of penguins', 'moz' )
-		) );
-	
-	  // using an image with srcset/sizes
-		MOZ_RI::image( 10, array(
-			'thumbnail',
-			'medium',
-			'large',
-			'full'
-		), array(
-			'(min-width: 1024px) 1024px',
-			'100vw'
-		), array(
-			'alt' => __( 'A picture of penguins', 'moz' )
-		) );
-	?>
+Printing breadcrumbs based on a given nav menu can be as simple as:
+
+```php
+MOZ_Breadcrumbs::breadcrumbs( 'primary' );
+```

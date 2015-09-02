@@ -22,7 +22,7 @@ This is a WordPress Theme starter-kit meant to offer a generally un-opinionated,
 		- [x] SVG optimization via svgmin
 	- [x] Build process easily extendable
 - [x] NPM and Bower workflows supported
-- [x] Theme Helpers Library
+- [x] Theme Helpers Library (For more details check out the [library's README](https://github.com/MozaikAgency/wp-theme-bootstrap/tree/master/theme/library))
 	- [x] Responsive images specification implementation
 		- [x] Helper function to print WordPress media by attachment id using responsive background images,
 		      the picture element or img-srcset-sizes
