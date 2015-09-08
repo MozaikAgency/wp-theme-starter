@@ -60,4 +60,44 @@ class MOZ_Utils {
 	public static function upper( $str ) {
 		echo self::get_upper( $str );
 	}
+
+
+	/**
+	 * Get the copyright years string
+	 * depending on the current year
+	 * and the original copyright
+	 * year
+	 *
+	 * eg: '2014-2020'
+	 *
+	 * @param int    $original_copyright_year
+	 * @param string $separator
+	 *
+	 * @return string
+	 */
+	public static function get_copyright_years( $original_copyright_year, $separator = '-' ) {
+		$current_year = (int) date( 'Y' );
+
+		return $current_year > (int) $original_copyright_year
+			? "{$original_copyright_year}{$separator}{$current_year}"
+			: $original_copyright_year;
+	}
+
+
+	/**
+	 * Print the copyright years string
+	 * depending on the current year
+	 * and the original copyright
+	 * year
+	 *
+	 * eg: '2014-2020'
+	 *
+	 * @param int    $original_copyright_year
+	 * @param string $separator
+	 *
+	 * @return string
+	 */
+	public static function copyright_years( $original_copyright_year, $separator = '-' ) {
+		echo self::get_copyright_years( $original_copyright_year, $separator );
+	}
 }
