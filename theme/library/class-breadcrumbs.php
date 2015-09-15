@@ -81,32 +81,6 @@ class MOZ_Breadcrumbs {
 
 
 	/**
-	 * Return a single normalized
-	 * breadcrumb properties array
-	 *
-	 * @param string $link
-	 * @param string $text
-	 * @param array  $flags
-	 *
-	 * @return array
-	 */
-	protected static function get_breadcrumb_arr( $link, $text, $flags = array() ) {
-		$flags = wp_parse_args( $flags, array(
-			'current'   => false,
-			'parent'    => false,
-			'ancestor'  => false,
-			'home_link' => false
-		) );
-
-		return array_merge( array(
-			'link' => $link,
-			'text' => $text,
-		), $flags );
-	}
-
-
-
-	/**
 	 * Return the breadcrumbs array
 	 * based on a given menu
 	 *
@@ -136,7 +110,7 @@ class MOZ_Breadcrumbs {
 		// Set up the class variables, including current-classes
 		_wp_menu_item_classes_by_context( $items );
 
-		$crumbs  = array();
+		$crumbs = array();
 		$current_exists = false;
 		foreach ( $items as $item ) {
 			if ( $item->current_item_parent || $item->current_item_ancestor || $item->current ) {
@@ -170,4 +144,30 @@ class MOZ_Breadcrumbs {
 
 		return $crumbs;
 	}
+
+
+	/**
+	 * Return a single normalized
+	 * breadcrumb properties array
+	 *
+	 * @param string $link
+	 * @param string $text
+	 * @param array  $flags
+	 *
+	 * @return array
+	 */
+	protected static function get_breadcrumb_arr( $link, $text, $flags = array() ) {
+		$flags = wp_parse_args( $flags, array(
+			'current'   => false,
+			'parent'    => false,
+			'ancestor'  => false,
+			'home_link' => false
+		) );
+
+		return array_merge( array(
+			'link' => $link,
+			'text' => $text,
+		), $flags );
+	}
+
 }
