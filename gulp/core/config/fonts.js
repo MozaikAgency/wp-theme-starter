@@ -14,9 +14,9 @@ var assets = require('./common').paths.assets;
  */
 module.exports = deepMerge({
 	paths: {
-		watch: assets.src  + '/fonts/**/*.{eot,ttf,woff,woff2,svg}',
-		src:   assets.src  + '/fonts/**/*.{eot,ttf,woff,woff2,svg}',
+		watch: assets.src  + '/fonts/**/*.{eot,otf,ttf,woff,woff2,svg}',
+		src:   assets.src  + '/fonts/**/*.{eot,otf,ttf,woff,woff2,svg}',
 		dest:  assets.dest + '/fonts',
-		clean: assets.dest + '/fonts/**/*.{eot,ttf,woff,woff2,svg}'
+		clean: assets.dest + '/fonts/**/*.{eot,otf,ttf,woff,woff2,svg}'
 	}
 }, overrides);
