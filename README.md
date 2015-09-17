@@ -18,7 +18,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 - [Reading Recommendations](#reading-recommendations)
 - [License](#license)
 - [FAQ](#faq)
-	- [1. How do I use jQuery with wp-theme-bootstrap ?](#1-how-do-i-use-jquery-with-wp-theme-bootstrap-)
+	- [1. How do I use jQuery with wp-theme-starter ?](#1-how-do-i-use-jquery-with-wp-theme-starter-)
 
 ## Full Feature List
 
@@ -40,7 +40,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 		- [x] SVG optimization via svgmin
 	- [x] Build process easily extendable
 - [x] NPM and Bower workflows supported
-- [x] Theme Helpers Library (For more details check out the [library's README](https://github.com/MozaikAgency/wp-theme-bootstrap/tree/master/theme/library))
+- [x] Theme Helpers Library (For more details check out the [library's README](https://github.com/MozaikAgency/wp-theme-starter/tree/master/theme/library))
 	- [x] Responsive images specification implementation
 		- [x] Helper function to print WordPress media by attachment id using responsive background images,
 		      the picture element or img-srcset-sizes
@@ -114,7 +114,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 1. Optional stuff:
 	- use `npm install --save <module(s)>` or `bower install --save <module(s)>` to easily manage js dependencies, then use `var <module> = require('<module>');`
 	  or `import <module> from '<module>';` anywhere in your js files you want to use them
-	- explore the [`/library` directory](https://github.com/MozaikAgency/wp-theme-bootstrap/tree/master/theme/library) in the dev theme for anything useful to your project.
+	- explore the [`/library` directory](https://github.com/MozaikAgency/wp-theme-starter/tree/master/theme/library) in the dev theme for anything useful to your project.
 
 ### Production
 
@@ -136,9 +136,9 @@ This Theme Boilerplate is licensed under the [MIT license](http://opensource.org
 
 ## FAQ
 
-### 1. How do I use jQuery with wp-theme-bootstrap ?
+### 1. How do I use jQuery with wp-theme-starter ?
 
-As mentioned above, wp-theme-bootstrap uses [webpack](http://webpack.github.io/) to handle concatenating, minifying and optimizing the javascript in the theme.
+As mentioned above, wp-theme-starter uses [webpack](http://webpack.github.io/) to handle concatenating, minifying and optimizing the javascript in the theme.
 Webpack, like Browserify and RequireJS, is a module loader for javascript and as such requires each module (file) to declare the dependencies it has within it. 
 To use jQuery, or any other global library, in your webpack-ed js you have a couple of choices:
 

@@ -46,7 +46,7 @@ The theme also comes with a polyfill for `object-fit: contain` and `object-fit: 
 css properties for image-like elements to do the same thing to them as `background-size: cover`
 
 For a full set of example implementations as well as a bit of information on browser support see:
-[https://github.com/MozaikAgency/wp-theme-bootstrap/blob/tests/theme/page-respimg.php](https://github.com/MozaikAgency/wp-theme-bootstrap/blob/tests/theme/page-respimg.php)
+[https://github.com/MozaikAgency/wp-theme-starter/blob/tests/theme/page-respimg.php](https://github.com/MozaikAgency/wp-theme-starter/blob/tests/theme/page-respimg.php)
 
 ## Pagination
 

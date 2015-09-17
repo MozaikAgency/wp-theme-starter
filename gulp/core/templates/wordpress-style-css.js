@@ -40,7 +40,7 @@ module.exports = [
 	' * in the "dev theme", in the assets/scss folder',
 	' *',
 	' * See more at:',
-	' * https://github.com/MozaikAgency/wp-theme-bootstrap',
+	' * https://github.com/MozaikAgency/wp-theme-starter',
 	' *',
 	' */'
 ].join('\n');

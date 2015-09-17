@@ -28,7 +28,7 @@
 
 				<a class="hero__cta"
 				   target="_blank"
-				   href="https://github.com/MozaikAgency/wp-theme-bootstrap">
+				   href="https://github.com/MozaikAgency/wp-theme-starter">
 					check out the README
 				</a>
 
