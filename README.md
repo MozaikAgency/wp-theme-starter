@@ -6,7 +6,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 
 - [Full Feature List](#full-feature-list)
 - [Important Prerequisites](#important-prerequisites)
-	- [Technical](#technical)
+	- [Dev Environment](#dev-environment)
 	- [WordPress](#wordpress)
 	- [JavaScript](#javascript)
 	- [CSS](#css)
@@ -54,7 +54,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 
 ## Important Prerequisites
 
-### Technical
+### Dev Environment
 
 1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.7)*
 1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.9.0)*
