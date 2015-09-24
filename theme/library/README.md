@@ -17,6 +17,12 @@ MOZ_Utils::get_upper( 'Ευχαριστώ' ); // => EΥΧΑΡΙΣΤΩ (notice no
 Using the custom nav walker (to print a WP menu with less cruft) can also be as simple as:
 
 ```php
+MOZ_Utils::nav_menu( 'primary' );
+```
+
+Which is equivalent to the following:
+
+```php
 wp_nav_menu( array(
 	'theme_location'  => 'primary',
 	'container'       => 'nav',
@@ -24,7 +30,7 @@ wp_nav_menu( array(
 	'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
 	'fallback_cb'     => false,
 	'walker'          => new MOZ_Walker_Nav_Menu
-) ); 
+) );
 ```
 
 ## Responsive Images
@@ -32,9 +38,11 @@ wp_nav_menu( array(
 The `MOZ_RI` class offers a number of public static methods to help using responsive and even 
 lazy-loaded images in your custom WordPress theme:
 
-- `MOZ_RI::background` prints a responsive background image, given the image's attachment id
-- `MOZ_RI::picture` prints a responsive image using a picture element, given the image's attachment id
-- `MOZ_RI::images` prints a responsive image using srcset-sizes, given the image's attachment id
+Given the image's attachment id,
+
+- `MOZ_RI::background` prints a responsive background image
+- `MOZ_RI::picture` prints a responsive image using a picture element
+- `MOZ_RI::images` prints a responsive image using srcset-sizes
 
 The responsive images implementation is based on the responsive images specification as it is
 being implemented in browsers and is supported/polyfilled in non-supporting browsers using
@@ -63,25 +71,31 @@ For custom loops all you need to do is pass in the `max_num_pages` var:
 ```php
 // custom query
 $current_page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-$custom_query = new WP_Query( array(
+$football_query = new WP_Query( array(
   'post_type'      => 'football',
   'posts_per_page' => 5,
   'paged'          => $current_page
 ) );
 
 // custom query loop
-if ( $custom_query->have_posts() ) :
-	while ( $custom_query->have_posts() ) : $custom_query->the_post();
-		// print stuff ...
+if ( $football_query->have_posts() ) :
+
+	while ( $football_query->have_posts() ) : $football_query->the_post();
+		// print football stuff ...
 	endwhile;
+
+	// print pagination
+	MOZ_Pagination::pagination( array( 
+		'total' => $football_query->max_num_pages 
+	) );
+
+else :
+
+	_e( 'Sorry, no footballs here!', 'custom-text-domain' );
+
 endif;
 
-// print pagination
-MOZ_Pagination::pagination( array( 
-	'total' => $custom_query->max_num_pages 
-) );
-
-// reset query/postdata (important!)
+// reset postdata (important!)
 wp_reset_postdata();
 ```
 
