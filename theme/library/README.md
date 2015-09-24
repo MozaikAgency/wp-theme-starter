@@ -102,7 +102,7 @@ wp_reset_postdata();
 ## Breadcrumbs
 
 `MOZ_Breadcrumbs` is a simple wp nav menu based breadcrumbs implementation that does not
-use the a nav menu walker to be printed.
+use a nav menu walker to be printed.
 
 Printing breadcrumbs based on a given nav menu can be as simple as:
 
