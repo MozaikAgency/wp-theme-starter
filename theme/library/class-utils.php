@@ -13,6 +13,25 @@
  */
 class MOZ_Utils {
 
+	/**
+	 * Print a wp nav menu for
+	 * the given theme location
+	 * using some sensible defaults
+	 *
+	 * @param string $theme_location
+	 * @param array  $extras
+	 */
+	public static function nav_menu( $theme_location, $extras = array() ) {
+		wp_nav_menu( array_merge( array(
+			'theme_location'  => $theme_location,
+			'container'       => 'nav',
+			'container_class' => "menu menu--$theme_location",
+			'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
+			'fallback_cb'     => false,
+			'walker'          => new MOZ_Walker_Nav_Menu
+		), $extras ) );
+	}
+
 
 	/**
 	 * Removes accents from
