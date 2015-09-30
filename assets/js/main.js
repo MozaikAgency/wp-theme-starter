@@ -13,6 +13,5 @@ import './vendor/webpack.publicPath';
 
 // silly example:
 import obj from './elements/example';
-for (let val of obj) {
-	window.console.log(val);
-}
+
+console.log(obj);
