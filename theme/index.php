@@ -12,7 +12,7 @@
 
 			<header>
 				<h1 class="hero__title">
-					The Mozaik WordPress Theme Bootstrap
+					The Mozaik WordPress Theme Starter
 				</h1>
 			</header>
 
