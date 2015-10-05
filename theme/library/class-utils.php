@@ -77,6 +77,11 @@ class MOZ_Utils {
 	 * uppercase and remove
 	 * accents then print it
 	 *
+	 * NOTE: Avoid passing in HTML
+	 *       This method will dumbly
+	 *       transform HTML tags and
+	 *       attributes to uppercase
+	 *
 	 * @param string $str
 	 */
 	public static function upper( $str ) {
