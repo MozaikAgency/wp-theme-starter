@@ -58,6 +58,8 @@ class MOZ_Utils {
 	 *       This method will dumbly
 	 *       transform HTML tags and
 	 *       attributes to uppercase
+	 *       HTML entities eg: "&nbsp;"
+	 *       are OK
 	 *
 	 * @param string $str
 	 *
@@ -81,6 +83,8 @@ class MOZ_Utils {
 	 *       This method will dumbly
 	 *       transform HTML tags and
 	 *       attributes to uppercase
+	 *       HTML entities eg: "&nbsp;"
+	 *       are OK
 	 *
 	 * @param string $str
 	 */
