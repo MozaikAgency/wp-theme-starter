@@ -54,6 +54,11 @@ class MOZ_Utils {
 	 * uppercase and remove
 	 * accents
 	 *
+	 * NOTE: Avoid passing in HTML
+	 *       This method will dumbly
+	 *       transform HTML tags and
+	 *       attributes to uppercase
+	 *
 	 * @param string $str
 	 *
 	 * @return string
@@ -61,11 +66,9 @@ class MOZ_Utils {
 	public static function get_upper( $str ) {
 		$all_uppercase = mb_strtoupper( self::remove_accents( $str ), 'UTF-8' );
 
-		return str_replace(
-			array( '&AMP;', '&RSQUO;' ),
-			array( '&amp;', '&rsquo;' ),
-			$all_uppercase
-		);
+		return preg_replace_callback( '/&([a-z\d]+);/i', function ( $matches ) {
+			return strtolower( $matches[0] );
+		}, $all_uppercase );
 	}
 
 
