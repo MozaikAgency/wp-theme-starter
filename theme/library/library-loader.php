@@ -25,7 +25,7 @@ spl_autoload_register( function ( $class ) {
 
 	$path = "class-$class.php";
 
-	foreach ( array( '' ) as $dir ) {
+	foreach ( array( '', 'helpers' ) as $dir ) {
 		if ( ! empty( $dir ) ) {
 			$dir = $dir . DIRECTORY_SEPARATOR;
 		}
