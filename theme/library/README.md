@@ -1,6 +1,10 @@
-# Mozaik Theme Bootstrap - Library
+# Mozaik Theme Starter - Library
 
 The Library is a collection of potentially useful custom WordPress related classes.
+
+**Note: Avoid modifying files in the library directly, instead extend their functionality from 
+within the includes directory.** This will allow you to easily pull in updates to this (vendor)
+part of the mozaik-theme-starter.
 
 An autoloader for the library is registered in `library-loader.php` that matches classes
 starting with `MOZ_` and is included by default in the provided `theme_setup` function in 
