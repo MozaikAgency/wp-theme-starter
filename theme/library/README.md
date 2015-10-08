@@ -35,14 +35,14 @@ wp_nav_menu( array(
 
 ## Responsive Images
 
-The `MOZ_RI` class offers a number of public static methods to help using responsive and even 
+The `MOZ_Image` class offers a number of public static methods to help using responsive and even 
 lazy-loaded images in your custom WordPress theme:
 
 Given the image's attachment id,
 
-- `MOZ_RI::background` prints a responsive background image
-- `MOZ_RI::picture` prints a responsive image using a picture element
-- `MOZ_RI::images` prints a responsive image using srcset-sizes
+- `MOZ_Image::background` prints a responsive background image
+- `MOZ_Image::picture` prints a responsive image using a picture element
+- `MOZ_Image::image` prints a responsive image using srcset-sizes
 
 The responsive images implementation is based on the responsive images specification as it is
 being implemented in browsers and is supported/polyfilled in non-supporting browsers using
