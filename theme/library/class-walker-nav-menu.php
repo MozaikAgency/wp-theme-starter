@@ -33,15 +33,15 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param int    $depth  Depth of menu item. Used for padding.
-	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param string        $output Passed by reference. Used to append additional content.
+	 * @param int           $depth  Depth of menu item. Used for padding.
+	 * @param object|array  $args   An array of arguments. @see wp_nav_menu()
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 
 		$indent = str_repeat( "\t", $depth );
 
-		$output .= "$indent<ul class=\"menu__list menu__list--submenu menu__list--level-{$depth}\">\n";
+		$output .= "$indent<ul class=\"#{$args->menu_class}__list #{$args->menu_class}__list--submenu #{$args->menu_class}__list--level-{$depth}\">\n";
 	}
 
 
@@ -62,20 +62,20 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		$item_classes = 'menu__item';
+		$item_classes = "#{$args->menu_class}__item";
 
 		// add classes to current/parent/ancestor items
 		if ( isset( $item->current ) && $item->current ) {
-			$item_classes .= ' menu__item--current';
+			$item_classes .= " #{$args->menu_class}__item--current";
 		}
 		if ( isset( $item->current_item_ancestor ) && $item->current_item_ancestor ) {
-			$item_classes .= ' menu__item--ancestor';
+			$item_classes .= " #{$args->menu_class}__item--ancestor";
 		}
 		if ( isset( $item->current_item_parent ) && $item->current_item_parent ) {
-			$item_classes .= ' menu__item--parent';
+			$item_classes .= " #{$args->menu_class}__item--parent";
 		}
 		if ( isset( $item->has_children ) && $item->has_children ) {
-			$item_classes .= ' menu__item--has-children';
+			$item_classes .= " #{$args->menu_class}__item--has-children";
 		}
 		if ( isset( $item->classes[0] ) && ! empty( $item->classes[0] ) ) {
 			// the first item in the 'classes' array is the user-set class
@@ -90,7 +90,7 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 		$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
 		$atts['href']   = ( ! empty( $item->url ) && '#' !== $item->url ) ? $item->url : '';
-		$atts['class']  = 'menu__link';
+		$atts['class']  = "#{$args->menu_class}__link";
 
 		$tag = empty( $atts['href'] ) ? 'span' : 'a';
 
@@ -128,7 +128,7 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		$indent = str_repeat( "\t", $depth );
 
-		$output .= "$indent</ul>\n"; // end of .menu__list
+		$output .= "$indent</ul>\n"; // end of .#{$args->menu_class}__list
 	}
 
 
@@ -164,7 +164,7 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 			$element->current_item_ancestor = self::any_children_active( $element, $children_elements );
 		}
 
-		return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 	}
 
 
