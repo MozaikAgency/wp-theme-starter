@@ -99,9 +99,24 @@ endif;
 wp_reset_postdata();
 ```
 
-## Breadcrumbs
+## Menu
 
-`MOZ_Menu` contains a simple wp nav menu based breadcrumbs implementation that does not
+`MOZ_Menu` contains a simple helper to make using the BEM custom nav walker a little
+easier. As mentioned above, just do the following to print a custom nav menu:
+
+```php
+MOZ_Menu::nav_menu( 'primary' );
+```
+
+You can also use the menu walker to print a sitemap based on a WP nav menu:
+
+```php
+MOZ_Menu::nav_menu( 'sitmap', array(
+	'menu_class' => 'sitemap'
+) );
+```
+
+`MOZ_Menu` also contains a simple wp nav menu based breadcrumbs implementation that does not
 use a nav menu walker to be printed.
 
 Printing breadcrumbs based on a given nav menu can be as simple as:
@@ -109,3 +124,7 @@ Printing breadcrumbs based on a given nav menu can be as simple as:
 ```php
 MOZ_Menu::breadcrumbs( 'primary' );
 ```
+
+## Link
+
+`MOZ_Link` contains a few methods to make it easier to work with links in WordPress.
