@@ -1,6 +1,6 @@
 <?php
 /**
- * WordPress Breadcrumbs renderer
+ * WordPress Menu and Breadcrumbs renderer
  * to support BEM class namings
  * conventions
  *
@@ -10,10 +10,52 @@
 
 
 /**
- * Class MOZ_Breadcrumbs
+ * Class MOZ_Menu
  *
  */
-class MOZ_Breadcrumbs {
+class MOZ_Menu {
+
+
+	/**
+	 * Print a wp nav menu for
+	 * the given theme location
+	 * using some sensible defaults
+	 *
+	 * @param string $theme_location
+	 * @param array  $extras
+	 */
+	public static function nav_menu( $theme_location, $extras = array() ) {
+		echo self::get_nav_menu( $theme_location, $extras );
+	}
+
+
+	/**
+	 * Return a wp nav menu for
+	 * the given theme location
+	 * using some sensible defaults
+	 *
+	 * @param string $theme_location
+	 * @param array  $extras
+	 *
+	 * @returns string
+	 */
+	public static function get_nav_menu( $theme_location, $extras = array() ) {
+		$menu_class = isset( $extras['menu_class'] ) && ! empty( $extras['menu_class'] )
+			? $extras['menu_class']
+			: 'menu';
+
+		return wp_nav_menu( array_merge( array(
+			'echo'            => false,
+			'theme_location'  => $theme_location,
+			'container'       => 'nav',
+			'container_class' => "$menu_class $menu_class--$theme_location",
+			'menu_class'      => $menu_class,
+			'items_wrap'      => "<ul class=\"#{$menu_class}__list\">%3\$s</ul>",
+			'fallback_cb'     => false,
+			'walker'          => new MOZ_Walker_Nav_Menu
+		), $extras ) );
+	}
+
 
 
 	/**
@@ -48,36 +90,35 @@ class MOZ_Breadcrumbs {
 		ob_start();
 		?>
 
-			<nav class="breadcrumbs">
-				<ul class="breadcrumbs__list">
-					<?php foreach ( $breadcrumbs_items as $item ) : ?>
+		<nav class="breadcrumbs">
+			<ul class="breadcrumbs__list">
+				<?php foreach ( $breadcrumbs_items as $item ) : ?>
 
-						<li class="breadcrumbs__list-item">
-							<?php
-								$classes = 'breadcrumbs__item';
-								if ( $item['current'] ) {
-									$classes .= ' breadcrumbs__item--current';
-								}
+					<li class="breadcrumbs__list-item">
+						<?php
+						$classes = 'breadcrumbs__item';
+						if ( $item['current'] ) {
+							$classes .= ' breadcrumbs__item--current';
+						}
 
-								$tag = 'span';
-								$attrs = array( 'class' => $classes );
-								if ( false !== $item['link'] && '#' !== $item['link'] ) {
-									$tag = 'a';
-									$attrs['href'] = $item['link'];
-								}
+						$tag   = 'span';
+						$attrs = array( 'class' => $classes );
+						if ( false !== $item['link'] && '#' !== $item['link'] ) {
+							$tag           = 'a';
+							$attrs['href'] = $item['link'];
+						}
 
-								MOZ_Html::element( $tag, $attrs, $item['text'] );
-							?>
-						</li>
+						MOZ_Html::element( $tag, $attrs, $item['text'] );
+						?>
+					</li>
 
-					<?php endforeach; ?>
-				</ul>
-			</nav>
+				<?php endforeach; ?>
+			</ul>
+		</nav>
 
 		<?php
 		return ob_get_clean();
 	}
-
 
 
 	/**
@@ -110,7 +151,7 @@ class MOZ_Breadcrumbs {
 		// Set up the class variables, including current-classes
 		_wp_menu_item_classes_by_context( $items );
 
-		$crumbs = array();
+		$crumbs         = array();
 		$current_exists = false;
 		foreach ( $items as $item ) {
 			if ( $item->current_item_parent || $item->current_item_ancestor || $item->current ) {
@@ -169,5 +210,4 @@ class MOZ_Breadcrumbs {
 			'text' => $text,
 		), $flags );
 	}
-
 }

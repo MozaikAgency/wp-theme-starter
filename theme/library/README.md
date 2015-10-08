@@ -17,7 +17,7 @@ MOZ_Utils::get_upper( 'Ευχαριστώ' ); // => EΥΧΑΡΙΣΤΩ (notice no
 Using the custom nav walker (to print a WP menu with less cruft) can also be as simple as:
 
 ```php
-MOZ_Utils::nav_menu( 'primary' );
+MOZ_Menu::nav_menu( 'primary' );
 ```
 
 Which is equivalent to the following:
@@ -101,11 +101,11 @@ wp_reset_postdata();
 
 ## Breadcrumbs
 
-`MOZ_Breadcrumbs` is a simple wp nav menu based breadcrumbs implementation that does not
+`MOZ_Menu` contains a simple wp nav menu based breadcrumbs implementation that does not
 use a nav menu walker to be printed.
 
 Printing breadcrumbs based on a given nav menu can be as simple as:
 
 ```php
-MOZ_Breadcrumbs::breadcrumbs( 'primary' );
+MOZ_Menu::breadcrumbs( 'primary' );
 ```
