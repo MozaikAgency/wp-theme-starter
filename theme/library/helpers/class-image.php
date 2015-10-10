@@ -9,9 +9,10 @@
 
 
 /**
- * Class MOZ_RI
+ * Class MOZ_Image
+ *
  */
-class MOZ_RI {
+class MOZ_Image {
 
 
 	/**
@@ -91,7 +92,7 @@ class MOZ_RI {
 
 	/**
 	 * Get an image's alt
-	 * attribute
+	 * attribute content
 	 *
 	 * @param $image
 	 *
@@ -99,6 +100,49 @@ class MOZ_RI {
 	 */
 	public static function get_img_alt( $image ) {
 		return trim( strip_tags( get_post_meta( $image, '_wp_attachment_image_alt', true ) ) );
+	}
+
+
+	/**
+	 * Print an image's alt
+	 * attribute content
+	 *
+	 * @param $image
+	 */
+	public static function img_alt( $image ) {
+		echo self::get_img_alt( $image );
+	}
+
+
+	/**
+	 * Get an image's src
+	 * attribute for the
+	 * specified size
+	 *
+	 * @param        $image
+	 * @param string $size
+	 *
+	 * @return bool
+	 */
+	public static function get_src( $image, $size = 'full' ) {
+		if ( $src = wp_get_attachment_image_src( $image, $size, false ) ) {
+			return $src[0];
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * Print an image's src
+	 * attribute for the
+	 * specified size
+	 *
+	 * @param        $image
+	 * @param string $size
+	 */
+	public static function src( $image, $size = 'full' ) {
+		echo self::get_src( $image, $size );
 	}
 
 
@@ -139,10 +183,10 @@ class MOZ_RI {
 				$bgel_attrs['class'] .= ' lazyload';
 			}
 
-			$bgset = array( wp_get_attachment_image_src( $image, $base_size, false )[0] );
+			$bgset = array( self::get_src( $image, $base_size ) );
 			foreach ( $sizes as $size => $query ) {
-				$src = wp_get_attachment_image_src( $image, $size, false );
-				$bgset[] = "$src[0] [$query]";
+				$src = self::get_src( $image, $size );
+				$bgset[] = "$src [$query]";
 			}
 			$bgel_attrs['data-sizes'] = 'auto';
 			$bgel_attrs['data-bgset'] = implode( ' | ', array_reverse( $bgset ) );
@@ -156,13 +200,13 @@ class MOZ_RI {
 
 			<style>
 				.<?php echo $unique; ?> {
-					background-image: url('<?php echo wp_get_attachment_image_src( $image, $base_size )[0]; ?>');
+					background-image: url('<?php self::src( $image, $base_size ); ?>');
 				}
 
 				<?php foreach ( $sizes as $size => $query ) : ?>
 				@media all and <?php echo esc_html( $query ); ?> {
 					.<?php echo $unique; ?> {
-						background-image: url('<?php echo wp_get_attachment_image_src( $image, $size )[0]; ?>');
+						background-image: url('<?php self::src( $image, $size ); ?>');
 					}
 				}
 
@@ -216,10 +260,8 @@ class MOZ_RI {
 		$content[] = '<!--[if IE 9]><video style="display: none;"><![endif]-->';
 
 		foreach ( array_reverse( $sizes ) as $size => $query ) {
-			$src = wp_get_attachment_image_src( $image, $size, false );
-
 			$source_attrs = self::maybe_lazify( $flags, array(
-				'srcset' => esc_attr( $src[0] ),
+				'srcset' => esc_attr( self::get_src( $image, $size ) ),
 				'media'  => esc_attr( $query ),
 				'type'   => esc_attr( get_post_mime_type( $image ) )
 			), false, false );
@@ -229,10 +271,8 @@ class MOZ_RI {
 
 		$content[] = '<!--[if IE 9]></video><![endif]-->';
 
-		$base_src = wp_get_attachment_image_src( $image, $base_size, false );
-
 		$img_attrs = self::maybe_lazify( $flags, array_merge( array(
-			'srcset' => esc_attr( $base_src[0] ),
+			'srcset' => esc_attr( self::get_src( $image, $base_size ) ),
 			'alt'    => self::get_img_alt( $image )
 		), (array) $attrs ) );
 

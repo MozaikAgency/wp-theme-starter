@@ -13,25 +13,6 @@
  */
 class MOZ_Utils {
 
-	/**
-	 * Print a wp nav menu for
-	 * the given theme location
-	 * using some sensible defaults
-	 *
-	 * @param string $theme_location
-	 * @param array  $extras
-	 */
-	public static function nav_menu( $theme_location, $extras = array() ) {
-		wp_nav_menu( array_merge( array(
-			'theme_location'  => $theme_location,
-			'container'       => 'nav',
-			'container_class' => "menu menu--$theme_location",
-			'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
-			'fallback_cb'     => false,
-			'walker'          => new MOZ_Walker_Nav_Menu
-		), $extras ) );
-	}
-
 
 	/**
 	 * Removes accents from
@@ -54,6 +35,13 @@ class MOZ_Utils {
 	 * uppercase and remove
 	 * accents
 	 *
+	 * NOTE: Avoid passing in HTML
+	 *       This method will dumbly
+	 *       transform HTML tags and
+	 *       attributes to uppercase
+	 *       HTML entities eg: "&nbsp;"
+	 *       are OK
+	 *
 	 * @param string $str
 	 *
 	 * @return string
@@ -61,11 +49,9 @@ class MOZ_Utils {
 	public static function get_upper( $str ) {
 		$all_uppercase = mb_strtoupper( self::remove_accents( $str ), 'UTF-8' );
 
-		return str_replace(
-			array( '&AMP;', '&RSQUO;' ),
-			array( '&amp;', '&rsquo;' ),
-			$all_uppercase
-		);
+		return preg_replace_callback( '/&([a-z\d]+);/i', function ( $matches ) {
+			return strtolower( $matches[0] );
+		}, $all_uppercase );
 	}
 
 
@@ -73,6 +59,13 @@ class MOZ_Utils {
 	 * Convert a string to
 	 * uppercase and remove
 	 * accents then print it
+	 *
+	 * NOTE: Avoid passing in HTML
+	 *       This method will dumbly
+	 *       transform HTML tags and
+	 *       attributes to uppercase
+	 *       HTML entities eg: "&nbsp;"
+	 *       are OK
 	 *
 	 * @param string $str
 	 */

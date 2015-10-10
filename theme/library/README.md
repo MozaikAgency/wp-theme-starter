@@ -1,6 +1,10 @@
-# Mozaik Theme Bootstrap - Library
+# Mozaik Theme Starter - Library
 
 The Library is a collection of potentially useful custom WordPress related classes.
+
+**Note: Avoid modifying files in the library directly, instead extend their functionality from 
+within the includes directory.** This will allow you to easily pull in updates to this (vendor)
+part of the mozaik-theme-starter.
 
 An autoloader for the library is registered in `library-loader.php` that matches classes
 starting with `MOZ_` and is included by default in the provided `theme_setup` function in 
@@ -17,7 +21,7 @@ MOZ_Utils::get_upper( 'Ευχαριστώ' ); // => EΥΧΑΡΙΣΤΩ (notice no
 Using the custom nav walker (to print a WP menu with less cruft) can also be as simple as:
 
 ```php
-MOZ_Utils::nav_menu( 'primary' );
+MOZ_Menu::nav_menu( 'primary' );
 ```
 
 Which is equivalent to the following:
@@ -35,14 +39,14 @@ wp_nav_menu( array(
 
 ## Responsive Images
 
-The `MOZ_RI` class offers a number of public static methods to help using responsive and even 
+The `MOZ_Image` class offers a number of public static methods to help using responsive and even 
 lazy-loaded images in your custom WordPress theme:
 
 Given the image's attachment id,
 
-- `MOZ_RI::background` prints a responsive background image
-- `MOZ_RI::picture` prints a responsive image using a picture element
-- `MOZ_RI::images` prints a responsive image using srcset-sizes
+- `MOZ_Image::background` prints a responsive background image
+- `MOZ_Image::picture` prints a responsive image using a picture element
+- `MOZ_Image::image` prints a responsive image using srcset-sizes
 
 The responsive images implementation is based on the responsive images specification as it is
 being implemented in browsers and is supported/polyfilled in non-supporting browsers using
@@ -99,13 +103,32 @@ endif;
 wp_reset_postdata();
 ```
 
-## Breadcrumbs
+## Menu
 
-`MOZ_Breadcrumbs` is a simple wp nav menu based breadcrumbs implementation that does not
+`MOZ_Menu` contains a simple helper to make using the BEM custom nav walker a little
+easier. As mentioned above, just do the following to print a custom nav menu:
+
+```php
+MOZ_Menu::nav_menu( 'primary' );
+```
+
+You can also use the menu walker to print a sitemap based on a WP nav menu:
+
+```php
+MOZ_Menu::nav_menu( 'sitmap', array(
+	'menu_class' => 'sitemap'
+) );
+```
+
+`MOZ_Menu` also contains a simple wp nav menu based breadcrumbs implementation that does not
 use a nav menu walker to be printed.
 
 Printing breadcrumbs based on a given nav menu can be as simple as:
 
 ```php
-MOZ_Breadcrumbs::breadcrumbs( 'primary' );
+MOZ_Menu::breadcrumbs( 'primary' );
 ```
+
+## Link
+
+`MOZ_Link` contains a few methods to make it easier to work with links in WordPress.
