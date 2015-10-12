@@ -86,7 +86,7 @@ module.exports = deepMerge({
 								/vendor/,
 								/polyfills/
 							],
-							loader: 'eslint-loader'
+							loader: 'eslint'
 						}
 					],
 					loaders: [
@@ -95,23 +95,15 @@ module.exports = deepMerge({
 							exclude: [
 								/node_modules/,
 								/bower_components/,
-								/vendor/,
 								/polyfills/
 							],
-							loader: 'babel-loader'
+							loader: 'babel'
 						}
 					]
 				},
 				plugins: [
 					new BowerWebpackPlugin({
-						excludes: [
-							/\.(le|s?c|sa)ss$/,
-							/\.png$/,
-							/\.jpg$/,
-							/\.gif$/,
-							/mCSB/,
-							/fonts/
-						]
+						includes: /\.jsx?$/
 					})
 				],
 				eslint: {
