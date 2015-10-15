@@ -1,35 +1,9 @@
 {
-  "ecmaFeatures": {
-    "modules": true
-  },
-  "env": {
-    "browser": true,
-    "jquery": true,
-    "node": true,
-    "es6": true,
-    "amd": true
-  },
+  "extends": [
+    "airbnb"
+  ],
   "rules": {
-    "eqeqeq": 1,
-    "curly": 1,
-    "guard-for-in": 1,
-    "vars-on-top": 1,
-    "no-eq-null": 1,
-    "brace-style": 1,
-    "no-console": 1,
-    "quotes": [
-      1,
-      "single",
-      "avoid-escape"
-    ],
-    "yoda": [
-      1,
-      "always",
-      {"exceptRange": true}
-    ],
-    "eol-last": 0,
-    "no-new": 0,
-    "no-use-before-define": 0,
-    "no-multi-spaces": 0
+    "indent": [2, "tab"],
+    "comma-dangle": 0
   }
 }

@@ -18,8 +18,8 @@ import objectFit from 'object-fit';
 
 window.objectFit = objectFit;
 
-let addEvent = () => window.addEventListener || window.attachEvent;
-let event = ( window.addEventListener ? '' : 'on' ) + 'DOMContentLoaded';
+const addEvent = () => window.addEventListener || window.attachEvent;
+const event = ( window.addEventListener ? '' : 'on' ) + 'DOMContentLoaded';
 
 addEvent()(event, () => {
 	objectFit.polyfill({

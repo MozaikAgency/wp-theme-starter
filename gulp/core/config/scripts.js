@@ -1,5 +1,5 @@
-var path               = require('path');
-var webpack            = require('webpack-stream').webpack;
+var path = require('path');
+var webpack = require('webpack-stream').webpack;
 var BowerWebpackPlugin = require('bower-webpack-plugin');
 
 // utils
@@ -18,12 +18,12 @@ var assets = require('./common').paths.assets;
  */
 module.exports = deepMerge({
 	paths: {
-		watch: assets.src  + '/js/**/*.js',
-		src:   [
+		watch: assets.src + '/js/**/*.js',
+		src: [
 			assets.src + '/js/*.js',
 			'!' + assets.src + '/js/**/_*'
 		],
-		dest:  assets.dest + '/js',
+		dest: assets.dest + '/js',
 		clean: assets.dest + '/js/**/*.{js,map}'
 	},
 
@@ -55,15 +55,22 @@ module.exports = deepMerge({
 					new webpack.optimize.OccurenceOrderPlugin(true),
 					new webpack.optimize.UglifyJsPlugin({
 						sourceMap: false,
-						mangle: {
-							source_map: false,
-							comments: false
-						},
+						comments: false,
+						screw_ie8: true,
 						compress: {
+							drop_console: true,
+							pure_getters: true,
+							unsafe: true,
+							unsafe_comps: true,
+							screw_ie8: true,
 							warnings: false
 						}
 					})
-				]
+				],
+				eslint: {
+					failOnError: true,
+					failOnWarning: true
+				}
 			},
 
 			defaults: {

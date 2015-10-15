@@ -4,7 +4,7 @@
  *
  */
 
-let obj = {
+const obj = {
 	foo: 'Hello',
 	bar: 'Cruel',
 	baz: 'World'
