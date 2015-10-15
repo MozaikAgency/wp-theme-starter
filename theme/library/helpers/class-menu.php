@@ -44,18 +44,31 @@ class MOZ_Menu {
 			? $extras['menu_class']
 			: 'menu';
 
+		$container_class = 'menu' === $menu_class
+			? "$menu_class $menu_class--$theme_location"
+			: $menu_class;
+
+		$show_level_class = isset( $extras['show_level_class'] )
+			? (bool) $extras['show_level_class']
+			: true;
+
+		$wrap_class = "{$menu_class}__list";
+		if ( $show_level_class ) {
+			$wrap_class .= " {$menu_class}__list--level-0";
+		}
+
 		return wp_nav_menu( array_merge( array(
-			'echo'            => false,
-			'theme_location'  => $theme_location,
-			'container'       => 'nav',
-			'container_class' => "$menu_class $menu_class--$theme_location",
-			'menu_class'      => $menu_class,
-			'items_wrap'      => "<ul class=\"#{$menu_class}__list\">%3\$s</ul>",
-			'fallback_cb'     => false,
-			'walker'          => new MOZ_Walker_Nav_Menu
+			'echo'             => false,
+			'theme_location'   => $theme_location,
+			'container'        => 'nav',
+			'container_class'  => $container_class,
+			'menu_class'       => $menu_class,
+			'show_level_class' => $show_level_class,
+			'items_wrap'       => "<ul class=\"{$wrap_class}\">%3\$s</ul>",
+			'fallback_cb'      => false,
+			'walker'           => new MOZ_Walker_Nav_Menu
 		), $extras ) );
 	}
-
 
 
 	/**

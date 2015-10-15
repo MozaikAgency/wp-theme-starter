@@ -26,6 +26,7 @@ defined( 'ABSPATH' ) or die();
 class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
+
 	/**
 	 * Starts the list before the elements are added.
 	 *
@@ -38,10 +39,19 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param object|array  $args   An array of arguments. @see wp_nav_menu()
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$list_classes = array(
+			'__list',
+			'__list--submenu'
+		);
 
-		$indent = str_repeat( "\t", $depth );
+		if ( isset( $args->show_level_class ) && $args->show_level_class ) {
+			$list_classes[] = '__list--level-' . ($depth + 1);
+		}
 
-		$output .= "$indent<ul class=\"#{$args->menu_class}__list #{$args->menu_class}__list--submenu #{$args->menu_class}__list--level-{$depth}\">\n";
+		// BEM-ify the given sub classes
+		$list_classes_str = MOZ_BEM::get_bem( $args->menu_class, $list_classes );
+
+		$output .= "<ul class=\"$list_classes_str\">";
 	}
 
 
@@ -61,54 +71,58 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		$item_classes = "#{$args->menu_class}__item";
+		/// Menu Item Opening
+
+		$item_classes = array( '__item' );
 
 		// add classes to current/parent/ancestor items
 		if ( isset( $item->current ) && $item->current ) {
-			$item_classes .= " #{$args->menu_class}__item--current";
+			$item_classes[] = '__item--current';
 		}
 		if ( isset( $item->current_item_ancestor ) && $item->current_item_ancestor ) {
-			$item_classes .= " #{$args->menu_class}__item--ancestor";
+			$item_classes[] = '__item--ancestor';
 		}
 		if ( isset( $item->current_item_parent ) && $item->current_item_parent ) {
-			$item_classes .= " #{$args->menu_class}__item--parent";
+			$item_classes[] = '__item--parent';
 		}
 		if ( isset( $item->has_children ) && $item->has_children ) {
-			$item_classes .= " #{$args->menu_class}__item--has-children";
+			$item_classes[] = '__item--has-children';
 		}
+
+		// BEM-ify the given sub classes
+		$item_classes_str = MOZ_BEM::get_bem( $args->menu_class, $item_classes );
+
 		if ( isset( $item->classes[0] ) && ! empty( $item->classes[0] ) ) {
 			// the first item in the 'classes' array is the user-set class
 			// the rest of the classes are superfluous
-			$item_classes .= " {$item->classes[0]}";
+			$item_classes_str .= " {$item->classes[0]}";
 		}
 
-		$output .= "$indent<li class=\"{$item_classes}\">";
+		$output .= "<li class=\"$item_classes_str\">";
 
-		$atts = array();
-		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
-		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
-		$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
-		$atts['href']   = ( ! empty( $item->url ) && '#' !== $item->url ) ? $item->url : '';
-		$atts['class']  = "#{$args->menu_class}__link";
+		/// Menu Link
 
-		$tag = empty( $atts['href'] ) ? 'span' : 'a';
+		$attrs = array_filter( array(
+			'title'  => $item->attr_title,
+			'target' => $item->target,
+			'rel'    => $item->xfn,
+			'href'   => ( ! empty( $item->url ) && '#' !== $item->url ) ? $item->url : '',
+			'class'  => "{$args->menu_class}__link"
+		), function ( $attr ) {
+			// filter out the empty
+			// attributes
+			return ! empty( $attr );
+		});
 
-		$attributes = '';
-		foreach ( $atts as $attr => $value ) {
-			if ( ! empty( $value ) ) {
-				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-				$attributes .= ' ' . $attr . '="' . $value . '"';
-			}
-		}
+		$tag = isset( $attrs['href'] ) ? 'a' : 'span';
 
-		$item_output = $args->before;
-		$item_output .= "<{$tag}{$attributes}>";
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output .= "</{$tag}>";
-		$item_output .= $args->after;
+		$link_content = $args->link_before
+		                . apply_filters( 'the_title', $item->title, $item->ID )
+		                . $args->link_after;
 
-		$output .= $item_output;
+		$output .= $args->before;
+		$output .= MOZ_Html::get_element( $tag, $attrs, $link_content );
+		$output .= $args->after;
 	}
 
 
@@ -125,10 +139,7 @@ class MOZ_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param array  $args   An array of arguments. @see wp_nav_menu()
 	 */
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
-
-		$indent = str_repeat( "\t", $depth );
-
-		$output .= "$indent</ul>\n"; // end of .#{$args->menu_class}__list
+		$output .= '</ul>'; // end of .{$args->menu_class}__list
 	}
 
 
