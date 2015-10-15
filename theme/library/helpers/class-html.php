@@ -28,6 +28,7 @@ class MOZ_Html {
 	static function get_sc_element( $tag = 'img', $attrs = array() ) {
 		$html = "<$tag";
 		foreach ( (array) $attrs as $attr => $value ) {
+			$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
 			$html .= " $attr=\"$value\"";
 		}
 		$html .= '>';
