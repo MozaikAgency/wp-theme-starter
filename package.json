@@ -26,7 +26,7 @@
     "bower-webpack-plugin": "0.1.9",
     "browser-sync": "2.9.11",
     "del": "2.0.2",
-    "eslint": "1.6.0",
+    "eslint": "1.7.0",
     "eslint-loader": "1.1.0",
     "eslint-config-airbnb": "0.1.0",
     "eslint-plugin-react": "3.5.1",
