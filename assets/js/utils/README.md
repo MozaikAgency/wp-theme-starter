@@ -44,4 +44,4 @@ export default function eqheights(selector) {
 <small>_footnote: (shameless plug) you can find eqheights, without
 the jQuery dependancy, on
 [github](https://github.com/Maximilianos/eqheights)
-and [npm](https://www.npmjs.com/package/eqheights)_</small>
+and [npm](https://www.npmjs.com/package/eqheights)</small>
