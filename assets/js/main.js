@@ -12,7 +12,7 @@ import './vendor/webpack.publicPath';
  */
 
 // silly example:
-import obj from './elements/example';
+import obj from './scripts/example';
 
 /* eslint no-console: 0 */
 console.log(obj);
