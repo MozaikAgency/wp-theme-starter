@@ -49,7 +49,7 @@ class MOZ_Link {
 	 *         'custom' => url...
 	 *       ]
 	 *
-	 * @param $data
+	 * @param array $data
 	 */
 	public static function link_href( $data ) {
 		echo self::get_link_href( $data );
@@ -62,7 +62,7 @@ class MOZ_Link {
 	 * array if the specified
 	 * href is external
 	 *
-	 * @param $attrs
+	 * @param array $attrs
 	 *
 	 * @return mixed
 	 */
@@ -73,6 +73,29 @@ class MOZ_Link {
 			&& ! wp_validate_redirect( $attrs['href'], false )
 		) {
 			$attrs['target'] = '_blank';
+		}
+
+		return $attrs;
+	}
+
+
+	/**
+	 * Add rel="nofollow"
+	 * to the given attribute
+	 * array if the specified
+	 * href is external
+	 *
+	 * @param array $attrs
+	 *
+	 * @return mixed
+	 */
+	public static function add_link_rel( $attrs ) {
+		if (
+			isset( $attrs['href'] )
+			&& ! empty( $attrs['href'] )
+			&& ! wp_validate_redirect( $attrs['href'], false )
+		) {
+			$attrs['rel'] = 'nofollow';
 		}
 
 		return $attrs;

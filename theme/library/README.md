@@ -24,7 +24,7 @@ Using the custom nav walker (to print a WP menu with less cruft) can also be as 
 MOZ_Menu::nav_menu( 'primary' );
 ```
 
-Which is equivalent to the following:
+Which is roughly equivalent to the following:
 
 ```php
 wp_nav_menu( array(
@@ -70,7 +70,9 @@ For normal loops it can be as simple as:
 MOZ_Pagination::pagination();  
 ```
 
-For custom loops all you need to do is pass in the `max_num_pages` var:
+For custom loops all you need to do is pass in the `max_num_pages` query property
+to the `pagination` method, as well as make sure to add the `paged` arg to your
+custom query, as below:
  
 ```php
 // custom query
@@ -120,14 +122,25 @@ MOZ_Menu::nav_menu( 'sitmap', array(
 ) );
 ```
 
-`MOZ_Menu` also contains a simple wp nav menu based breadcrumbs implementation that does not
+## Crumbs (Breadcrumbs)
+
+`MOZ_Crumbs` is a simple wp nav menu based breadcrumbs implementation that does not
 use a nav menu walker to be printed.
 
 Printing breadcrumbs based on a given nav menu can be as simple as:
 
 ```php
-MOZ_Menu::breadcrumbs( 'primary' );
+MOZ_Crumbs::breadcrumbs( 'primary' );
 ```
+
+## Utils
+
+The `MOZ_Utils` class holds a few misc utility methods to make certainly things easier.
+
+`MOZ_Utils::get_upper( 'string' )` returns the given string in uppercase with all accents removed.
+ 
+`MOZ_Utils::get_copyright_years( 2014 )` returns a string like '2014-2015' representing a year range
+between the given year and the current year.
 
 ## Link
 

@@ -49,7 +49,7 @@ the underlying markup.
 
 ### Modifier
 
-A _Modifier_ can be used with either a **Block** or an **Element** using the `{Block}(__{Element}?)--{Modifier}`
+A _Modifier_ can be used with either a **Block** or an **Element** using the `{Block}(__{Element})?--{Modifier}`
 pattern. A _Modifier_ name should follow the same rules as a **simple class name**.
 
 #### Modifier Examples
