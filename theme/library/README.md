@@ -130,7 +130,7 @@ use a nav menu walker to be printed.
 Printing breadcrumbs based on a given nav menu can be as simple as:
 
 ```php
-MOZ_Crumbs::breadcrumbs( 'primary' );
+MOZ_Crumbs::crumbs( 'primary' );
 ```
 
 ## Utils
