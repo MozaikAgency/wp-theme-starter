@@ -29,7 +29,7 @@
     "eslint": "1.7.3",
     "eslint-loader": "1.1.0",
     "eslint-config-airbnb": "0.1.0",
-    "eslint-plugin-react": "3.6.3",
+    "eslint-plugin-react": "3.7.0",
     "gulp": "3.9.0",
     "gulp-add": "0.0.2",
     "gulp-autoprefixer": "3.0.2",
