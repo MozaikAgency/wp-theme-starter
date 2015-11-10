@@ -19,12 +19,12 @@ module.exports = function (project) {
 	if (!project.name) {
 		validationFailed = true;
 
-		gutil.log('Config Error', gutil.colors.red('The \"name\" option in your project.config.js configuration cannot be empty'));
+		gutil.log('Project Config Error:', gutil.colors.red('The \"name\" option in your project.config.js configuration cannot be empty'));
 	}
 	if (!project.prettyName) {
 		validationFailed = true;
 
-		gutil.log('Config Error', gutil.colors.red('The \"prettyName\" option in your project.config.js configuration cannot be empty'));
+		gutil.log('Project Config Error:', gutil.colors.red('The \"prettyName\" option in your project.config.js configuration cannot be empty'));
 	}
 
 
@@ -36,11 +36,15 @@ module.exports = function (project) {
 	if (project.name === devThemeRoot) {
 		validationFailed = true;
 
-		gutil.log('Config Error', gutil.colors.red('The \"name\" value in your project.config.js configuration \'' + project.name + '\''));
-		gutil.log('            ', gutil.colors.red('cannot be the same as the directory name of the development theme \'' + devThemeRoot + '\'.'));
+		gutil.log('Project Config Error:', gutil.colors.red(
+			'The \"name\" value in your project.config.js configuration \'' + project.name + '\' ' +
+			'cannot be the same as the directory name of the development theme \'' + devThemeRoot + '\'.'
+		));
 
-		gutil.log('Please either rename the development theme directory (to \'' + project.name + '_dev\' for example)');
-		gutil.log('or change the name value in your project.config.js to something else.');
+		gutil.log(
+			'Please either rename the development theme directory (to \'' + project.name + '_dev\' for example) ' +
+			'or change the name value in your project.config.js to something else.'
+		);
 	}
 
 

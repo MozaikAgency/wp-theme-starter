@@ -1,3 +1,9 @@
+/* eslint
+		no-var: 0,
+	  no-multi-spaces: 0,
+	  no-mixed-spaces-and-tabs: 0,
+	  no-multiple-empty-lines: 0
+*/
 var gulp  = require('gulp');
 var gutil = require('gulp-util');
 

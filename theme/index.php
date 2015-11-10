@@ -12,7 +12,7 @@
 
 			<header>
 				<h1 class="hero__title">
-					The Mozaik WordPress Theme Bootstrap
+					The Mozaik WordPress Theme Starter
 				</h1>
 			</header>
 
@@ -28,7 +28,7 @@
 
 				<a class="hero__cta"
 				   target="_blank"
-				   href="https://github.com/MozaikAgency/wp-theme-bootstrap">
+				   href="https://github.com/MozaikAgency/wp-theme-starter">
 					check out the README
 				</a>
 

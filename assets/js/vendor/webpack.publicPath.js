@@ -6,6 +6,6 @@
  * public path
  *
  */
-var scripts = document.getElementsByTagName('script');
-var src = scripts[scripts.length - 1].getAttribute('src');
+const scripts = document.getElementsByTagName('script');
+const src = scripts[scripts.length - 1].getAttribute('src');
 __webpack_public_path__ = src.substr(0, src.lastIndexOf('/') + 1);

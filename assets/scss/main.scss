@@ -6,12 +6,11 @@
 @import "config/typography";
 @import "config/dimensions";
 @import "config/breakpoints";
-@import "config/magnific-popup";
 
 
 
 /**
- * Custom Functions & Mixins & Animations
+ * Functions & Mixins & Animations
  */
 @import "helpers/functions/opposite-direction";
 @import "helpers/functions/parseInt";
@@ -25,7 +24,7 @@
 
 
 /**
- * Generated Fonts, Icon Fonts & Sprites
+ * Fonts, Icon Fonts & Sprites
  * ( - Each one requests external resources, keep out of critical css? - )
  */
 
@@ -39,14 +38,13 @@
 @import "vendor/normalize";
 @import "vendor/polyfill.object-fit";
 @import "vendor/moz-backround-picture";
-@import "vendor/magnific-popup";
-@import "vendor/slick";
 
 
 
 /**
  * Soft Helpers
- * ( - Meant to be overriden with styles later on - )
+ * ( - Usually scss silent classes - )
+ * ( - Meant to be overriden (extended) with styles later on - )
  */
 @import "helpers/soft/reset";
 @import "helpers/soft/list";

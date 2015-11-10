@@ -1,8 +1,26 @@
 # The Mozaik WordPress Theme Boilerplate
 
-This is a WordPress Theme starter-kit meant to offer a first-class developer experience.
+This is a WordPress theme starter-kit meant to offer a first-class developer experience.
 
-### Full Feature List:
+## Contents
+
+- [Full Feature List](#full-feature-list)
+- [Important Prerequisites](#important-prerequisites)
+	- [Dev Environment](#dev-environment)
+	- [WordPress](#wordpress)
+	- [JavaScript](#javascript)
+	- [CSS](#css)
+- [Development Guidelines](#development-guidelines)
+- [Standard Theme Development Process](#standard-theme-development-process)
+	- [Setup](#setup)
+	- [Development](#development)
+	- [Production](#production)
+- [Reading Recommendations](#reading-recommendations)
+- [License](#license)
+- [FAQ](#faq)
+	- [1. How do I use jQuery with wp-theme-starter ?](#1-how-do-i-use-jquery-with-wp-theme-starter-)
+
+## Full Feature List
 
 - [x] Separate development theme and auto-generated clutter-free production (built) theme
 - [x] Easy enough to port already existing themes over to it
@@ -22,7 +40,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 		- [x] SVG optimization via svgmin
 	- [x] Build process easily extendable
 - [x] NPM and Bower workflows supported
-- [x] Theme Helpers Library
+- [x] Theme Helpers Library (For more details check out the [library's README](https://github.com/MozaikAgency/wp-theme-starter/tree/master/theme/library))
 	- [x] Responsive images specification implementation
 		- [x] Helper function to print WordPress media by attachment id using responsive background images,
 		      the picture element or img-srcset-sizes
@@ -36,10 +54,10 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 
 ## Important Prerequisites
 
-### Technical
+### Dev Environment
 
-1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.2 && npm@^2.7.4)*
-1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.8.11)*
+1. Have [node and npm](https://nodejs.org/) installed on your system *(node@^0.12.7)*
+1. Have [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) globally installed *(gulp@^3.9.0)*
 
 - *You can use [`nvm`](https://github.com/creationix/nvm) to manage the node versions installed on your computer*
 - *You can use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) to update the node modules in your theme (Note that updating may break things, so be careful)* 
@@ -59,7 +77,6 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 	
 ### JavaScript
 
-1. Understand [modular JavaScript](http://addyosmani.com/writing-modular-js/)
 1. This project uses [webpack](http://webpack.github.io/) to provide support for modular JS, read up on the functionality & tools it provides
 
 ### CSS
@@ -82,7 +99,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 1. Install WordPress and clear it of unnecessary default themes & plugins
 1. Clone/Download the contents of this repository into a directory in your WordPress `wp-content/themes` directory (eg: "my-theme_dev") _this will be your "dev theme"_
 1. Open the terminal and navigate to the dev theme, *eg:* `cd wp-content/themes/<my-theme>_dev`
-1. (**Note:** The next steps **require** nodejs *@^0.12.2* and gulpjs *@^3.8.11*)
+1. (**Note:** The next steps **require** nodejs *@^0.12.7* and gulpjs *@^3.9.0*)
 1. Run `npm install` to install all dev dependencies
 1. Change the `project.config.js` file with your new theme's configuration
 1. Run `gulp build` to generate the "built theme" for the first time
@@ -97,8 +114,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 1. Optional stuff:
 	- use `npm install --save <module(s)>` or `bower install --save <module(s)>` to easily manage js dependencies, then use `var <module> = require('<module>');`
 	  or `import <module> from '<module>';` anywhere in your js files you want to use them
-	- explore the `/library` directory in the dev theme for anything useful to your project. If you find anything
-	  make sure to include it in the `theme_setup` function in your theme's `functions.php`.
+	- explore the [`/library` directory](https://github.com/MozaikAgency/wp-theme-starter/tree/master/theme/library) in the dev theme for anything useful to your project.
 
 ### Production
 
@@ -111,7 +127,7 @@ This is a WordPress Theme starter-kit meant to offer a first-class developer exp
 
 1. [WordPress Developer Documentation](http://codex.wordpress.org/Developer_Documentation)
 1. We generally follow the [WordPress PHP Coding Standards](https://make.wordpress.org/core/handbook/coding-standards/php/) in our WP code
-1. The build process supports the [<abbr title="EcmaScript 6">ES6</abbr> JavaScript syntax](https://babeljs.io/docs/learn-es6/) by using [babel.js](https://babeljs.io/) to transpile ES6
+1. The build process supports [<abbr title="EcmaScript 2015+">ES6+</abbr> JavaScript syntax](https://babeljs.io/docs/learn-es6/) by using [babel.js](https://babeljs.io/) to transpile ES6+
    to ES5.
    
 ## License
@@ -120,9 +136,9 @@ This Theme Boilerplate is licensed under the [MIT license](http://opensource.org
 
 ## FAQ
 
-### 1. How do I use jQuery with wp-theme-bootstrap ?
+### 1. How do I use jQuery with wp-theme-starter ?
 
-As mentioned above, wp-theme-bootstrap uses [webpack](http://webpack.github.io/) to handle concatenating, minifying and optimizing the javascript in the theme.
+As mentioned above, wp-theme-starter uses [webpack](http://webpack.github.io/) to handle concatenating, minifying and optimizing the javascript in the theme.
 Webpack, like Browserify and RequireJS, is a module loader for javascript and as such requires each module (file) to declare the dependencies it has within it. 
 To use jQuery, or any other global library, in your webpack-ed js you have a couple of choices:
 
