@@ -104,7 +104,10 @@ module.exports = deepMerge({
 								/bower_components/,
 								/polyfills/
 							],
-							loader: 'babel'
+							loader: 'babel',
+							query: {
+								presets: ['es2015']
+							}
 						}
 					]
 				},
