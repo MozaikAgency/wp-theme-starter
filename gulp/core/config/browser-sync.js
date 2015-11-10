@@ -12,6 +12,6 @@ var overrides = require('../../config/browser-sync');
  */
 module.exports = deepMerge({
 	logSnippet: false,
-	open: false,
-	ghostMode: false
+	ghostMode: false,
+	open: false
 }, overrides);
