@@ -27,7 +27,7 @@
     "browser-sync": "2.9.11",
     "del": "2.0.2",
     "eslint": "1.7.3",
-    "eslint-loader": "1.1.0",
+    "eslint-loader": "1.1.1",
     "eslint-config-airbnb": "0.1.0",
     "eslint-plugin-react": "3.6.3",
     "gulp": "3.9.0",
