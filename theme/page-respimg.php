@@ -68,7 +68,7 @@
 		<p style="height: 300px;position: relative;">
 			<?php
 			// using a background image
-			MOZ_RI::background( 9, 'medium', array(
+			MOZ_Image::background( 9, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
 			) );
@@ -80,7 +80,7 @@
 		</h3>
 		<p>
 			<?php
-			MOZ_RI::picture( 7, 'medium', array(
+			MOZ_Image::picture( 7, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
 			) );
@@ -92,7 +92,7 @@
 		</h3>
 		<p>
 			<?php
-			MOZ_RI::image( 6, array(
+			MOZ_Image::image( 6, array(
 				'full',
 				'large',
 				'medium'
@@ -118,7 +118,7 @@
 		</h3>
 		<p class="tests__object-fit">
 			<?php
-			MOZ_RI::picture( 5, 'medium', array(
+			MOZ_Image::picture( 5, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
 			), array(
@@ -132,7 +132,7 @@
 		</h3>
 		<p class="tests__object-fit">
 			<?php
-			MOZ_RI::image( 4, array(
+			MOZ_Image::image( 4, array(
 				'full', 'large', 'medium'
 			), array(
 				'(min-width: 1024px) 1024px',
@@ -161,7 +161,7 @@
 		<p style="height: 300px;position: relative;">
 			<?php
 			// using a background image
-			MOZ_RI::background( 11, 'medium', array(
+			MOZ_Image::background( 11, 'medium', array(
 				'large'  => '(min-width: 500px)',
 				'full'   => '(min-width: 1200px)'
 			), null, array(
@@ -175,7 +175,7 @@
 		</h3>
 		<p>
 			<?php
-			MOZ_RI::picture( 10, 'medium', array(
+			MOZ_Image::picture( 10, 'medium', array(
 				'large' => '(min-width: 500px)',
 				'full'  => '(min-width: 1200px)'
 			), null, array(
@@ -189,7 +189,7 @@
 		</h3>
 		<p>
 			<?php
-			MOZ_RI::image( 8, array(
+			MOZ_Image::image( 8, array(
 				'full',
 				'large',
 				'medium'
