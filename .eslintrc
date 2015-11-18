@@ -2,6 +2,9 @@
   "extends": [
     "airbnb"
   ],
+  "env": {
+    "jquery": true
+  },
   "rules": {
     "indent": [2, "tab"],
     "comma-dangle": 0
