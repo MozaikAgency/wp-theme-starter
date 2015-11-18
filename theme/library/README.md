@@ -2,6 +2,10 @@
 
 The Library is a collection of potentially useful custom WordPress related classes.
 
+_This readme is an overview of the library. The code is fully documented with
+ doc-blocks so go ahead and dig into the different classes to see their methods
+ and what they do!_
+
 **Note: Avoid modifying files in the library directly, instead extend their functionality from 
 within the includes directory.** This will allow you to easily pull in updates to this (vendor)
 part of the mozaik-theme-starter.
@@ -59,6 +63,34 @@ css properties for image-like elements to do the same thing to them as `backgrou
 
 For a full set of example implementations as well as a bit of information on browser support see:
 [https://github.com/MozaikAgency/wp-theme-starter/blob/tests/theme/page-respimg.php](https://github.com/MozaikAgency/wp-theme-starter/blob/tests/theme/page-respimg.php)
+
+## SVG
+
+The `MOZ_SVG` class has a few very simple static methods to help working with SVG in your theme.
+
+To print an svg from within your `assets` folder (eg: `assets/svg/medal.svg`) simply use:
+
+```php
+MOZ_SVG::svg( 'medal' );
+```
+
+The `::get_icon()`/`::icon()` are helpers for printing the necessary markup when using _SVG sprites_.
+
+```php
+<a title="<?php esc_attr_e( 'Follow us on Facebook!', 'text-domain' ); ?>"
+   href="http://facebook.com/example-page"
+   target="_blank"
+   rel="nofollow">
+	<?php MOZ_SVG::icon( 'facebook' ); ?>
+</a>
+```
+
+**Note:** *You will need to create your svg sprite correctly and to include
+ it into your page somehow for this to work. See:*
+
+- [Using SVG](https://css-tricks.com/using-svg/)
+- [Icon System with SVG Sprites](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
+- [Ajaxing for your SVG Sprite](https://css-tricks.com/ajaxing-svg-sprite/)
 
 ## Pagination
 
@@ -135,7 +167,7 @@ MOZ_Crumbs::crumbs( 'primary' );
 
 ## Utils
 
-The `MOZ_Utils` class holds a few misc utility methods to make certainly things easier.
+The `MOZ_Utils` class holds a few miscellaneous utility methods to make certain things easier.
 
 `MOZ_Utils::get_upper( 'string' )` returns the given string in uppercase with all accents removed.
  
@@ -145,3 +177,24 @@ between the given year and the current year.
 ## Link
 
 `MOZ_Link` contains a few methods to make it easier to work with links in WordPress.
+
+For instance, to print a link where your `$link_data` comes from data entry and you
+want to intelligently add things like `rel="nofollow"` to the link depending if it is
+local or not, you would use something like:
+
+```php
+// link data could come from a custom field
+// eg: $link_data = get_field( 'link' );
+// it was built for leveraging Advanced Custom Fields
+// and particularly the Reusable Custom Fields extension
+// https://github.com/mvpdesign/acf-reusable-field-group
+$link_data = array(
+  'type'     => 'internal' // alt: external
+  'internal' => 'http://example.com/page'
+  'external' => ''
+);
+
+MOZ_Link::link( $link_data, array(
+  'class' => 'button--big',
+), MOZ_Utils::get_upper( ') )
+```

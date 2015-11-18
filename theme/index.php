@@ -35,7 +35,7 @@
 				<?php get_template_part( 'elements/github' ); ?>
 
 				<div class="hero__icon">
-					<?php echo file_get_contents( get_template_directory() . '\assets\svg\medal.svg' ); ?>
+					<?php MOZ_SVG::svg( 'medal' ); ?>
 				</div>
 
 				<div class="hero__credits">
