@@ -20,7 +20,7 @@ module.exports = function () {
 	return gulp.src(config.paths.src)
 		.pipe(plumber())
 
-		.pipe(svgmin())
+		.pipe(svgmin(config.options.svgmin))
 
 		.pipe(gulp.dest(config.paths.dest))
 		.pipe(notify({

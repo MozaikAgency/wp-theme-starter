@@ -24,5 +24,13 @@ module.exports = deepMerge({
 		],
 		dest:  assets.dest + '/svg',
 		clean: assets.dest + '/svg/**/*.svg'
+	},
+
+	options: {
+		svgmin: {
+			multipass: true,
+			plugins: [{cleanupIDs: false}]
+		}
 	}
+
 }, overrides);
