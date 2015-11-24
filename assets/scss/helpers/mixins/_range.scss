@@ -1,0 +1,34 @@
+/* =========================================
+		Range Input Styling
+   ========================================= */
+
+/**
+ * Convenience mixin to
+ * help style input
+ * type range
+ * track
+ *
+ */
+@mixin range-track() {
+	& { -webkit-appearance: none; @content }
+	&::-moz-range-track { @content }
+	&::-ms-track { @content }
+
+	&::-ms-fill-lower,
+	&::-ms-fill-upper {
+		background: transparent;
+	}
+}
+
+/**
+ * Convenience mixin to
+ * help style input
+ * type range
+ * "thumb" grip
+ *
+ */
+@mixin range-thumb() {
+	&::-webkit-slider-thumb { -webkit-appearance: none; @content; }
+	&::-moz-range-thumb { @content; }
+	&::-ms-thumb { @content; }
+}
