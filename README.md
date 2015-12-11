@@ -62,6 +62,16 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 - *You can use [`nvm`](https://github.com/creationix/nvm) to manage the node versions installed on your computer*
 - *You can use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) to update the node modules in your theme (Note that updating may break things, so be careful)* 
 
+#### Windows
+
+On Windows you may need to do some of the following if you run into trouble when running `npm install` in this project:
+
+- Install Python - Install version 2.7 of Python and add it to your path or/and create a PYTHONPATH environment variable.
+- Install Visual Studio (Express Edition is fine) - We will need this for some of modules that are compiled when installing Theme Starter. [Download VS Express](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx), get one of the versions that has C++ - Express 2013 for Windows Desktop for example.
+- Set Visual Studio Version Flags - We need to tell node-gyp (something that is used for compiling addons) what version of Visual Studio we want to compile with. You can do this either through an environment variable GYP_MSVS_VERSION. If you are using Express, you have to say GYP_MSVS_VERSION=2013e.
+
+Thanks to [Ryanlanciaux](http://ryanlanciaux.github.io/blog/2014/08/02/using-jest-for-testing-react-components-on-windows/)
+
 ### WordPress
 
 1. Read [the WordPress theme development guidelines](http://codex.wordpress.org/Theme_Development)
@@ -99,7 +109,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 1. Install WordPress and clear it of unnecessary default themes & plugins
 1. Clone/Download the contents of this repository into a directory in your WordPress `wp-content/themes` directory (eg: "my-theme_dev") _this will be your "dev theme"_
 1. Open the terminal and navigate to the dev theme, *eg:* `cd wp-content/themes/<my-theme>_dev`
-1. (**Note:** The next steps **require** nodejs *@^0.12.7* and gulpjs *@^3.9.0*)
+1. (**Note:** The next steps **require** nodejs *@5.0.0* and gulpjs *@^3.9.0*)
 1. Run `npm install` to install all dev dependencies
 1. Change the `project.config.js` file with your new theme's configuration
 1. Run `gulp build` to generate the "built theme" for the first time
@@ -138,11 +148,14 @@ This Theme Boilerplate is licensed under the [MIT license](http://opensource.org
 
 ### 1. How do I use jQuery with wp-theme-starter ?
 
-As mentioned above, wp-theme-starter uses [webpack](http://webpack.github.io/) to handle concatenating, minifying and optimizing the javascript in the theme.
-Webpack, like Browserify and RequireJS, is a module loader for javascript and as such requires each module (file) to declare the dependencies it has within it. 
-To use jQuery, or any other global library, in your webpack-ed js you have a couple of choices:
+As mentioned above, wp-theme-starter uses [webpack](http://webpack.github.io/) to
+handle concatenating, minifying and optimizing the javascript in the theme. Webpack,
+like Browserify and RequireJS, is a module loader for javascript and as such requires
+each module (file) to declare the dependencies it has within it. To use jQuery, or
+any other global library, in your webpack-ed js you have a couple of choices:
 
-- Use jQuery as a dependency for all modules in the project and include it in the final concatenated package (Recommended):
+- Use jQuery as a dependency for all modules in the project and include it in
+  the final concatenated package (Recommended):
 	1. With the terminal open _within the dev theme_, type `npm install jquery --save` or `bower install jquery --save` to install jquery for the project
 	1. In the `./gulp/config/scripts.js` file add this line to the top of the file to expose webpack within this file:
 	
