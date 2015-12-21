@@ -12,6 +12,30 @@
  *
  */
 class MOZ_Utils {
+	/**
+	 * Return an escaped telephone
+	 * string to be used with
+	 * <a href="tel:{...}"></a>
+	 *
+	 * @param $tel {string}
+	 *
+	 * @return mixed
+	 */
+	public static function get_esc_tel( $tel ) {
+		return preg_replace( '/[^0-9]/i', '', preg_replace( '/^\+/', '00', $tel ) );
+	}
+
+
+	/**
+	 * Print an escaped telephone
+	 * string to be used with
+	 * <a href="tel:{...}"></a>
+	 *
+	 * @param $tel {string}
+	 */
+	public static function esc_tel( $tel ) {
+		echo self::get_esc_tel( $tel );
+	}
 
 
 	/**
