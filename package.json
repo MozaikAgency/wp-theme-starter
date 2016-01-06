@@ -52,7 +52,7 @@
     "stream-browserify": "2.0.1",
     "vinyl-named": "1.1.0",
     "vinyl-transform": "1.0.0",
-    "webpack": "1.12.3",
+    "webpack": "1.12.10",
     "webpack-stream": "2.1.1"
   },
   "dependencies": {
