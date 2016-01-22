@@ -7,6 +7,13 @@ scripts in your application.
 As such, utils must always export one or more methods that can optionally be
 imported and invoked by the other scripts of the app.
 
+## Why?
+
+Utils are meant to be composable bits of code. Ideally you could make each util
+into its own npm module. You should be able to use them in different parts of
+your current site and you should even be able to take them with you when you
+start your next project.
+
 #### Example:
 
 ##### Bad Util:
