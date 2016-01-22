@@ -68,8 +68,8 @@ class MOZ_Link {
 	 */
 	public static function add_link_target( $attrs ) {
 		if (
-			isset( $attrs['href'] )
-			&& ! empty( $attrs['href'] )
+			! isset( $attrs['target'] )
+			&& isset( $attrs['href'] )
 			&& ! wp_validate_redirect( $attrs['href'], false )
 		) {
 			$attrs['target'] = '_blank';
