@@ -4,17 +4,18 @@
  * it is invoked and caches
  * it for future re-use
  *
+ * @param require
  * @param path
  * @returns {Function}
  */
-module.exports = function (require, path) {
-	var worker = '';
+module.exports = function lazyQuire(require, path) {
+	var worker;
 
-	return function (a, b, c, d, e, f, g) {
+	return function req() {
 		if (!worker) {
 			worker = require(path);
 		}
 
-		return worker(a, b, c, d, e, f, g);
+		return worker.apply(null, arguments);
 	};
 };
