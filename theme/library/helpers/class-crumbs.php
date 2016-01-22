@@ -90,7 +90,7 @@ class MOZ_Crumbs {
 	 */
 	public static function get_crumbs_array( $theme_location = 'primary', $options = array() ) {
 		$clean_options = wp_parse_args( $options, array(
-			'home_title'   => __( 'Home', 'inc001' )
+			'home_title'   => __( 'Home' )
 		) );
 
 		$current_item = self::get_current_crumb_item();
@@ -144,7 +144,7 @@ class MOZ_Crumbs {
 
 		if ( is_search() ) {
 			$url     = get_search_link();
-			$title   = __( 'Search', 'inc001' );
+			$title   = __( 'Search' );
 			$type    = 'search';
 
 		} else if ( is_author() ) {
