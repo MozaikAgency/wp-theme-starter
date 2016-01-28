@@ -109,8 +109,9 @@ if ( ! function_exists( 'theme_setup' ) ) {
 
 
 		// Register Autoloaders Loader
-		include get_template_directory() . '/library/library-loader.php';
-		include get_template_directory() . '/includes/includes-loader.php';
+		$theme_dir = get_template_directory();
+		include "$theme_dir/library/library-loader.php";
+		include "$theme_dir/includes/includes-loader.php";
 	}
 }
 
@@ -160,18 +161,17 @@ if ( ! function_exists( 'theme_scripts_localize' ) ) {
 			/** @var $sitepress SitePress */
 			global $sitepress;
 
+			$current_lang = $sitepress->get_current_language();
 			wp_localize_script( 'main', 'i18n', array(
-				'currentLang' => $sitepress->get_current_language()
+				'lang' => $current_lang
 			) );
 
-			$ajax_url_params['lang'] = $sitepress->get_current_language();
+			$ajax_url_params['lang'] = $current_lang;
 		}
 
-		$theme_dir = get_stylesheet_directory_uri();
-
 		wp_localize_script( 'main', 'urls', array(
-			'root'  => home_url(),
-			'theme' => $theme_dir,
+			'home'  => home_url(),
+			'theme' => get_stylesheet_directory_uri(),
 			'ajax'  => add_query_arg( $ajax_url_params, admin_url( 'admin-ajax.php' ) )
 		) );
 	}
