@@ -45,7 +45,7 @@
     "gulp-svgmin": "1.2.0",
     "gulp-util": "3.0.7",
     "gulp-watch": "4.3.5",
-    "lodash": "3.10.1",
+    "lodash": "4.0.1",
     "map-stream": "0.0.6",
     "node-libs-browser": "0.5.3",
     "node-notifier": "4.3.1",
