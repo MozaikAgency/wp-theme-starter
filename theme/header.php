@@ -15,7 +15,9 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+	
+	<title><?php wp_title(); ?></title>
+	
 	<?php wp_head(); ?>
 	<script async defer src="<?php echo get_template_directory_uri(); ?>/assets/js/core.js"></script>
 </head>
