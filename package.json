@@ -19,6 +19,9 @@
     "dev": "gulp",
     "prod": "gulp build"
   },
+  "engines": {
+    "node": ">=5.0.0"
+  },
   "devDependencies": {
     "babel-core": "6.1.2",
     "babel-eslint": "4.1.5",
