@@ -33,6 +33,7 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 		- [x] SCSS/SASS compilation and sourcemaps powered by libsass
 		- [ ] SCSS linting via scss-lint (waiting for first stable release of scss-lint)
 		- [x] CSS prefixing via autoprefixer
+		- [x] SVG sprite generation via svg-sprite
 	- [x] Production Mode
 		- [x] Minified CSS via cssmin
 		- [x] Uglify, dedupe JS via Webpack
@@ -46,10 +47,10 @@ This is a WordPress theme starter-kit meant to offer a first-class developer exp
 		      the picture element or img-srcset-sizes
 		- [x] Responsive images polyfill via picturefill
 		- [x] Builtin lazyload helper supported by aFarkas/lazysizes
-		- [x] Object-fit polyfill courtesy of anselhm/object-fit
 	- [x] BEM Style simplified customizable/extendable nav-menu-walker
 	- [x] BEM Style simplified customizable/extendable pagination renderer that easily supports custom queries
 	- [x] BEM Style simplified customizable/extendable breadcrumbs renderer that is based on a given menu
+	- [x] Utility classes to make it easier working with SVGs and SVG Sprites
 - [x] Battle tested. Used in a multitude of small and large scale projects!
 
 ## Important Prerequisites

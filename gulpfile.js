@@ -29,6 +29,7 @@ gutil.log(gutil.colors.green('Starting to Gulp! Please wait...'));
 gulp.task('default', [
 	  'fonts:watch',
 	    'svg:watch',
+	 'sprite:watch',
 	 'images:watch',
 	'scripts:watch',
 	 'styles:watch',
@@ -39,6 +40,7 @@ gulp.task('default', [
 gulp.task('build', [
 	  'fonts:prod',
 	    'svg:prod',
+	'sprite:watch',
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
@@ -68,6 +70,15 @@ gulp.task('svg:clean', [],            lazyQuire(require, './gulp/core/recipes/sv
 gulp.task('svg:dev',   ['svg:clean'], lazyQuire(require, './gulp/core/recipes/svg/dev'));
 gulp.task('svg:prod',  ['svg:clean'], lazyQuire(require, './gulp/core/recipes/svg/prod'));
 gulp.task('svg:watch', ['svg:dev'],   lazyQuire(require, './gulp/core/recipes/svg/watch'));
+
+
+/**
+ * Svg Sprites
+ */
+gulp.task('sprite:clean', [],               lazyQuire(require, './gulp/core/recipes/sprite/clean'));
+gulp.task('sprite:dev',   ['sprite:clean'], lazyQuire(require, './gulp/core/recipes/sprite/dev'));
+gulp.task('sprite:prod',  ['sprite:clean'], lazyQuire(require, './gulp/core/recipes/sprite/prod'));
+gulp.task('sprite:watch', ['sprite:dev'],   lazyQuire(require, './gulp/core/recipes/sprite/watch'));
 
 
 /**

@@ -16,14 +16,17 @@ module.exports = deepMerge({
 	paths: {
 		watch: [
 			assets.src + '/svg/**/*.svg',
-			'!' + assets.src + '/svg/sprites'
+			'!' + assets.src + '/svg/sprite'
 		],
 		src: [
 			assets.src + '/svg/**/*.svg',
-			'!' + assets.src + '/svg/sprites'
+			'!' + assets.src + '/svg/sprite'
 		],
-		dest:  assets.dest + '/svg',
-		clean: assets.dest + '/svg/**/*.svg'
+		dest: assets.dest + '/svg',
+		clean: [
+			assets.dest + '/svg/**/*.svg',
+			'!' + assets.dest + '/svg/sprite-*.svg'
+		]
 	},
 
 	options: {
