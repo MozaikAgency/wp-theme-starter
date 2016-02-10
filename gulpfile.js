@@ -40,7 +40,7 @@ gulp.task('default', [
 gulp.task('build', [
 	  'fonts:prod',
 	    'svg:prod',
-	'sprite:watch',
+	 'sprite:prod',
 	 'images:prod',
 	'scripts:prod',
 	 'styles:prod',
