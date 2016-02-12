@@ -63,6 +63,6 @@
   "dependencies": {
     "lazysizes": "1.3.0",
     "object-fit": "0.4.3",
-    "picturefill": "3.0.1"
+    "picturefill": "3.0.2"
   }
 }
