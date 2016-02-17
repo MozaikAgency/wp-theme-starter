@@ -38,13 +38,10 @@ class MOZ_Pagination {
 	 * @return string
 	 */
 	public static function get_pagination( $args = array() ) {
-		$args = wp_parse_args( $args, array(
-			'prev_next' => false
-		) );
-
 		$pagination_items = array_filter( self::get_pagination_arr( $args ), function ( $item ) {
 			return false !== $item['text'];
 		});
+
 		if ( empty( $pagination_items ) ) {
 			return '';
 		}
@@ -184,7 +181,7 @@ class MOZ_Pagination {
 			'total'              => $total,
 			'current'            => $current,
 			'show_all'           => false,
-			'prev_next'          => true,
+			'prev_next'          => false,
 			'prev_text'          => __( 'Previous' ),
 			'next_text'          => __( 'Next' ),
 			'dots_text'          => __( '&hellip;' ),
