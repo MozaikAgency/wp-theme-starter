@@ -46,7 +46,7 @@
     "gulp-sass": "2.1.0",
     "gulp-sourcemaps": "1.6.0",
     "gulp-svg-sprite": "^1.2.19",
-    "gulp-svgmin": "1.2.0",
+    "gulp-svgmin": "1.2.2",
     "gulp-util": "3.0.7",
     "gulp-watch": "4.3.5",
     "lodash": "3.10.1",
