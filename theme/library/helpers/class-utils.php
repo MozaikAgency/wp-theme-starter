@@ -13,6 +13,36 @@
  */
 class MOZ_Utils {
 	/**
+	 * Return an escaped email
+	 * string to be used with
+	 * <a href="mailto:{...}"></a>
+	 *
+	 * @param $email {string}
+	 *
+	 * @return string
+	 */
+	public static function get_esc_email( $email ) {
+		$sanitized_email = sanitize_email( $email );
+
+		return is_email( $sanitized_email )
+			? esc_attr( $sanitized_email )
+			: '';
+	}
+
+
+	/**
+	 * Print an escaped email
+	 * string to be used with
+	 * <a href="mailto:{...}"></a>
+	 *
+	 * @param $email
+	 */
+	public static function esc_email( $email ) {
+		echo self::get_esc_email( $email );
+	}
+
+
+	/**
 	 * Return an escaped telephone
 	 * string to be used with
 	 * <a href="tel:{...}"></a>
