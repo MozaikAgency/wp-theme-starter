@@ -92,7 +92,7 @@ class MOZ_Utils {
 	 * NOTE: Avoid passing in HTML
 	 *       This method will dumbly
 	 *       transform HTML tags and
-	 *       attributes to uppercase
+	 *       attributes to uppercase.
 	 *       HTML entities eg: "&nbsp;"
 	 *       are OK
 	 *
@@ -117,7 +117,7 @@ class MOZ_Utils {
 	 * NOTE: Avoid passing in HTML
 	 *       This method will dumbly
 	 *       transform HTML tags and
-	 *       attributes to uppercase
+	 *       attributes to uppercase.
 	 *       HTML entities eg: "&nbsp;"
 	 *       are OK
 	 *
