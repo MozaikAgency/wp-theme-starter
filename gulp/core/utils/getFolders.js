@@ -7,10 +7,20 @@ var path = require('path');
  * directory
  *
  * @param dir
- * @returns {*}
+ * @returns Array
  */
 module.exports = function getFolders(dir) {
-	return fs.readdirSync(dir).filter(function (file) {
-		return fs.statSync(path.join(dir, file)).isDirectory();
-	});
+	try {
+		return fs.readdirSync(dir).filter(function (file) {
+			return fs.statSync(path.join(dir, file)).isDirectory();
+		});
+	} catch (error) {
+		if (error.code === 'ENOENT') {
+			// no dir found, that's ok just
+			// return empty array
+			return [];
+		}
+
+		throw error;
+	}
 };
