@@ -22,7 +22,7 @@ class MOZ_Utils {
 	 * @return mixed
 	 */
 	public static function get_esc_tel( $tel ) {
-		return preg_replace( '/[^0-9]/i', '', preg_replace( '/^\+/', '00', $tel ) );
+		return esc_attr( preg_replace( '/[^0-9]/i', '', $tel ) );
 	}
 
 
