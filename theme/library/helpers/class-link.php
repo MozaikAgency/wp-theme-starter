@@ -21,9 +21,11 @@ class MOZ_Link {
 	 *
 	 * Note: assumes $data is an array like eg:
 	 *       [
-	 *         'type' => 'internal' or 'custom'
+	 *         'type' => 'internal' or 'custom' or 'tel' or 'email'
 	 *         'internal' => url...
 	 *         'custom' => url...
+	 *         'tel' => text...
+	 *         'email' => email...
 	 *       ]
 	 *
 	 * @param array $data
@@ -31,9 +33,17 @@ class MOZ_Link {
 	 * @return bool
 	 */
 	public static function get_link_href( $data ) {
-		return ( isset( $data[ $data['type'] ] ) && ! empty( $data[ $data['type'] ] ) )
-			? $data[ $data['type'] ]
-			: false;
+		if ( ! isset( $data[ $data['type'] ] ) || empty( $data[ $data['type'] ] ) ){
+			return false;
+		}
+
+		$href = $data[$data['type']];
+
+		switch ( $data['type'] ) {
+			case 'tel': return 'tel:' . MOZ_Utils::get_esc_tel( $href );
+			case 'email': return 'mailto:' . MOZ_Utils::get_esc_email( $href );
+			default: return $href;
+		}
 	}
 
 
@@ -44,9 +54,11 @@ class MOZ_Link {
 	 *
 	 * Note: assumes $data is an array like eg:
 	 *       [
-	 *         'type' => 'internal' or 'custom'
+	 *         'type' => 'internal' or 'custom' or 'tel' or 'email'
 	 *         'internal' => url...
 	 *         'custom' => url...
+	 *         'tel' => text...
+	 *         'email' => email...
 	 *       ]
 	 *
 	 * @param array $data
