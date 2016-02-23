@@ -1,7 +1,7 @@
 {
   "name": "mozaik-theme-starter",
   "description": "WordPress Theme Boilerplate - Build Tools Included :)",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "author": "Mozaik Ltd.",
   "authorURI": "http://mozaik.com/",
   "license": "MIT",
@@ -64,7 +64,6 @@
   "dependencies": {
     "babel-polyfill": "6.5.0",
     "lazysizes": "1.4.0",
-    "object-fit": "0.4.3",
     "picturefill": "3.0.2"
   }
 }
