@@ -61,7 +61,7 @@
     "webpack-stream": "2.1.1"
   },
   "dependencies": {
-    "lazysizes": "1.3.0",
+    "lazysizes": "1.4.0",
     "object-fit": "0.4.3",
     "picturefill": "3.0.1"
   }
