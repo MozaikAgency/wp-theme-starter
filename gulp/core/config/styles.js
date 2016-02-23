@@ -35,16 +35,8 @@ module.exports = deepMerge({
 			]
 		},
 		minify: {
-			advanced: true,
-			aggressiveMerging: true,
-			keepBreaks: false,
-			keepSpecialComments: 0,
-			compatibility: 'ie9',
-			mediaMerging: true,
-			restructuring: true,
-			rebase: true,
-			roundingPrecision: 2,
-			shorthandCompacting: true
+			autoprefixer: false,
+			discardComments: { removeAll: true }
 		}
 	}
 }, overrides);
