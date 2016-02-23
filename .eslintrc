@@ -1,12 +1,21 @@
 {
-  "extends": [
-    "airbnb"
-  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": ["babel"],
+  "extends": ["airbnb/base"],
   "env": {
-    "jquery": true
+    "browser": true,
+    "jquery": true,
+    "es6": true
+  },
+  "globals": {
+    "Promise": true
   },
   "rules": {
-    "indent": [2, "tab"],
+    "indent": [2, "tab", {"SwitchCase": 1}],
     "comma-dangle": 0
   }
 }
