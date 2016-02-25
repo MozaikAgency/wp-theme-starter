@@ -194,6 +194,11 @@ any other global library, in your webpack-ed js you have a couple of choices:
 			options: {
 				webpack: {
 					defaults: {
+						plugins: [
+							new webpack.ProvidePlugin({
+								'$': 'jquery'
+							})
+						],
 						externals: {
 							jquery: 'window.jQuery'
 						}
