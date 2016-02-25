@@ -155,8 +155,7 @@ like Browserify and RequireJS, is a module loader for javascript and as such req
 each module (file) to declare the dependencies it has within it. To use jQuery, or
 any other global library, in your webpack-ed js you have a couple of choices:
 
-- Use jQuery as a dependency for all modules in the project and include it in
-  the final concatenated package:
+- Use jQuery as an internal dependency of your bundle<br>_(this means jQuery will be included in the final JS bundle created)_
 	1. With the terminal open _within the dev theme_, type `npm install jquery --save` or `bower install jquery --save` to install jquery for the project
 	1. In the `./gulp/config/scripts.js` file add this line to the top of the file to expose webpack within this file:
 	
@@ -182,7 +181,7 @@ any other global library, in your webpack-ed js you have a couple of choices:
 			}
 			...
 
-- Use jQuery as an external package:
+- Use jQuery as an external package<br>_(this means jQuery will be requested as a separate resource from the rest of your bundle. Use this when you are working with WordPress plugins that include jquery dependant scripts on the front-end)_
 	1. Declare jQuery as an external dependency of your `main.js` in the `theme_scripts` function in your `functions.php` file.
 	   Something like this:
 	   
