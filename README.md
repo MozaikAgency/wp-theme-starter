@@ -187,6 +187,10 @@ any other global library, in your webpack-ed js you have a couple of choices:
 	   Something like this:
 	   
 			wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
+
+	1. In the `./gulp/config/scripts.js` file add this line to the top of the file to expose webpack within this file:
+	
+			var webpack = require('webpack');
 			
 	1. Declare jQuery as an external dependency in webpack. Add the following to `./gulp/config/scripts.js` in the webpack section of
 		 the config:
