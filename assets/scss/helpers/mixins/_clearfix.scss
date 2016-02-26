@@ -2,24 +2,21 @@
 		Clearfix
    ========================================= */
 
-// @config
-
-%clearfix {
+/**
+ * De-Collapse Floated content within
+ * element
+ *
+ */
+@mixin clearfix {
 	*zoom: 1;
 
 	&:before,
 	&:after {
-		content: " "; /* 1 */
-		display: table; /* 2 */
+		content: " ";
+		display: table;
 	}
 
 	&:after {
 		clear: both;
 	}
-}
-
-// ---
-
-.clearfix {
-	@extend %clearfix;
 }

@@ -12,15 +12,31 @@
 /**
  * Functions & Mixins & Animations
  */
+
+// utilities
 @import "helpers/functions/opposite-direction";
 @import "helpers/functions/parseInt";
 @import "helpers/functions/easing";
 
 @import "helpers/mixins/rem";
 @import "helpers/mixins/bp";
+
+// styling utilities
+@import "helpers/mixins/fit";
+@import "helpers/mixins/reset";
+@import "helpers/mixins/clearfix";
+@import "helpers/mixins/nocollapse";
+@import "helpers/mixins/visuallyhidden";
+
+// css shapes
 @import "helpers/mixins/shape-triangle";
-@import "helpers/mixins/placeholder";
+
+// form elements
 @import "helpers/mixins/range";
+@import "helpers/mixins/placeholder";
+
+// transitions
+@import "helpers/mixins/cascade";
 
 
 
@@ -43,27 +59,7 @@
 
 
 /**
- * Soft Helpers
- * ( - Usually scss silent classes - )
- * ( - Meant to be overriden (extended) with styles later on - )
- */
-@import "helpers/soft/reset";
-@import "helpers/soft/list";
-
-
-
-/**
  * Your Custom Styles
  */
 @import "elements/site";
 @import "elements/hero";
-
-
-
-/**
- * Strong Helpers
- * ( - Not Meant to be overriden - )
- */
-@import "helpers/strong/nocollapse";
-@import "helpers/strong/clearfix";
-@import "helpers/strong/visuallyhidden";

@@ -1,14 +1,8 @@
 /* =========================================
-		Some Styles Reset
+		Reset
    ========================================= */
 
-/**
- * reset every style
- * ever... kinda, you
- * get the idea.
- *
- */
-%reset {
+@mixin reset {
 	margin: 0;
 	border: none;
 	border-radius: 0;

@@ -2,15 +2,14 @@
 		List
    ========================================= */
 
-
-%list--no {
+@mixin list--no {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-%list--inline {
-	@extend %list--no;
+@mixin list--inline {
+	@include list--no;
 	li {
 		display: inline-block;
 	}
