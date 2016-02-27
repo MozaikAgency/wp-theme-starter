@@ -10,7 +10,7 @@ var lodash = require('lodash');
  * @returns {*}
  */
 module.exports = function (a, b) {
-	return lodash.merge(a, b, deep);
+	return lodash.mergeWith(a, b, deep);
 };
 
 
