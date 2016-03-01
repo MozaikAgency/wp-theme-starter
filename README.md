@@ -126,6 +126,7 @@ Thanks to [Ryanlanciaux](http://ryanlanciaux.github.io/blog/2014/08/02/using-jes
 	- use `npm install --save <module(s)>` or `bower install --save <module(s)>` to easily manage js dependencies, then use `var <module> = require('<module>');`
 	  or `import <module> from '<module>';` anywhere in your js files you want to use them
 	- explore the [`/library` directory](https://github.com/MozaikAgency/wp-theme-starter/tree/master/theme/library) in the dev theme for anything useful to your project.
+	- Set `override_file_path` in `gulp/config/common.js` to change the include path.
 
 ### Production
 

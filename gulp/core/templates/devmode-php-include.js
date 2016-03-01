@@ -1,9 +1,20 @@
+var config       = require('../config/common');
+
 module.exports = function (filename, definitions) {
 
 	var preservedDefs = (definitions && definitions.length)
 		? ' * ' + definitions.join('\n * ') + '\n *'
 		: ' *';
 	
+	/**
+	 * Replace the file path in case config.override_file_path is set.
+	 */
+	if(typeof config.override_file_path != "undefined")
+	{
+		var filename = filename.replace( config.override_file_path.src, config.override_file_path.dest);
+
+	}
+
 	return [
 		'<?php',
 		'/**',
