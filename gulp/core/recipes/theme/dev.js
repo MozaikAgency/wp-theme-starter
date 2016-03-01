@@ -1,6 +1,7 @@
 var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var transform    = require('vinyl-transform');
+var path         = require('path');
 var map          = require('map-stream');
 var add          = require('gulp-add');
 var filter       = require('gulp-filter');
@@ -50,7 +51,8 @@ module.exports = function () {
 					definitions = chunk.toString().match(config.options.transform.preserve);
 				}
 
-				return next(null, includeDev(filename, definitions));
+				var relativeFilename = path.relative(config.paths.dest, filename);
+				return next(null, includeDev(relativeFilename, definitions));
 			});
 		}))
 		.pipe(filterPHP.restore)

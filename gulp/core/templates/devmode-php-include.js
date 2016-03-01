@@ -1,9 +1,11 @@
 module.exports = function (filename, definitions) {
 
-	var preservedDefs = (definitions && definitions.length)
-		? ' * ' + definitions.join('\n * ') + '\n *'
-		: ' *';
-	
+	var preservedDefs = (
+		definitions && definitions.length
+			? ' * ' + definitions.join('\n * ') + '\n *'
+			: ' *'
+	);
+
 	return [
 		'<?php',
 		'/**',
@@ -18,6 +20,6 @@ module.exports = function (filename, definitions) {
 		' * for production before deploying!',
 		' *',
 		' */',
-		'include \'' + filename + '\';'
+		'include get_template_directory() . DIRECTORY_SEPARATOR . \'' + filename + '\';'
 	].join('\n');
 };
