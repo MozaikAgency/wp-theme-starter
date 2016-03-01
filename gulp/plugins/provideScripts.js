@@ -94,6 +94,23 @@ function extractNestedConfig(scripts, script) {
  * config object to add library script
  * configuration
  *
+ * @example:
+ *    // in ./gulp/config/scripts.js
+ *    var provideScripts = require('../plugins/provideScripts');
+ *
+ *    var provideLibs = provideScripts([
+ *      // map the local var `$` and the package `jquery` to the global var `jQuery`
+ *      {local: '$', package: 'jquery', global: 'jQuery'},
+ *
+ *      // map the local vars `ko` & `k` to the package `ko`
+ *      {local: ['ko', 'k'], package: 'ko'},
+ *
+ *       // map the package `lodash` to the global variable `_`
+ *      {package: 'lodash', global: '_'}
+ *    ]);
+ *
+ *    module.exports = provideLibs();
+ *
  * @param scripts array
  * @returns {Function}
  */
