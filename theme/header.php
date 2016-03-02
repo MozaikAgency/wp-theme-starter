@@ -18,8 +18,8 @@
 	
 	<title><?php wp_title(); ?></title>
 
-	<?php // replace the no-js class to js on the html element ?>
-	<script>document.documentElement.className=document.documentElement.className.replace(/\sno-js\s/,'js')</script>
+	<?php // replace the no-js class with js on the html element ?>
+	<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js')</script>
 
 	<?php // load the core js polyfills ?>
 	<script async defer src="<?php echo get_template_directory_uri(); ?>/assets/js/core.js"></script>
