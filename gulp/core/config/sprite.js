@@ -21,6 +21,13 @@ module.exports = deepMerge({
 	},
 
 	options: {
+		svgmin: {
+			multipass: true,
+			plugins: [
+				{cleanupIDs: false},
+				{removeAttrs: {attrs: 'fill'}}
+			]
+		},
 		svgSprite: function (name) {
 			return {
 				mode: {

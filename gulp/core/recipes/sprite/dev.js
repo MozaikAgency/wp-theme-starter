@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var plumber     = require('gulp-plumber');
 var svgSprite   = require('gulp-svg-sprite');
+var svgmin      = require('gulp-svgmin');
 var gutil       = require('gulp-util');
 var path        = require('path');
 var mergeStream = require('merge-stream');
@@ -29,6 +30,8 @@ function spriteTask(name, src) {
 
 		.pipe(svgSprite(config.options.svgSprite(name)))
 		.on('error', gutil.log)
+
+		.pipe(svgmin(config.options.svgmin))
 
 		.pipe(gulp.dest(config.paths.dest));
 }
