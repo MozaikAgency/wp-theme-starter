@@ -149,7 +149,7 @@ MOZ_Menu::nav_menu( 'primary' );
 You can also use the menu walker to print a sitemap based on a WP nav menu:
 
 ```php
-MOZ_Menu::nav_menu( 'sitmap', array(
+MOZ_Menu::nav_menu( 'sitemap', array(
 	'menu_class' => 'sitemap'
 ) );
 ```
