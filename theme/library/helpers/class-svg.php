@@ -43,27 +43,30 @@ class MOZ_SVG {
 	 * Get the markup for an
 	 * svg sprite icon
 	 *
-	 * @param string $icon
-	 * @param array  $options
+	 * @param string $icon  The id of the icon to show (without the `icon-` prefix)
+	 * @param array  $attrs Attributes for the `svg` element
+	 * @param string $alt   Accessible alternative text for the icon (https://gist.github.com/davidhund/564331193e1085208d7e#gistcomment-1587234)
 	 *
 	 * @return string
 	 */
-	public static function get_icon( $icon, $options = array() ) {
+	public static function get_icon( $icon, $attrs = array(), $alt = '' ) {
 		if ( is_array( $icon ) && isset( $icon['icon'] ) ) {
 			$icon = $icon['icon'];
 		}
 
-		$attrs = array_merge( array(
-			'role' => 'img',
-			'class' => 'icon'
-		), $options );
+		$default_attrs = $alt ? array( 'role' => 'img' ) : array( 'aria-hidden' => 'true' );
+		$final_attrs   = array_merge( $default_attrs, $attrs );
 
-		$svg_use = MOZ_Html::get_element( 'use', array(
+		$content = MOZ_Html::get_element( 'use', array(
 			'xmlns:xlink' => 'http://www.w3.org/1999/xlink',
 			'xlink:href'  => "#icon-$icon"
 		) );
 
-		return MOZ_Html::get_element( 'svg', $attrs, $svg_use );
+		if ( $alt ) {
+			$content = "<title>$alt</title>" . $content;
+		}
+
+		return MOZ_Html::get_element( 'svg', $final_attrs, $content );
 	}
 
 
@@ -71,10 +74,11 @@ class MOZ_SVG {
 	 * Print the markup for an
 	 * svg sprite icon
 	 *
-	 * @param string $icon
-	 * @param array  $options
+	 * @param string $icon  The id of the icon to show (without the `icon-` prefix)
+	 * @param array  $attrs Attributes for the `svg` element
+	 * @param string $alt   Accessible alternative text for the icon (https://gist.github.com/davidhund/564331193e1085208d7e#gistcomment-1587234)
 	 */
-	public static function icon( $icon, $options = array() ) {
-		echo self::get_icon( $icon, $options );
+	public static function icon( $icon, $attrs = array(), $alt = '' ) {
+		echo self::get_icon( $icon, $attrs, $alt );
 	}
 }
