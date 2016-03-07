@@ -1,0 +1,21 @@
+/* =========================================
+		Utility Classes
+   ========================================= */
+
+@import "../helpers/mixins/clearfix";
+@import "../helpers/mixins/nocollapse";
+@import "../helpers/mixins/visuallyhidden";
+
+.clearfix {
+	@include clearfix;
+}
+
+.nocollapse {
+	@include nocollapse;
+}
+
+.visuallyhidden {
+	@include visuallyhidden;
+	&--no-js { @include visuallyhidden(no-js); }
+	&--focusable { @include visuallyhidden(focusable); }
+}
