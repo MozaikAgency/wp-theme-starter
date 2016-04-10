@@ -58,7 +58,7 @@
     "node-notifier": "4.5.0",
     "vinyl-named": "1.1.0",
     "vinyl-transform": "1.0.0",
-    "webpack": "1.12.14",
+    "webpack": "1.12.15",
     "webpack-stream": "3.1.0"
   },
   "dependencies": {
