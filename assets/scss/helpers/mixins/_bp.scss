@@ -9,9 +9,10 @@
  * media queries
  *
  * @param $query
+ * @param $context
  */
-@mixin bp($query) {
-	@media all and #{$query} {
+@mixin bp($query, $context: all) {
+	@media #{$context} and #{$query} {
 		@content;
 	}
 }
