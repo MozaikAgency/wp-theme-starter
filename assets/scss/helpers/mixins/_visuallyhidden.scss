@@ -39,7 +39,6 @@
 			@include clearVisuallyhidden {
 				@content;
 			}
-		;
 		}
 	}
 
@@ -48,7 +47,6 @@
 			@include clearVisuallyhidden {
 				@content
 			}
-		;
 		}
 	}
 
@@ -57,7 +55,6 @@
 			@include clearVisuallyhidden {
 				@content;
 			}
-		;
 		}
 	}
 }
