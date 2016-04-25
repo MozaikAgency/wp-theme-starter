@@ -91,9 +91,11 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		// WPML configuration
 		// disable plugin from printing styles and js
 		// we are going to handle all that ourselves.
-		define( 'ICL_DONT_LOAD_NAVIGATION_CSS', true );
-		define( 'ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true );
-		define( 'ICL_DONT_LOAD_LANGUAGES_JS', true );
+		if ( ! is_admin() ) {
+			define( 'ICL_DONT_LOAD_NAVIGATION_CSS', true );
+			define( 'ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true );
+			define( 'ICL_DONT_LOAD_LANGUAGES_JS', true );
+		}
 
 
 		// Contact Form 7 Configuration needs to be done
