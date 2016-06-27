@@ -31,7 +31,8 @@ module.exports = deepMerge({
 		autoprefixer: {
 			browsers: [
 				'last 2 version',
-				'ie >= 9'
+				'ie >= 9',
+				'IOS >= 7'
 			]
 		},
 		minify: {
