@@ -55,7 +55,15 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		/*
 		add_theme_support( 'post-thumbnails' );
 		*/
-
+		
+		// Add Custom Logo Support.
+		/*
+		add_theme_support( 'custom-logo', array(
+			'width'       => 181, // Example Width Size
+			'height'      => 42,  // Example Height Size
+			'flex-width'  => true,
+		) );
+		*/
 
 		// Register navigation menus for theme
 		/*
