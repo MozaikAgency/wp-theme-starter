@@ -59,7 +59,6 @@ module.exports = deepMerge({
 						screw_ie8: true,
 						compress: {
 							drop_console: true,
-							pure_getters: true,
 							unsafe: true,
 							unsafe_comps: true,
 							screw_ie8: true,
