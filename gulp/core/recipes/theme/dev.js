@@ -21,6 +21,7 @@ var config       = require('../../config/theme');
 var includeDev   = require('../../templates/devmode-php-include');
 var style        = require('../../templates/wordpress-style-css');
 var bSSnippet    = require('../../templates/browser-sync-snippet');
+var ACFSnippet   = require('../../templates/advanced-custom-fields-snippet');
 
 /**
  * Move the Theme to
@@ -67,6 +68,7 @@ module.exports = function () {
 		                  // functions.php so we need to
 		                  // filter the gulp stream
 		.pipe(insert.append(bSSnippet))
+		.pipe(insert.append(ACFSnippet))
 		.pipe(filterFunc.restore)
 
 		.pipe(gulp.dest(config.paths.dest))
