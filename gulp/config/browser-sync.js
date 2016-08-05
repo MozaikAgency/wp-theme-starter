@@ -1,6 +1,6 @@
 /**
  * Override the Default
- * Core Fonts
+ * Core Browser Sync
  * Config
  *
  */
