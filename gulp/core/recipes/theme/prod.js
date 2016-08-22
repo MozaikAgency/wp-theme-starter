@@ -26,7 +26,7 @@ module.exports = function () {
 		.pipe(plumber())
 
 		.pipe(add({
-			'.gitignore': '*',
+			//'.gitignore': '*',
 			'style.css': style
 		}))
 
