@@ -36,6 +36,8 @@
     "eslint-config-airbnb": "^10.0.1",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
     "eslint-plugin-react": "^6.1.2",
     "gulp": "^3.9.1",
     "gulp-add": "0.0.2",
