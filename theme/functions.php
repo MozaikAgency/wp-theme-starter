@@ -135,7 +135,7 @@ if ( ! function_exists( 'theme_setup' ) ) {
  */
 if ( ! function_exists( 'theme_styles' ) ) {
 	function theme_styles() {
-		$theme_dir = get_stylesheet_directory_uri();
+		$theme_dir = get_template_directory_uri();
 
 		wp_enqueue_style( 'main', "$theme_dir/assets/css/main.css", array(), null, 'all' );
 	}
@@ -150,7 +150,7 @@ if ( ! function_exists( 'theme_styles' ) ) {
  */
 if ( ! function_exists( 'theme_scripts' ) ) {
 	function theme_scripts() {
-		$theme_dir = get_stylesheet_directory_uri();
+		$theme_dir = get_template_directory_uri();
 
 		wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array(), null, true );
 	}
