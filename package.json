@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.13.0",
-    "lazysizes": "^2.0.1",
+    "lazysizes": "^5.2.2",
     "picturefill": "^3.0.2"
   }
 }
